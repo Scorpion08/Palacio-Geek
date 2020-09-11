@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Palácio Geek | Cadastro de Endereço</title>
+    <link href="../css/" rel="stylesheet" id="bootstrap-css">
+    <link href="../css/cadastro_cliente.css" rel="stylesheet" type="text/css">
+ <!-- Bootstrap core CSS -->
+ <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+ <!-- Custom styles for this template -->
+ <link href="../css/shop-homepage.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+ <!-- Navigation -->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+   <div class="container">
+     <a class="navbar-brand" href="./index.html">Palácio Geek</a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarResponsive">
+       <ul class="navbar-nav ml-auto">
+         <li class="nav-item">
+           <a class="nav-link" href="./minha_conta">Wesley</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="./meus_pedidos.html">Meus pedidos</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="./carrinho.html">Carrinho</a>
+         </li>
+       </ul>
+     </div>
+   </div>
+ </nav>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-4">
+            <div class="form_main">
+                    <h4 class="heading"><strong>Cadastrar </strong> Endereço <span></span></h4>
+                    <div class="form">
+                    <form action="#" method="post" id="endereco" name="newEndereco">
+                        <input type="text"  placeholder="Rua"  name="rua" class="txt">
+                        <input type="text"  placeholder="Nº" name="numero" class="txt"><br>
+                        <input type="text"  placeholder="Bairro" name="bairro" class="txt" id="bairro">
+                        <input type="text"  placeholder="Cidade" name="cidade" class="txt">
+                        <input type="text"  placeholder="Estado"  name="estado" class="txt">
+                        <input type="text"  placeholder="CEP" name="cep" class="txt" onkeypress="mascara('#####-###',this,event,true)" maxlength="9">
+                        <input type="text"  placeholder="Ponto de referência" name="pontoReferencia" class="txt">
+                        <input type="submit" value="Cadastrar" name="submit" class="txt2">
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+    <script src="../js/mascara.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>

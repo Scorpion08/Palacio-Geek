@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/cartões_cadastrados.css" rel="stylesheet">
+    <link href="../css/table.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/shop-homepage.css" rel="stylesheet">   
+    <title>Palácio Geek | Cartões Cadastrados</title>
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+   <div class="container">
+     <a class="navbar-brand" href="./index.html">Palácio Geek</a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarResponsive">
+       <ul class="navbar-nav ml-auto">
+         <li class="nav-item">
+           <a class="nav-link" href="./minha_conta.html">Wesley</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="./meus_pedidos.html">Meus pedidos</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="./carrinho.html">Carrinho</a>
+         </li>
+       </ul>
+     </div>
+   </div>
+ </nav>
+    <form action="./enderecos_cadastrados.html" id="btnProsseguir">
+        <table style="border:5px">
+            <tr>
+                <th>Nome cartão</th>
+                <th>Nº Cartão</th>
+                <th>Data de Vencimento</th>
+                <th>Código de segurança</th>
+                <th>Bandeira</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox">Wesley Bonaccorsi</td>
+                <td>9999 9999 9999 9999</td>
+                <td>06/25</td>
+                <td>999</td>
+                <td>MasterCard</td>
+            </tr>
+        </table>
+        <input type="submit" value="Prosseguir">
+    </form>
+    <br>
+    <form action="./cadastrar_cartao.html" id="btnCadastroCartao">
+        <input type="submit" value="Deletar cartão">
+        <input type="submit" value="Cadastrar cartão">
+    </form> 
+  </div>
+  <div id="espaco"></div>
+  <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Palácio Geek 2020</p>
+      </div>
+    </footer>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </div>
+</body>
+</html>

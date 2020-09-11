@@ -1,0 +1,13 @@
+#pagCadastroCartao{
+    padding-top: 50px;
+    padding-left: 25%;
+    height: 738px;
+}
+#divCadastroCartao{
+    border: 2px solid black;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 150px;
+    width: 500px;
+    height: 500px;
+}
