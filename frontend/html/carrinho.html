@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/shop-homepage.css" rel="stylesheet">
+    <link href="../css/carrinho.css" rel="stylesheet">
+    <title>Palácio Geek | Carrinho</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="./index.html">Palácio Geek</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+            <a class="nav-link" href="./minha_conta.html">Wesley</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="./meus_pedidos.html">Meus pedidos</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="./carrinho.html">Carrinho</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+    <div id=divCarrinho>
+        <p><input type="checkbox" >Caneca Bob Esponja<p>
+            <p>R$39,90</p>
+            <p>Caneca de porcelana branca com estampa personalizada</p>
+        <div id="divImg">
+            <img src="../img/0005-bob-esponja-versao-04-coyote-geek.jpg" alt="Caneca Bob esponja">
+            <div style="padding-left: 500px;">
+                <button>Remover do carrinho</button>
+            </div>
+            <br>    
+        </div>
+        
+    </div>
+    <br>
+    <div id="divBotoes">
+        <form action="forma_de_pagamento.html">
+            <input type="submit" value="Prosseguir" id="btnComprar">
+            <br><br>
+            <input type="text" placeholder="Cupom de desconto">
+            <button>Inserir</button>
+        </form>
+        <br>    
+        <form action="./usuario_logado.html" id="btnContinuarComprando">
+            <input type="submit" value="Continuar Comprando">
+        </form>
+    </div>
+    <footer class="py-5 bg-dark">
+        <div class="container">
+          <p class="m-0 text-center text-white">Copyright &copy; Palácio Geek 2020</p>
+        </div>
+      </footer>
+      <script src="../vendor/jquery/jquery.min.js"></script>
+      <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </div>
+    
+</body>
+</html>
