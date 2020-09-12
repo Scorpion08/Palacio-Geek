@@ -109,7 +109,7 @@ public class AbstractFachada {
         List<IStrategy> rnsClienteSalvar = new ArrayList<>();
 
         rnsClienteSalvar.add(validaDadosCliente);
-        rnsClienteSalvar.add(validaDadosTelefone);
+//        rnsClienteSalvar.add(validaDadosTelefone);
         rnsClienteSalvar.add(validaExistenciaPessoa);
         rnsClienteSalvar.add(validaDadosUsuario);
         rnsClienteSalvar.add(validaSenhasIguais);

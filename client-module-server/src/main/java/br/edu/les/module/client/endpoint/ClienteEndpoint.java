@@ -16,14 +16,14 @@ public class ClienteEndpoint {
     @Autowired
     private Fachada fachada;
 
-    @PostMapping()
-    public ResponseEntity<Resultado> consultar(@RequestBody Cliente cliente){
+    @GetMapping()
+    public ResponseEntity<?> consultar(@RequestBody Cliente cliente){
         return ResponseEntity.ok().body(fachada.consultar(cliente));
     }
 
     @PostMapping(path = "/cria")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Resultado> salvar(@RequestBody Cliente cliente){
+    public ResponseEntity<?> salvar(@RequestBody Cliente cliente){
         return ResponseEntity.ok().body(fachada.salvar(cliente));
     }
 

@@ -26,9 +26,10 @@ public class ValidaDadosCliente implements IStrategy {
 			if(cliente.getId() == null){
 				if(cliente.getCpf() == null || cliente.getCpf().trim().equals("")){
 					msg.append("O campo CPF é obrigatório.");
-				}else if( cliente.getCpf().length() != 11){
-					msg.append("CPF invalido.");
 				}
+//				else if( cliente.getCpf().length() != 11){
+//					msg.append("CPF invalido.");
+//				}
 			}
 			msg.append(validadorString.validar(cliente.getDataNascimento(), "data de nascimento"));
 			msg.append(validadorString.validar(cliente.getSexo(), "sexo"));

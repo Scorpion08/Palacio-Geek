@@ -35,16 +35,15 @@ public class Cliente extends EntidadeDominio implements Serializable{
 	@Column(name = "cli_sobrenome")
 	private String sobrenome;
 
-//	@JsonFormat(pattern="yyyy-MM-dd")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "cli_data_nascimento")
 	private LocalDate dataNascimento;
 
-	@Size(max = 1)
+	@Size(max = 20)
 	@Column(name = "cli_sexo")
 	private String sexo;
 
-	@Size(max = 11)
+	@Size(max = 14)
 	@Column(name = "cli_cpf")
 	private String cpf;
 

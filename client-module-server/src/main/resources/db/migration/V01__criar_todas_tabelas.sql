@@ -26,9 +26,9 @@ CREATE TABLE cliente (
     cli_id               SERIAL NOT NULL,
     cli_nome             VARCHAR(30) NOT NULL,
     cli_sobrenome        VARCHAR(60),
-    cli_sexo             VARCHAR(1) NOT NULL,
+    cli_sexo             VARCHAR(20) NOT NULL,
     cli_data_nascimento  DATE NOT NULL,
-    cli_cpf              VARCHAR(11) NOT null UNIQUE,
+    cli_cpf              VARCHAR(14) NOT null UNIQUE,
     cli_usuario_id       INT NOT NULL
 );
 
@@ -39,7 +39,7 @@ CREATE TABLE status (
 
 CREATE TABLE telefone (
     tel_id                  SERIAL NOT NULL,
-    tel_ddd                 VARCHAR(3),
+    tel_ddd                 VARCHAR(2),
     tel_numero              VARCHAR(9),
     tel_cliente_id           INT NOT NULL,
     tel_tipo_telefone_id    INT NOT NULL

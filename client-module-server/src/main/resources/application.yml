@@ -1,3 +1,5 @@
+
+
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -36,5 +38,7 @@ spring:
           
           ssl:
             enable: false
-            
-            
+
+
+server:
+  port: 7900

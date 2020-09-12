@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.les.module.client.domain.*;
-import br.edu.les.module.client.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,11 +29,11 @@ public class ClienteDAO implements IDAO {
 	public EntidadeDominio salvar(EntidadeDominio entidade) {
 		Cliente cliente = (Cliente) entidade;
 		cliente.setUsuario( (Usuario) usuarioDAO.salvar(cliente.getUsuario()));
-		cliente = clienteRepository.save((Cliente)entidade);
-		for (Telefone telefone : cliente.getTelefones()) {
-			telefone.setCliente(cliente);
-			telefoneDAO.salvar(telefone);
-		}
+		cliente = clienteRepository.save((cliente));
+//		for (Telefone telefone : cliente.getTelefones()) {
+//			telefone.setCliente(cliente);
+//			telefoneDAO.salvar(telefone);
+//		}
 		return cliente;
 	}
 	
@@ -55,9 +54,8 @@ public class ClienteDAO implements IDAO {
 			return pessoas;
 		}
 
-		clienteRepository.findAll().forEach(p -> {
-			p.getUsuario().setPassword(null);
-			pessoas.add(p);
+		clienteRepository.findAll().forEach(clienteEncontrado -> {
+			pessoas.add(clienteEncontrado);
 		});
 
 		return pessoas;

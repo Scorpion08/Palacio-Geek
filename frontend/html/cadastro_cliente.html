@@ -40,21 +40,21 @@
             <div class="form_main">
                     <h4 class="heading"><strong>Cadastrar </strong> Usuário <span></span></h4>
                     <div class="form">
-                    <form action="#" method="post" id="usuario" name="newUsuario">
-                        <input type="text"  placeholder="Nome"  name="nome" class="txt">
-                        <input type="text"  placeholder="Sobrenome" name="sobrenome" class="txt"><br>
-                        <input type="text" placeholder="Nº de celular" name="celular" class="txt" onkeypress="mascara('(##) #####-####', this, event, true)" maxlength="15">
+                    <form id="usuario" name="newUsuario">
+                        <input type="text"  placeholder="Nome"  name="nome" id="nome" class="txt">
+                        <input type="text"  placeholder="Sobrenome" name="sobrenome" id="sobrenome" class="txt"><br>
+                        <input type="text" placeholder="Nº de celular" name="celular" id="celular" class="txt" onkeypress="mascara('(##) #####-####', this, event, true)" maxlength="15">
                         <input type="text"  placeholder="CPF"   name="cpf" class="txt" id="cpf" onkeypress="mascara('###.###.###-##',this,event,true)" maxlength="14">
-                        <select name='sexo'>
+                        <select name='sexo' id="sexo">
                                 <option>Selecione o Sexo...</option>
                                 <option>Masculino</option>
                                 <option>Feminino</option>
                                 <option>Outro</option>
                         </select><br>
-                        <input type="text"  placeholder="Email" name="email" class="txt">
-                        <input type="password"  placeholder="Senha"  name="senha" class="txt" maxlength="16">
-                        <input type="password"  placeholder="Repita a senha" name="validarSenha" class="txt" maxlength="16">
-                        <input type="submit" value="Cadastrar" name="submit" class="txt2">
+                        <input type="text"  placeholder="Email" name="email" id="email" class="txt">
+                        <input type="password"  placeholder="Senha"  name="senha" id="senha" class="txt" maxlength="16">
+                        <input type="password"  placeholder="Repita a senha" name="validarSenha" id="validarSenha" class="txt" maxlength="16">
+                        <input type="button" value="Cadastrar" name="submit" class="txt2" onclick="cadastraCliente()">
                     </form>
                 </div>
                 </div>
@@ -71,5 +71,9 @@
       <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>   
     <script src="../js/mascara.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/util/validadorUtil.js"></script>
+    <script src="../js/service/url-map.js"></script>
+    <script src="../js/requisicao/requisicao.js"></script>
+    <script src="../js/telas/cadastro_cliente.js"></script>
 </body>
 </html>
