@@ -4,14 +4,11 @@ import br.edu.les.module.client.dao.*;
 import br.edu.les.module.client.domain.*;
 import br.edu.les.module.client.strategy.IStrategy;
 import br.edu.les.module.client.strategy.endereco.ValidaExistenciaCidade;
-import br.edu.les.module.client.strategy.pessoa.ValidaDadosCliente;
-import br.edu.les.module.client.strategy.pessoa.ValidaExistenciaPessoa;
+import br.edu.les.module.client.strategy.cliente.ValidaDadosCliente;
+import br.edu.les.module.client.strategy.cliente.ValidaExistenciaPessoa;
 import br.edu.les.module.client.strategy.telefone.ValidaDadosTelefone;
 import br.edu.les.module.client.strategy.usuario.*;
-import br.edu.les.module.client.dao.*;
-import br.edu.les.module.client.domain.*;
 import br.edu.les.module.client.strategy.endereco.ValidaDadosEndereco;
-import br.edu.les.module.client.strategy.usuario.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
