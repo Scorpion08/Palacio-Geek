@@ -1,5 +1,5 @@
 function validaString(valor){
-    return validaValor(valor) && value !== '';
+    return validaValor(valor) && valor !== '';
 }
 
 function validaValor(value){

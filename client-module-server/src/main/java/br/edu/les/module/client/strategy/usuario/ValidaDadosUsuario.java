@@ -4,10 +4,13 @@ import br.edu.les.module.client.domain.EntidadeDominio;
 import br.edu.les.module.client.domain.Usuario;
 import br.edu.les.module.client.strategy.IStrategy;
 import br.edu.les.module.client.util.validador.ValidadorString;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import br.edu.les.module.client.domain.Cliente;
+
+@Log
 
 @Component
 public class ValidaDadosUsuario implements IStrategy {
@@ -46,6 +49,10 @@ public class ValidaDadosUsuario implements IStrategy {
                     msg.append(validadorString.validar(usuario.getRePassword(), "confirmar senha"));
                 }
             }
+        }
+
+        if(msg.length()>0){
+            log.info("Mensagem de erro: " + msg.toString());
         }
 
         return msg.toString();

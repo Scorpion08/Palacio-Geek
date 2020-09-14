@@ -1,13 +1,15 @@
-package br.edu.les.module.client.strategy.pessoa;
+package br.edu.les.module.client.strategy.cliente;
 
 import br.edu.les.module.client.domain.EntidadeDominio;
 import br.edu.les.module.client.strategy.IStrategy;
 import br.edu.les.module.client.util.validador.ValidadorString;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import br.edu.les.module.client.domain.Cliente;
 
+@Log
 @Component
 public class ValidaDadosCliente implements IStrategy {
 
@@ -35,8 +37,9 @@ public class ValidaDadosCliente implements IStrategy {
 			msg.append(validadorString.validar(cliente.getSexo(), "sexo"));
 		}
 
-
-		
+		if(msg.length()>0){
+			log.info("Mensagem de erro: " + msg.toString());
+		}
 		return msg.toString();
 	}
 }
