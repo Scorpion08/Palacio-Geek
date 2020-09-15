@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Palácio Geek | Altaração de Usuário</title>
+    <link href="../css/" rel="stylesheet" id="bootstrap-css">
+    <link href="../css/cadastro_cliente.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/shop-homepage.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html">Palácio Geek</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" id="nomeUser" href="./minha_conta.html">Usuário</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="./meus_pedidos.html">Meus pedidos</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="./carrinho.html">Carrinho</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </nav>
+        <br><br>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-4">
+            <div class="form_main">
+                    <h4 class="heading"><strong>Altarar </strong> Usuário <span></span></h4>
+                    <div class="form">
+                    <form id="usuario" name="newUsuario">
+                        <div id="div-nome"><input type="text"  placeholder="Nome" name="nome" id="nome" class="txt"></div>
+                        <div id="div-sobrenome"><input type="text"  placeholder="Sobrenome" name="sobrenome" id="sobrenome" class="txt"><br></div>
+                        <div id="div-celular"><input type="text" placeholder="Nº de celular" name="celular" id="celular" class="txt" onkeypress="mascara('(##) #####-####', this, event, true)" maxlength="15"></div>
+                        <div id="div-cpf"><input type="text"  placeholder="CPF"   name="cpf" class="txt" id="cpf" onkeypress="mascara('###.###.###-##',this,event,true)" maxlength="14"></div>
+                        <div id="div-sexo"><select name='sexo' id="sexo">
+                                <option>Selecione o Sexo...</option>
+                                <option>Masculino</option>
+                                <option>Feminino</option>
+                                <option>Outro</option>
+                        </select><br></div>
+                        <div id="div-dataNasc"><input type="text" placeholder="Data de Nascimento" name="dataNasc" id="dataNasc" class="txt" onkeypress="mascara('##/##/####',this,event,true)" maxlength="10"></div>
+                        <div id="div-email"><input type="text"  placeholder="Email" name="email" id="email" class="txt"></div>
+                        <div><input type="button" value="Cadastrar" name="submit" class="txt2" onclick="cadastraCliente()"></div>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <footer class="py-5 bg-dark">
+        <div class="container">
+          <p class="m-0 text-center text-white">Copyright &copy; Palácio Geek 2020</p>
+        </div>
+      </footer>
+      <script src="../vendor/jquery/jquery.min.js"></script>
+      <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>   
+    <script src="../js/mascara.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/util/validadorUtil.js"></script>
+    <script src="../js/service/url-map.js"></script>
+    <script src="../js/requisicao/requisicao.js"></script>
+    <script src="../js/telas/usuario_logado.js"></script>
+    <script src="../js/telas/cadastro_cliente.js"></script>
+    <script src="../js/telas/alteracao_cliente.js"></script>
+</body>
+</html>

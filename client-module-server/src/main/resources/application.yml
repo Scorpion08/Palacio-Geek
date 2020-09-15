@@ -3,9 +3,9 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/palacio_geek
+    url: jdbc:postgresql://localhost:5432/les_template
     username: postgres
-    password: 123Fatec
+    password: 48299871
     initialization-mode: always
     data: classpath:org/springframework/session/jdbc/schema-postgresql.sql
     continue-on-error: true
@@ -22,22 +22,22 @@ spring:
       initialize-schema: always
     store-type: jdbc
     
-  mail:
-    host: smtp.outlook.com
-    username: realmofcards@outlook.com
-    password: 123Fatec
-    port: 587
-    test-connection: true
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-            required: true
-          
-          ssl:
-            enable: false
+#  mail:
+#    host: smtp.outlook.com
+#    username: realmofcards@outlook.com
+#    password: 123Fatec
+#    port: 587
+#    test-connection: true
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+#            required: true
+#
+#          ssl:
+#            enable: false
 
 
 server:
