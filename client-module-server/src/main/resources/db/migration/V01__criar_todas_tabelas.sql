@@ -40,7 +40,7 @@ CREATE TABLE status (
 CREATE TABLE telefone (
     tel_id                  SERIAL NOT NULL,
     tel_ddd                 VARCHAR(2),
-    tel_numero              VARCHAR(9),
+    tel_numero              VARCHAR(15),
     tel_cliente_id           INT NOT NULL,
     tel_tipo_telefone_id    INT NOT NULL
 );

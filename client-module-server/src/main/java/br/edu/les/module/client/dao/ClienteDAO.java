@@ -29,11 +29,12 @@ public class ClienteDAO implements IDAO {
 	public EntidadeDominio salvar(EntidadeDominio entidade) {
 		Cliente cliente = (Cliente) entidade;
 		cliente.setUsuario( (Usuario) usuarioDAO.salvar(cliente.getUsuario()));
+		for (Telefone telefone : cliente.getTelefones()) {
+			telefone.setCliente(cliente);
+
+		}
 		cliente = clienteRepository.save((cliente));
-//		for (Telefone telefone : cliente.getTelefones()) {
-//			telefone.setCliente(cliente);
-//			telefoneDAO.salvar(telefone);
-//		}
+
 		return cliente;
 	}
 	
