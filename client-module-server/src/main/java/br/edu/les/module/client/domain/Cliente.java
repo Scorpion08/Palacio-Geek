@@ -57,7 +57,6 @@ public class Cliente extends EntidadeDominio implements Serializable{
 	private List<Endereco> enderecos = new ArrayList<>();
 
 	@Builder.Default
-	@JsonIgnore
 	@OneToMany(mappedBy = "cliente" ,cascade = CascadeType.ALL)
 	private List<Telefone> telefones = new ArrayList<>();
 
