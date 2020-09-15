@@ -12,14 +12,16 @@ function mostraMensagemErro() {
 }
 
 function enviaRequisicaoCadastro() {
-    let dadosJson = monstaObjetoCliente();
+    let dadosJson = montaObjetoCliente();
     let json = JSON.stringify(dadosJson);
     const urlModuloUsuario = localStorage.getItem("url-modulo-cliente");
     let urlCompleta = urlModuloUsuario + '/clientes/cria';
     facaRequisicao("POST", sucesso, falha, urlCompleta, json);
 }
 
-function monstaObjetoCliente() {
+
+
+function montaObjetoCliente() {
     let dadosCliente = document.getElementById("usuario");
     return {
         nome: dadosCliente.nome.value,
@@ -77,7 +79,7 @@ function validaCampo(campo) {
 }
 
 function validacampoSexo(campoSexo) {
-    if (campoSexo.value != "Masculino" && campoSexo.value != "Feminino" && campoSexo.value != "Outros") {
+    if (campoSexo.value != "Masculino" && campoSexo.value != "Feminino" && campoSexo.value != "Outro") {
         let msg = "O valor de sexo é inválido! ";
         insereMsgCampoInvalido(campoSexo.name, msg);
         return false;
@@ -99,6 +101,7 @@ function insereMsgCampoInvalido(campo, msg) {
 function sucesso(resultado) {
     if (resultado.msg == null || resultado.msg == undefined) {
         window.location.href = './index.html';
+        
     } else {
         mostraMsgErroServidor(resultado.msg);
     }
