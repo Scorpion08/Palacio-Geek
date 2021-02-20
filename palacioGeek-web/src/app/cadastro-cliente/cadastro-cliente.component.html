@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+  <div class="col-md-4">
+      <div class="form_main">
+              <h4 class="heading"><strong>Cadastrar </strong> Usuário <span></span></h4>
+              <div class="form">
+              <form id="usuario" name="newUsuario">
+                  <div id="div-nome"><input type="text"  placeholder="Nome" name="nome" id="nome" class="txt"></div>
+                  <div id="div-sobrenome"><input type="text"  placeholder="Sobrenome" name="sobrenome" id="sobrenome" class="txt"><br></div>
+                  <div id="div-celular"><input type="text" placeholder="Nº de celular" name="celular" id="celular" class="txt" onkeypress="mascara('(##) #####-####', this, event, true)" maxlength="15"></div>
+                  <div id="div-cpf"><input type="text"  placeholder="CPF"   name="cpf" class="txt" id="cpf" onkeypress="mascara('###.###.###-##',this,event,true)" maxlength="14"></div>
+                  <div id="div-sexo"><select name='sexo' id="sexo">
+                          <option>Selecione o Sexo...</option>
+                          <option>Masculino</option>
+                          <option>Feminino</option>
+                          <option>Outro</option>
+                  </select><br></div>
+                  <div id="div-dataNasc"><input type="text" placeholder="Data de Nascimento" name="dataNasc" id="dataNasc" class="txt" onkeypress="mascara('##/##/####',this,event,true)" maxlength="10"></div>
+                  <div id="div-email"><input type="text"  placeholder="Email" name="email" id="email" class="txt"></div>
+                  <div id="div-senha"><input type="password"  placeholder="Senha"  name="senha" id="senha" class="txt" maxlength="16"></div>
+                  <div id="div-validarSenha"><input type="password"  placeholder="Repita a senha" name="validarSenha" id="validarSenha" class="txt" maxlength="16"></div>
+                  <div><input type="button" value="Cadastrar" name="submit" class="txt2" onclick="cadastraCliente()"></div>
+              </form>
+          </div>
+          </div>
+      </div>
+  </div>
+</div>

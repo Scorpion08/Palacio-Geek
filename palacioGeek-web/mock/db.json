@@ -1,0 +1,21 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Caneca"
+    },
+    {
+      "id": 2,
+      "nome": "Quadro"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Wesley"
+    }
+  ],
+  "validaUsuario":[{
+    "isValidated":true
+  }]
+}
