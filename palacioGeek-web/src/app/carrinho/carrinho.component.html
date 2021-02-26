@@ -1,0 +1,26 @@
+<div id=divCarrinho>
+    <p><input type="checkbox" >Caneca Bob Esponja<p>
+        <p>R$39,90</p>
+        <p>Caneca de porcelana branca com estampa personalizada</p>
+    <div id="divImg">
+        <img src="../../assets/img/0005-bob-esponja-versao-04-coyote-geek.jpg" alt="Caneca Bob esponja">
+        <div style="padding-left: 500px;">
+            <button>Remover do carrinho</button>
+        </div>
+        <br>
+    </div>
+
+</div>
+<br>
+<div id="divBotoes">
+    <form >
+        <input type="submit" value="Prosseguir" id="btnComprar" [routerLink]="['/forma_de_pagamento']">
+        <br><br>
+        <input type="text" placeholder="Cupom de desconto">
+        <button>Inserir</button>
+    </form>
+    <br>
+    <form id="btnContinuarComprando">
+        <input type="submit" value="Continuar Comprando" [routerLink]="['/home']">
+    </form>
+</div>

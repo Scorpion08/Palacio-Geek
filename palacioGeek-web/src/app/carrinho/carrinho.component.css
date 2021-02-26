@@ -1,0 +1,23 @@
+#divCarrinho{
+  padding-top: 50px;
+  border: 2px solid black;
+}
+
+
+#divBotoes{
+  height: 392px;
+}
+
+img{
+  width: 250px;
+  height:  250px;
+}
+
+p{
+  position: relative;
+  padding-left: 400px;
+}
+
+#divImg{
+  position: initial;
+}
