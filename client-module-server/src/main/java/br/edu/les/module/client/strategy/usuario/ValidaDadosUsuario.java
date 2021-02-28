@@ -26,14 +26,8 @@ public class ValidaDadosUsuario implements IStrategy {
 
         if (entidade instanceof Cliente || entidade instanceof Usuario) {
 
-            Usuario usuario = null;
+            Usuario usuario = (Usuario) entidade;
 
-            if(entidade instanceof Cliente) {
-                usuario = ((Cliente) entidade).getUsuario();
-                eInstanciaDePessoa = true;
-            } else {
-                usuario = (Usuario) entidade;
-            }
 
             msg.append(validadorString.validar(usuario.getEmail(), "email"));
             if(eInstanciaDePessoa){

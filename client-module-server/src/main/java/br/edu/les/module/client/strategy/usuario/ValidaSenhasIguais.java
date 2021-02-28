@@ -19,14 +19,9 @@ public class ValidaSenhasIguais implements IStrategy {
 
         StringBuilder msg = new StringBuilder();
 
-        if (entidade instanceof Cliente
-            || entidade instanceof Usuario) {
+        if ( entidade instanceof Usuario) {
 
-            Usuario usuario = null;
-
-            if(entidade instanceof Cliente) usuario = ((Cliente) entidade).getUsuario();
-
-            if(entidade instanceof Usuario) usuario = (Usuario) entidade;
+            Usuario usuario =  (Usuario) entidade;
 
             if(Util.isNotNull(usuario.getPassword()) && Util.isNotNull(usuario.getRePassword())) {
                 if(!usuario.getPassword().equals(usuario.getRePassword())) {

@@ -19,11 +19,6 @@ public class ValidaExistenciaPessoa implements IStrategy {
     public String processar(final EntidadeDominio entidade) {
         Cliente cliente = (Cliente) entidade;
         StringBuilder msg = new StringBuilder();
-        if(cliente.getCpf() != null){
-            if(clienteRepository.existsClienteByCpf(cliente.getCpf())){
-                msg.append("CPF já cadastrado.");
-            }
-        }
         if(msg.length()>0){
             log.info("Mensagem de erro: " + msg.toString());
         }

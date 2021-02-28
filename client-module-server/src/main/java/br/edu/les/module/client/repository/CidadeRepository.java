@@ -12,7 +12,7 @@ public interface CidadeRepository extends CrudRepository<Cidade, Integer> {
 
     ArrayList<Cidade> findByEstado_Id(Integer id);
 
-    Cidade findByNome(String nome);
+    Cidade findCidadeByDescricao(String nome);
 
-    Boolean existsByEstado_IdAndAndNome(Integer id, String nome);
+    Boolean existsByEstado_IdAndAndDescricao(Integer id, String nome);
 }

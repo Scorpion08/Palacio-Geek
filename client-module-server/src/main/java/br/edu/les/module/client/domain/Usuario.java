@@ -44,4 +44,8 @@ public class Usuario extends EntidadeDominio implements Serializable, IEntidade 
 	@ManyToOne()
 	@JoinColumn(name = "usu_tipo_usuario_id")
 	private TipoUsuario tipoUsuario;
+
+	@OneToOne()
+	@JoinColumn(name = "usu_cli_id")
+	private Cliente cliente;
 }

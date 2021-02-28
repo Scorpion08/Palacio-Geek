@@ -19,13 +19,9 @@ public class ValidaUsuarioAtivo implements IStrategy {
 
         StringBuilder msg = new StringBuilder();
 
-        if(entidade instanceof Cliente || entidade instanceof Usuario){
+        if(entidade instanceof Usuario){
 
-            Usuario usuarioRecebido = null;
-
-            if(entidade instanceof Cliente) usuarioRecebido = ((Cliente) entidade).getUsuario();
-
-            if(entidade instanceof Usuario) usuarioRecebido = (Usuario) entidade;
+            Usuario usuarioRecebido = (Usuario) entidade;
 
             Usuario usuarioValidador = usuarioRepository.findByEmail(usuarioRecebido.getEmail());
 

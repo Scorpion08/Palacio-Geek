@@ -22,10 +22,7 @@ public class Estado extends EntidadeDominio {
     @Column(name = "est_id")
     private Integer id;
 
-    @Column(name = "est_sigla")
-    private String sigla;
-
-    @Column(name = "est_nome")
-    private String nome;
+    @Column(name = "est_descricao")
+    private String descricao;
 
 }

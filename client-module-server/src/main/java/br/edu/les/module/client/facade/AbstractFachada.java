@@ -6,7 +6,6 @@ import br.edu.les.module.client.strategy.IStrategy;
 import br.edu.les.module.client.strategy.endereco.ValidaExistenciaCidade;
 import br.edu.les.module.client.strategy.cliente.ValidaDadosCliente;
 import br.edu.les.module.client.strategy.cliente.ValidaExistenciaPessoa;
-import br.edu.les.module.client.strategy.telefone.ValidaDadosTelefone;
 import br.edu.les.module.client.strategy.usuario.*;
 import br.edu.les.module.client.strategy.endereco.ValidaDadosEndereco;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +34,6 @@ public class AbstractFachada {
     private UsuarioDAO usuarioDAO;
 
     @Autowired
-    private TipoTelefoneDAO tipoTelefoneDAO;
-
-    @Autowired
     private EnderecoDAO enderecoDAO;
 
     @Autowired
@@ -52,9 +48,6 @@ public class AbstractFachada {
 
     @Autowired
     private ValidaDadosCliente validaDadosCliente;
-
-    @Autowired
-    private ValidaDadosTelefone validaDadosTelefone;
 
     @Autowired
     private ValidaExistenciaPessoa validaExistenciaPessoa;
@@ -96,7 +89,6 @@ public class AbstractFachada {
 
         daos.put(Cliente.class.getName(), clienteDAO);
         daos.put(Usuario.class.getName(), usuarioDAO);
-        daos.put(TipoTelefone.class.getName(), tipoTelefoneDAO);
         daos.put(Endereco.class.getName(), enderecoDAO);
         daos.put(Estado.class.getName(), estadoDAO);
         daos.put(Cidade.class.getName(), cidadeDAO);

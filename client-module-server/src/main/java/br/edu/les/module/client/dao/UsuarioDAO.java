@@ -38,13 +38,13 @@ public class UsuarioDAO implements IDAO {
 		Usuario usuario = (Usuario) entidade;
 
 		if(usuario.getId() != null){
-			usuarios.add(clienteRepository.findClienteByUsuario_Id(usuario.getId()));
+			usuarios.add(clienteRepository.findClienteById(usuario.getId()));
 			return usuarios;
 		}
 
 		if(usuario.getEmail() != null) {
 			usuario = usuarioRepository.findByEmail(usuario.getEmail());
-			usuarios.add(clienteRepository.findClienteByUsuario_Id(usuario.getId()));
+			usuarios.add(clienteRepository.findClienteById(usuario.getId()));
 			return usuarios;
 		}
 

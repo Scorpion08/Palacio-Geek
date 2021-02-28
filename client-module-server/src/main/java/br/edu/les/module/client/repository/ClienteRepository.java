@@ -7,12 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ClienteRepository extends CrudRepository<Cliente, Integer> {
 
-    boolean existsClienteByCpf(String id);
-
-    Cliente findClienteByUsuario_Id(Integer id);
-
-    Cliente findByUsuario_Email(String email);
-
-    Cliente findClienteByCpf(String cpf);
+    Cliente findClienteById(Integer id);
 
 }

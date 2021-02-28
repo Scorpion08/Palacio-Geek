@@ -28,7 +28,7 @@ public class ValidaExistenciaUsuario implements IStrategy {
         Cliente cliente = (Cliente) entidade;
         StringBuilder msg = new StringBuilder();
 
-        Usuario usuarioRecebido = cliente.getUsuario();
+        /*Usuario usuarioRecebido = cliente.getUsuario();
 
         Usuario usuarioValidador = usuarioRepository.findByEmail(usuarioRecebido.getEmail());
 
@@ -40,7 +40,7 @@ public class ValidaExistenciaUsuario implements IStrategy {
 
         if(msg.length()>0){
             log.info("Mensagem de erro: " + msg.toString());
-        }
+        }*/
 
         return msg.toString();
     }

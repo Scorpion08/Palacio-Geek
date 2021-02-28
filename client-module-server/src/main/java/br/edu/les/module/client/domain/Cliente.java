@@ -20,7 +20,7 @@ import java.util.List;
 @Component
 @Entity
 @Table(name = "cliente")
-public class Cliente extends EntidadeDominio implements Serializable{
+public class Cliente extends Pessoa implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
@@ -35,29 +35,17 @@ public class Cliente extends EntidadeDominio implements Serializable{
 	@Column(name = "cli_sobrenome")
 	private String sobrenome;
 
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	@Column(name = "cli_data_nascimento")
-	private LocalDate dataNascimento;
-
-	@Size(max = 20)
-	@Column(name = "cli_sexo")
-	private String sexo;
-
-	@Size(max = 14)
-	@Column(name = "cli_cpf")
-	private String cpf;
-
-	@JoinColumn(name = "cli_usuario_id")
-	@OneToOne(cascade = CascadeType.ALL)
-	private Usuario usuario;
+	@ManyToOne
+	@JoinColumn(name = "cli_tcl_id")
+	private TipoCliente tipoCliente;
 
 	@Builder.Default
 	@JsonIgnore
 	@OneToMany(mappedBy = "cliente" ,cascade = CascadeType.ALL)
 	private List<Endereco> enderecos = new ArrayList<>();
 
-	@Builder.Default
-	@OneToMany(mappedBy = "cliente" ,cascade = CascadeType.ALL)
-	private List<Telefone> telefones = new ArrayList<>();
+	@OneToOne
+	@JoinColumn(name = "cli_pes_id")
+	private Pessoa pessoa;
 
 }

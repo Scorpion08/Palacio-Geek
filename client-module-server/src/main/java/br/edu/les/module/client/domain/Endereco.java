@@ -46,4 +46,9 @@ public class Endereco extends EntidadeDominio {
     @ManyToOne()
     @JoinColumn(name = "end_status_id")
     private Status status;
+
+    @ManyToOne()
+    @JoinColumn(name = "end_ten_id")
+    private TipoEndereco tipoEndereco;
+
 }

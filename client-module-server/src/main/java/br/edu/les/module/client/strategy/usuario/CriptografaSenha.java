@@ -19,10 +19,8 @@ public class CriptografaSenha implements IStrategy {
     @Override
     public String processar(EntidadeDominio entidade) {
 
-        if(entidade instanceof Cliente || entidade instanceof Usuario) {
-            Usuario usuario = null;
-            if(entidade instanceof Cliente) usuario = ((Cliente) entidade).getUsuario();
-            if(entidade instanceof Usuario) usuario = (Usuario) entidade;
+        if( entidade instanceof Usuario) {
+            Usuario usuario = (Usuario) entidade;
 
             if(validadorString.validar(usuario.getPassword(), "senha") == ""){
                 usuario.setPassword(Criptografia.criptografar(usuario.getPassword()));

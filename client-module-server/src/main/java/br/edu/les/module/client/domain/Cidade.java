@@ -23,8 +23,8 @@ public class Cidade extends EntidadeDominio {
     @Column(name = "cid_id")
     private Integer id;
 
-    @Column(name = "cid_nome")
-    private String nome;
+    @Column(name = "cid_descricao")
+    private String descricao;
 
     @ManyToOne
     @JoinColumn(name = "cid_estado_id")

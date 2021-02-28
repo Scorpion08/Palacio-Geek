@@ -25,7 +25,7 @@ public class EnderecoDAO implements IDAO {
     public EntidadeDominio salvar(EntidadeDominio entidade) {
         if (entidade instanceof Endereco) {
             Endereco endereco = (Endereco) entidade;
-            endereco.setCidade(cidadeRepository.findByNome(endereco.getCidade().getNome()));
+            endereco.setCidade(cidadeRepository.findCidadeByDescricao(endereco.getCidade().getDescricao()));
             return enderecoRepository.save(endereco);
         }
         else return null;
