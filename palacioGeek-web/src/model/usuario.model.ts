@@ -1,7 +1,10 @@
+import { TipoUsuario } from "./TipoUsuario.model";
+
 export class Usuario {
-  email: string='';
-  password:string='';
-  rePassword:string='';
-  tipoUsuario: string='';
-  status: Boolean=false;
+  id?: number;
+  email?: string;
+  senha?: string;
+  reSenha?: string;
+  tipoUsuario?: TipoUsuario;
+  status?: Boolean;
 }
