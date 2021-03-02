@@ -25,8 +25,7 @@ public class ValidaDadosCliente implements IStrategy {
 			Cliente cliente = (Cliente) entidade;
 			msg.append(validadorString.validar(cliente.getNome(), "nome"));
 			msg.append(validadorString.validar(cliente.getSobrenome(), "sobrenome"));
-			msg.append(validadorString.validar(cliente.getDataNascimento(), "data de nascimento"));
-			msg.append(validadorString.validar(cliente.getSexo(), "sexo"));
+			
 		}
 
 		if(msg.length()>0){

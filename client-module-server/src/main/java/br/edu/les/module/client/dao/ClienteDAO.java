@@ -56,6 +56,8 @@ public class ClienteDAO implements IDAO {
 
 	@Override
 	public void excluir(EntidadeDominio entidade) {
-
-	}
+		Cliente cliente = (Cliente) entidade;
+		cliente.getUsuario().setStatus(Status.builder().id(2).build());
+		clienteRepository.save(cliente);
+ 	}
 }

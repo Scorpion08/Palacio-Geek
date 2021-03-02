@@ -26,10 +26,9 @@ public class ValidaDadosEndereco implements IStrategy {
             msg.append(validadorString.validar(endereco.getCep(), "cep"));
             if(endereco.getCidade() != null) {
                 msg.append(validadorString.validar(endereco.getCidade().getDescricao(), "cidade"));
-                if(endereco.getCidade().getEstado() != null)
+                if(endereco.getCidade().getEstado() != null){
                     msg.append(validadorString.validar(endereco.getCidade().getEstado().getDescricao(), "estado"));
-                else
-                    msg.append(validadorString.validar("", "estado"));
+                } else msg.append(validadorString.validar("", "estado"));
             } else {
                 msg.append(validadorString.validar("", "cidade"));
                 msg.append(validadorString.validar("", "estado"));
