@@ -8,9 +8,9 @@ export class Cliente {
   sobrenome?: string;
   dataNascimento?: Date;
   sexo?: string;
-  documento?: Documento;
   usuario?: Usuario;
   tipoCliente?: TipoCliente;
   endereco?: Endereco;
+  documentos?: Documento[];
 }
 
