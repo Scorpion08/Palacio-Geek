@@ -3,7 +3,6 @@ package br.edu.les.module.client.facade;
 import br.edu.les.module.client.dao.*;
 import br.edu.les.module.client.domain.*;
 import br.edu.les.module.client.strategy.IStrategy;
-import br.edu.les.module.client.strategy.documento.ValidaDadosDocumento;
 import br.edu.les.module.client.strategy.endereco.ValidaExistenciaCidade;
 import br.edu.les.module.client.strategy.cliente.ValidaDadosCliente;
 import br.edu.les.module.client.strategy.cliente.ValidaExistenciaPessoa;
@@ -89,9 +88,6 @@ public class AbstractFachada {
     @Autowired
     private ValidaExistenciaCidade validaExistenciaCidade;
 
-    @Autowired
-    private ValidaDadosDocumento validaDadosDocumento;
-
 
     public AbstractFachada(){
     }
@@ -120,7 +116,6 @@ public class AbstractFachada {
         rnsClienteSalvar.add(validaExistenciaUsuario);
         rnsClienteSalvar.add(geraCodigoUsuario);
         rnsClienteSalvar.add(criptografarSenha);
-        rnsClienteSalvar.add(validaDadosDocumento);
 
         List<IStrategy> rnsPessoaAlterar = new ArrayList<>();
 
