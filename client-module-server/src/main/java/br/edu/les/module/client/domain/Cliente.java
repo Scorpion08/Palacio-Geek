@@ -60,4 +60,8 @@ public class Cliente extends Pessoa implements Serializable{
 	@JoinColumn(name = "cli_pes_id")
 	private Pessoa pessoa;
 
+	@JsonIgnore
+	@OneToMany(mappedBy = "pessoa")
+	private List<Documento> documentos;
+
 }
