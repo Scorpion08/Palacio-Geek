@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from '../../model/Usuario.model';
-import { UsuarioService } from '../../service/usuario.service';
+import { DefaultRequestService } from '../../service/default-request.service';
 
 @Component({
   selector: 'app-login',
@@ -10,24 +10,24 @@ import { UsuarioService } from '../../service/usuario.service';
 })
 export class LoginComponent implements OnInit {
 
-  usuario: Usuario = new Usuario();
+  // usuario: Usuario = new Usuario();
 
-  constructor(private usuarioService : UsuarioService, private router: Router) { }
+  constructor(private usuarioService : DefaultRequestService, private router: Router) { }
 
   ngOnInit(): void {
 
   }
 
   validaLogin(){
-    this.usuarioService.validaLogin(this.usuario).subscribe(resultado => {
-      if(resultado?.isValidated){
-        this.router.navigate(['/home'])
-      }else{
-        alert('Usuário e senha incorretos!');
-      }
-    },erro => {
-      alert('Requisição com erro ' )
-    })
+  //   this.usuarioService.validaLogin(this.usuario).subscribe(resultado => {
+  //     if(resultado?.isValidated){
+  //       this.router.navigate(['/home'])
+  //     }else{
+  //       alert('Usuário e senha incorretos!');
+  //     }
+  //   },erro => {
+  //     alert('Requisição com erro ' )
+  //   })
   }
 
 }

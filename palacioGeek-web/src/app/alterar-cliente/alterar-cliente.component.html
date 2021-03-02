@@ -25,11 +25,11 @@
                 class="txt" onkeypress="mascara('##/##/####',this,event,true)" maxlength="10"
                 [(ngModel)]="cliente.dataNascimento"></div>
             <div id="div-email"><input type="text" placeholder="Email" name="email" id="email" class="txt"
-                [(ngModel)]="cliente.usuario.email"></div>
+                [(ngModel)]="cliente.usuario!.email"></div>
             <div id="div-senha"><input type="password" placeholder="Senha" name="senha" id="senha" class="txt"
-                maxlength="16" [(ngModel)]="cliente.usuario.senha"></div>
+                maxlength="16" [(ngModel)]="cliente.usuario!.senha"></div>
             <div id="div-validarSenha"><input type="password" placeholder="Repita a senha" name="validarSenha"
-                id="validarSenha" class="txt" maxlength="16" [(ngModel)]="cliente.usuario.reSenha"></div>
+                id="validarSenha" class="txt" maxlength="16" [(ngModel)]="cliente.usuario!.reSenha"></div>
             <div><input type="button" value="Cadastrar" name="submit" class="txt2" (click)="cadastraCliente()"></div>
           </form>
         </div>

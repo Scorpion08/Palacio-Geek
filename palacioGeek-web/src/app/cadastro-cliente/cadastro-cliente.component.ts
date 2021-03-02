@@ -9,6 +9,7 @@ import { Estado } from '../../model/Estado.model';
 import { Resultado } from 'src/model/resultado.model';
 import { Cidade } from '../../model/Cidade.model';
 import { Endereco } from 'src/model/Endereco.model';
+import { TipoEndereco } from 'src/model/TipoEndereco.model';
 
 @Component({
   selector: 'app-cadastro-cliente',
@@ -21,6 +22,11 @@ export class CadastroClienteComponent implements OnInit {
 
   public estados: Estado[] = [];
   public cidades: Cidade[] = [];
+  public tipoEnderecos: TipoEndereco[] = [];
+
+  public estado: Estado = new Estado();
+  public cidade: Cidade = new Cidade();
+  public tipoEndereco: TipoEndereco = new TipoEndereco();
 
   constructor(private httpClientDefault: DefaultRequestService,
               private httpCadastroCliente: CadastroClienteService,
@@ -33,24 +39,40 @@ export class CadastroClienteComponent implements OnInit {
     this.cliente.endereco = new Endereco();
     this.cliente.endereco.cidade = new Cidade();
     this.cliente.endereco.cidade.estado = new Estado();
-    this.getEstados();
+    this.getTipoEndereco();
   }
 
-  getEstados(){
-    this.httpClientDefault.get<Resultado<Estado>>('/estados').subscribe( resultado => {
-      if(resultado?.msg?.length == 0) {
-        this.estados = resultado.entidades;
+  getTipoEndereco() {
+    this.httpClientDefault.get<Resultado<TipoEndereco>>('/tipoenderecos').subscribe( resultado => {
+      if(resultado?.msg == null) {
+        this.tipoEnderecos = resultado?.entidades;
+        this.getEstados();
       } else {
         alert(resultado?.msg);
       }
     }, erro => {
       alert("Falha ao realizar comunicação com o servidor");
-    })
+    });
+  }
+
+  getEstados(){
+    this.httpClientDefault.get<Resultado<Estado>>('/estados').subscribe( resultado => {
+      console.log(resultado);
+      if(resultado?.msg == null) {
+        this.estados = resultado.entidades;
+        this.getCidades();
+      } else {
+        alert(resultado?.msg);
+      }
+    }, erro => {
+      alert("Falha ao realizar comunicação com o servidor");
+    });
   }
 
   getCidades(){
     this.httpClientDefault.get<Resultado<Cidade>>('/cidades').subscribe( resultado => {
-      if(resultado?.msg?.length == 0) {
+      console.log(resultado);
+      if(resultado?.msg == null) {
         this.cidades = resultado.entidades;
       } else {
         alert(resultado?.msg);
@@ -60,12 +82,14 @@ export class CadastroClienteComponent implements OnInit {
     })
   }
 
-
+  getCidadesDoEstado(): Cidade[]{
+    return this.cidades.filter(cidade => cidade.estado?.id === this.estado.id);
+  }
 
   cadastraCliente() {
+    this.cidade.estado = this.estado;
+    this.cliente!.endereco!.cidade = this.cidade;
     console.log(this.cliente);
-    console.log(this.documento);
-    console.log(this.usuario);
   }
 
 }

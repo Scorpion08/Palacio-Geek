@@ -11,7 +11,7 @@ import java.util.List;
 @Component
 @Entity
 @Table(name = "tipo_endereco")
-public class TipoEndereco {
+public class TipoEndereco extends EntidadeDominio{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ten_id")

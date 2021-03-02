@@ -5,7 +5,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/palacio_geek
     username: postgres
-    password: We@300895
+    password: 48299871
     initialization-mode: always
     data: classpath:org/springframework/session/jdbc/schema-postgresql.sql
     continue-on-error: true

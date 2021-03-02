@@ -8,7 +8,7 @@ export const environment = {
   production: false
 };
 
-export const URL = "http://localhost:8080/";
+export const URL = "http://localhost:7900/";
 
 export const HTTP_OPTIONS = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})

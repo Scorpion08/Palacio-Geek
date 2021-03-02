@@ -42,6 +42,9 @@ public class AbstractFachada {
     @Autowired
     private CidadeDAO cidadeDAO;
 
+    @Autowired
+    private TipoEnderecoDAO tipoEnderecoDAO;
+
     /*
         Todas Strategy
      */
@@ -92,6 +95,7 @@ public class AbstractFachada {
         daos.put(Endereco.class.getName(), enderecoDAO);
         daos.put(Estado.class.getName(), estadoDAO);
         daos.put(Cidade.class.getName(), cidadeDAO);
+        daos.put(TipoEndereco.class.getName(), tipoEnderecoDAO);
 
         //------------------------ Hash Cliente ----------------------------//
 
