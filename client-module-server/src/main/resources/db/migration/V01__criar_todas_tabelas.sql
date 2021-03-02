@@ -50,7 +50,10 @@ CREATE TABLE cliente (
     cli_id               SERIAL NOT NULL,
     cli_nome             VARCHAR(30) NOT NULL,
     cli_sobrenome        VARCHAR(60) NOT NULL,
+    cli_sexo             VARCHAR(1),
+    cli_data_nascimento  DATE NOT NULL,
     cli_tcl_id           INT NOT NULL,
+    cli_usu_id           INT NOT NULL,
     cli_pes_id           INT NOT NULL
 );
 
@@ -58,6 +61,7 @@ CREATE TABLE tipo_cliente (
     tcl_id              SERIAL NOT NULL,
     tcl_nome            VARCHAR(100) NOT NULL,
     tcl_descricao       VARCHAR(200) NOT NULL
+
 );
 
 CREATE TABLE status (
@@ -75,9 +79,8 @@ CREATE TABLE usuario (
     usu_codigo           VARCHAR(9) NOT NULL,
     usu_email            VARCHAR(80) NOT NULL UNIQUE,
     usu_senha            VARCHAR(60) NOT NULL,
-    usu_tipo_usuario_id     INT NOT NULL,
-    usu_status_id        INT NOT NULL,
-    usu_cli_id           INT NOT NULL
+    usu_tipo_usuario_id  INT NOT NULL,
+    usu_status_id        INT NOT NULL
 );
 
 ALTER TABLE cidade ADD CONSTRAINT cidade_pk PRIMARY KEY ( cid_id );
@@ -137,9 +140,9 @@ ALTER TABLE cliente
     ADD CONSTRAINT cliente_tipo_cliente_fk FOREIGN KEY ( cli_tcl_id )
         REFERENCES tipo_cliente ( tcl_id );
 
-ALTER TABLE usuario
-    ADD CONSTRAINT usuario_cliente_fk FOREIGN KEY ( usu_cli_id )
-        REFERENCES cliente ( cli_id );
+ALTER TABLE cliente
+    ADD CONSTRAINT cliente_usuario_fk FOREIGN KEY ( cli_usu_id )
+        REFERENCES usuario ( usu_id );
 
 ALTER TABLE documento
     ADD CONSTRAINT documento_tipo_documento_fk FOREIGN KEY ( doc_tdo_id )

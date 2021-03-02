@@ -1,6 +1,7 @@
 package br.edu.les.module.client.dao;
 
 import br.edu.les.module.client.domain.Cidade;
+import br.edu.les.module.client.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,8 +31,13 @@ public class CidadeDAO implements IDAO {
         if (entidade instanceof Cidade){
             List<EntidadeDominio> cidades = new ArrayList<>();
             Cidade cidade = (Cidade) entidade;
-            cidadeRepository.findByEstado_Id(cidade.getEstado().getId())
-                    .forEach( resultadoCidade -> cidades.add(resultadoCidade));
+            if(Util.isNotNull(cidade.getId())){
+                cidadeRepository.findByEstado_Id(cidade.getEstado().getId())
+                        .forEach( resultadoCidade -> cidades.add(resultadoCidade));
+            }else {
+                cidades.addAll(cidadeRepository.findAll());
+            }
+
             return cidades;
         } return null;
     }

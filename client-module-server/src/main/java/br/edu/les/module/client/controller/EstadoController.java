@@ -1,4 +1,4 @@
-package br.edu.les.module.client.endpoint;
+package br.edu.les.module.client.controller;
 
 import br.edu.les.module.client.domain.Estado;
 import br.edu.les.module.client.domain.Resultado;
@@ -10,10 +10,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin
 @RequestMapping("/estados")
-public class EstadoEndpoint {
+public class EstadoController {
     
     @Autowired
     private Fachada fachada;
+
+    @GetMapping()
+    public ResponseEntity<Resultado> consultar(){
+        return ResponseEntity.ok().body(fachada.consultar(new Estado()));
+    }
 
     @PostMapping()
     public ResponseEntity<Resultado> consultar(@RequestBody Estado estado){

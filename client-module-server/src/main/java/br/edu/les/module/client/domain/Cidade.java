@@ -1,14 +1,11 @@
 package br.edu.les.module.client.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
-
+@Builder
 @Component
 @AllArgsConstructor
 @NoArgsConstructor

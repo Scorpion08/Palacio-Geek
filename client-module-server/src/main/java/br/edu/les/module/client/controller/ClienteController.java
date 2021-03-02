@@ -1,6 +1,5 @@
-package br.edu.les.module.client.endpoint;
+package br.edu.les.module.client.controller;
 
-import br.edu.les.module.client.domain.Resultado;
 import br.edu.les.module.client.domain.Cliente;
 import br.edu.les.module.client.facade.Fachada;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin
 @RequestMapping("/clientes")
-public class ClienteEndpoint {
+public class ClienteController {
     
     @Autowired
     private Fachada fachada;

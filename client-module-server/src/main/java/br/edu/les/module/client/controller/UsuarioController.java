@@ -1,4 +1,4 @@
-package br.edu.les.module.client.endpoint;
+package br.edu.les.module.client.controller;
 
 import br.edu.les.module.client.domain.Usuario;
 import br.edu.les.module.client.facade.Fachada;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin
 @RequestMapping("/usuarios")
-public class UsuarioEndpoint {
+public class UsuarioController {
     
     @Autowired
     private Fachada fachada;

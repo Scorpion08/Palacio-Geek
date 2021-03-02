@@ -35,9 +35,21 @@ public class Cliente extends Pessoa implements Serializable{
 	@Column(name = "cli_sobrenome")
 	private String sobrenome;
 
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Column(name = "cli_data_nascimento")
+	private LocalDate dataNascimento;
+
+	@Size(max = 20)
+	@Column(name = "cli_sexo")
+	private String sexo;
+
 	@ManyToOne
 	@JoinColumn(name = "cli_tcl_id")
 	private TipoCliente tipoCliente;
+
+	@JoinColumn(name = "cli_usu_id")
+	@OneToOne(cascade = CascadeType.ALL)
+	private Usuario usuario;
 
 	@Builder.Default
 	@JsonIgnore

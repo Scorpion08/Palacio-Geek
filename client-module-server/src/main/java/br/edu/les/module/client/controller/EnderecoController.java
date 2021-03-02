@@ -1,4 +1,4 @@
-package br.edu.les.module.client.endpoint;
+package br.edu.les.module.client.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +12,7 @@ import br.edu.les.module.client.facade.Fachada;
 @RestController
 @CrossOrigin
 @RequestMapping("/enderecos")
-public class EnderecoEndpoint {
+public class EnderecoController {
     
     @Autowired
     private Fachada fachada;
