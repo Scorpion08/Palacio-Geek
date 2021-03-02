@@ -45,7 +45,7 @@ export class CadastroClienteComponent implements OnInit {
   getTipoEndereco() {
     this.httpClientDefault.get<Resultado<TipoEndereco>>('/tipoenderecos').subscribe( resultado => {
       if(resultado?.msg == null) {
-        this.tipoEnderecos = resultado?.entidades;
+        resultado!.entidades.forEach( tipoEndereco => this.tipoEnderecos.push(tipoEndereco));
         this.getEstados();
       } else {
         alert(resultado?.msg);
@@ -89,6 +89,7 @@ export class CadastroClienteComponent implements OnInit {
   cadastraCliente() {
     this.cidade.estado = this.estado;
     this.cliente!.endereco!.cidade = this.cidade;
+    this.cliente!.endereco!.tipoEndereco = this.tipoEndereco;
     console.log(this.cliente);
   }
 

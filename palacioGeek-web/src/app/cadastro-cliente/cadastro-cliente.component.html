@@ -25,7 +25,7 @@
                 class="txt" onkeypress="mascara('##/##/####',this,event,true)" maxlength="10"
                 [(ngModel)]="cliente.dataNascimento"></div>
             <div id="div-tipo-enderecos">
-              <select [(ngModel)]="estado" id="select-tipo-enderecos" name="select-tipo-enderecos">
+              <select [(ngModel)]="tipoEndereco" id="select-tipo-enderecos" name="select-tipo-enderecos">
                 <option id="select-tipo-endereco" name="select-tipo-endereco" *ngFor="let tipoEndereco of tipoEnderecos"
                   [ngValue]="tipoEndereco">{{tipoEndereco.descricao}}</option>
               </select>
@@ -37,7 +37,7 @@
               </select>
             </div>
             <div *ngIf="estado != null" id="div-cidades">
-              <select [(ngModel)]="cliente.endereco!.cidade" id="select-cidades" name="select-cidades">
+              <select [(ngModel)]="cidade" id="select-cidades" name="select-cidades">
                 <option id="select-cidade" name="select-cidade" *ngFor="let cidade of getCidadesDoEstado()"
                   [ngValue]="cidade">{{cidade.descricao}}</option>
               </select>
