@@ -10,7 +10,7 @@ export class Cliente {
   sexo?: string;
   usuario?: Usuario;
   tipoCliente?: TipoCliente;
-  endereco?: Endereco;
+  enderecos?: Endereco[];
   documentos?: Documento[];
 }
 

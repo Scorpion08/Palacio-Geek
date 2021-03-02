@@ -1,6 +1,5 @@
 package br.edu.les.module.client.strategy.usuario;
 
-import br.edu.les.module.client.domain.Cliente;
 import br.edu.les.module.client.domain.EntidadeDominio;
 import br.edu.les.module.client.domain.Usuario;
 import br.edu.les.module.client.strategy.IStrategy;
@@ -22,8 +21,8 @@ public class CriptografaSenha implements IStrategy {
         if( entidade instanceof Usuario) {
             Usuario usuario = (Usuario) entidade;
 
-            if(validadorString.validar(usuario.getPassword(), "senha") == ""){
-                usuario.setPassword(Criptografia.criptografar(usuario.getPassword()));
+            if(validadorString.validar(usuario.getSenha(), "senha") == ""){
+                usuario.setSenha(Criptografia.criptografar(usuario.getSenha()));
             }
         }
 

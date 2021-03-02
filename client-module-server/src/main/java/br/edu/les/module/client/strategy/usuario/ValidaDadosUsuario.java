@@ -38,15 +38,15 @@ public class ValidaDadosUsuario implements IStrategy {
                 msg.append(validadorString.validar(usuario.getEmail(), "email"));
                 if (eInstanciaDePessoa) {
                     if (usuario.getId() == null) {
-                        msg.append(validadorString.validar(usuario.getPassword(), "senha"));
-                        msg.append(validadorString.validar(usuario.getRePassword(), "confirmar senha"));
+                        msg.append(validadorString.validar(usuario.getSenha(), "senha"));
+                        msg.append(validadorString.validar(usuario.getReSenha(), "confirmar senha"));
                     }
                 } else {
                     if (usuario.getId() == null) {
-                        msg.append(validadorString.validar(usuario.getPassword(), "senha"));
+                        msg.append(validadorString.validar(usuario.getSenha(), "senha"));
                     } else {
-                        msg.append(validadorString.validar(usuario.getPassword(), "senha"));
-                        msg.append(validadorString.validar(usuario.getRePassword(), "confirmar senha"));
+                        msg.append(validadorString.validar(usuario.getSenha(), "senha"));
+                        msg.append(validadorString.validar(usuario.getReSenha(), "confirmar senha"));
                     }
                 }
             }else {

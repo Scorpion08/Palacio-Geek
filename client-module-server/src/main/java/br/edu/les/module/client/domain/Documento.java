@@ -28,7 +28,8 @@ public class Documento extends  EntidadeDominio{
     private TipoDocumento tipoDocumento;
 
     @OneToOne()
-    @JoinColumn(name = "doc_pes_id")
-    private Pessoa pessoa;
+    @JoinColumn(name = "doc_cli_id")
+    private Cliente cliente;
+
 }
 

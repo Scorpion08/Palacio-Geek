@@ -56,12 +56,9 @@ public class Cliente extends Pessoa implements Serializable{
 	@OneToMany(mappedBy = "cliente" ,cascade = CascadeType.ALL)
 	private List<Endereco> enderecos = new ArrayList<>();
 
-	@OneToOne
-	@JoinColumn(name = "cli_pes_id")
-	private Pessoa pessoa;
-
 	@JsonIgnore
-	@OneToMany(mappedBy = "pessoa")
-	private List<Documento> documentos;
-
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	private List<Documento> documento;
 }
+
+

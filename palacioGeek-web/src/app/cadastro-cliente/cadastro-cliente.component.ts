@@ -32,6 +32,7 @@ export class CadastroClienteComponent implements OnInit {
   public tipoEndereco: TipoEndereco = new TipoEndereco();
   public tipoDocumento: TipoDocumento = new TipoDocumento();
   public documento: Documento = new Documento();
+  public endereco: Endereco = new Endereco();
 
   constructor(private httpClientDefault: DefaultRequestService,
               private httpCadastroCliente: CadastroClienteService,
@@ -41,9 +42,10 @@ export class CadastroClienteComponent implements OnInit {
     this.cliente = new Cliente();
     this.cliente.usuario = new Usuario();
     this.cliente.documentos = [];
-    this.cliente.endereco = new Endereco();
-    this.cliente.endereco.cidade = new Cidade();
-    this.cliente.endereco.cidade.estado = new Estado();
+    this.cliente.enderecos = [];
+    this.endereco = new Endereco();
+    this.endereco.cidade = new Cidade();
+    this.endereco.cidade.estado = new Estado();
     this.getTipoEndereco();
   }
 
@@ -108,9 +110,21 @@ export class CadastroClienteComponent implements OnInit {
     this.documento.tipoDocumento = this.tipoDocumento;
     this.cliente.documentos?.push(this.documento);
     this.cidade.estado = this.estado;
-    this.cliente!.endereco!.cidade = this.cidade;
-    this.cliente!.endereco!.tipoEndereco = this.tipoEndereco;
+    this.endereco = this.cidade;
+    this.endereco.tipoEndereco = this.tipoEndereco;
+    this.cliente!.enderecos?.push(this.endereco);
     console.log(this.cliente);
+    this.httpClientDefault.post<Resultado<Cliente>>('/clientes/cria', this.cliente).subscribe(resultado =>{
+      if(resultado?.msg == null){
+        alert("Funfou");
+      }else{
+        alert(resultado?.msg);
+      }
+
+    } , erro =>{
+      alert("Deu erro");
+    });
   }
+
 
 }

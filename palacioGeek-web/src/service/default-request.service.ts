@@ -15,4 +15,8 @@ export class DefaultRequestService {
   get<T>(serviceRoute: string):Observable<T>{
     return this.http.get<T>(URL + serviceRoute,HTTP_OPTIONS);
   }
+
+  post<T>(serviceRoute: string, object: any):Observable<T>{
+    return this.http.post<T>(URL + serviceRoute,object,HTTP_OPTIONS);
+  }
 }

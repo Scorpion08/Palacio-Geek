@@ -5,7 +5,6 @@ import br.edu.les.module.client.strategy.IStrategy;
 import lombok.extern.java.Log;
 import org.springframework.stereotype.Component;
 
-import br.edu.les.module.client.domain.Cliente;
 import br.edu.les.module.client.domain.Usuario;
 import br.edu.les.module.client.util.Util;
 
@@ -23,8 +22,8 @@ public class ValidaSenhasIguais implements IStrategy {
 
             Usuario usuario =  (Usuario) entidade;
 
-            if(Util.isNotNull(usuario.getPassword()) && Util.isNotNull(usuario.getRePassword())) {
-                if(!usuario.getPassword().equals(usuario.getRePassword())) {
+            if(Util.isNotNull(usuario.getSenha()) && Util.isNotNull(usuario.getReSenha())) {
+                if(!usuario.getSenha().equals(usuario.getReSenha())) {
                     msg.append("Senhas estão diferentes.");
                 }
             }

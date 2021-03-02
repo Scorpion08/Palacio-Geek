@@ -32,10 +32,10 @@ public class Usuario extends EntidadeDominio implements Serializable, IEntidade 
 	private String email;
 
 	@Column(name = "usu_senha")
-	private String password;
+	private String senha;
 
 	@Transient
-	private String rePassword;
+	private String reSenha;
 
 	@ManyToOne()
 	@JoinColumn(name = "usu_status_id")
