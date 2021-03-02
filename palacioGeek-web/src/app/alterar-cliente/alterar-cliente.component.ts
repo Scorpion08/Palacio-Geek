@@ -20,7 +20,7 @@ export class AlterarClienteComponent implements OnInit {
   ngOnInit(): void {
     this.cliente = new Cliente();
     this.cliente.usuario = new Usuario();
-    this.cliente.documento = new Documento();
+    this.cliente.documentos = [];
     this.cliente.endereco = new Endereco();
     this.cliente.endereco.cidade = new Cidade();
     this.cliente.endereco.cidade.estado = new Estado();
