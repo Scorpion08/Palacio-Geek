@@ -11,7 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { CadastroClienteComponent } from './cadastro-cliente/cadastro-cliente.component';
-import { UsuarioService } from '../service/usuario.service';
+import { DefaultRequestService } from '../service/default-request.service';
 import { AdminComponent } from './admin/admin.component';
 import { AlterarProdutoComponent } from './alterar-produto/alterar-produto.component';
 import { RemoverProdutoComponent } from './remover-produto/remover-produto.component';
@@ -32,6 +32,8 @@ import { PedidoFinalizadoComponent } from './pedido-finalizado/pedido-finalizado
 import { SelecionarFreteComponent } from './selecionar-frete/selecionar-frete.component';
 import { TrocaComponent } from './troca/troca.component';
 import { UsuarioLogadoComponent } from './usuario-logado/usuario-logado.component';
+import { AlterarClienteComponent } from './alterar-cliente/alterar-cliente.component';
+import { CadastroClienteService } from './cadastro-cliente/cadastro-cliente.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,8 @@ import { UsuarioLogadoComponent } from './usuario-logado/usuario-logado.componen
     PedidoFinalizadoComponent,
     SelecionarFreteComponent,
     TrocaComponent,
-    UsuarioLogadoComponent
+    UsuarioLogadoComponent,
+    AlterarClienteComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,7 @@ import { UsuarioLogadoComponent } from './usuario-logado/usuario-logado.componen
     FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [UsuarioService],
+  providers: [DefaultRequestService, CadastroClienteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -24,11 +24,6 @@
             <div id="div-dataNasc"><input type="text" placeholder="Data de Nascimento" name="dataNasc" id="dataNasc"
                 class="txt" onkeypress="mascara('##/##/####',this,event,true)" maxlength="10"
                 [(ngModel)]="cliente.dataNascimento"></div>
-            <div id="div-estados">
-              <select [(ngModel)]="cliente.endereco.cidade.endereco">
-                <option *ngFor="let estado of estados">{{estado}}</option>
-              </select>
-            </div>
             <div id="div-email"><input type="text" placeholder="Email" name="email" id="email" class="txt"
                 [(ngModel)]="cliente.usuario.email"></div>
             <div id="div-senha"><input type="password" placeholder="Senha" name="senha" id="senha" class="txt"
