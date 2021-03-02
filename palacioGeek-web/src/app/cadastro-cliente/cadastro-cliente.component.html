@@ -50,6 +50,16 @@
                 id="validarSenha" class="txt" maxlength="16" [(ngModel)]="cliente.usuario!.reSenha"></div>
             <div><input type="button" value="Cadastrar" name="submit" class="txt2" (click)="cadastraCliente()"></div>
           </form>
+          <div class="form" id="endereco">
+            <form action="#" method="post" id="endereco" name="newEndereco">
+                <input type="text"  placeholder="Rua"  name="rua" class="txt">
+                <input type="text"  placeholder="Nº" name="numero" class="txt"><br>
+                <input type="text"  placeholder="Bairro" name="bairro" class="txt" id="bairro">
+                <input type="text"  placeholder="Cidade" name="cidade" class="txt">
+                <input type="text"  placeholder="Estado"  name="estado" class="txt">
+                <input type="text"  placeholder="CEP" name="cep" class="txt" onkeypress="mascara('#####-###',this,event,true)" maxlength="9">
+                <input type="text"  placeholder="Ponto de referência" name="pontoReferencia" class="txt">
+            </form>
         </div>
       </div>
     </div>
