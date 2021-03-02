@@ -22,8 +22,4 @@ public class TipoEndereco extends EntidadeDominio{
 
     @Column(name = "ten_descricao")
     private String descricao;
-
-    @OneToMany(mappedBy = "tipoEndereco")
-    @JsonIgnore
-    private List<Endereco> Enderecos;
 }

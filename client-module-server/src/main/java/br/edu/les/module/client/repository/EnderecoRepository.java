@@ -1,6 +1,7 @@
 package br.edu.les.module.client.repository;
 
 import br.edu.les.module.client.domain.Endereco;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -12,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public interface EnderecoRepository extends CrudRepository<Endereco, Integer> {
+public interface EnderecoRepository extends JpaRepository<Endereco, Integer> {
 
     List<Endereco> findByCliente_Id(Integer id);
 
