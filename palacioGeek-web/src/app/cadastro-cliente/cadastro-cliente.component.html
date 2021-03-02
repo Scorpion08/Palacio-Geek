@@ -5,13 +5,13 @@
         <h4 class="heading"><strong>Cadastrar </strong> Usuário <span></span></h4>
         <div class="form">
           <form id="usuario" name="newUsuario">
-            <div id="div-nome"><input type="text" placeholder="Nome" name="nome" id="nome" [(ngModel)]="cliente.nome"
-                class="txt"></div>
+            <div id="div-nome"><input type="text" placeholder="Nome" name="nome" id="nome"
+                class="txt" [(ngModel)]="cliente.nome"></div>
             <div id="div-sobrenome"><input type="text" placeholder="Sobrenome" name="sobrenome"
-                [(ngModel)]="cliente.sobrenome" id="sobrenome" class="txt"><br></div>
+                 id="sobrenome" class="txt" [(ngModel)]="cliente.sobrenome"><br></div>
             <div *ngIf="tipoDocumento.nome === undefined || tipoDocumento.nome === 'CPF'" id="div-cpf"><input type="text" placeholder="CPF" name="cpf" class="txt" id="cpf"
                 onkeypress="mascara('###.###.###-##',this,event,true)" maxlength="14"></div>
-            <div *ngIf="tipoDocumento.nome === 'CNPJ'"id="div-cnpj"><input type="text" placeholder="CNPJ" name="cpf" class="txt" id="cnpj"
+            <div *ngIf="tipoDocumento.nome === 'CNPJ'" id="div-cnpj"><input type="text" placeholder="CNPJ" name="cpf" class="txt" id="cnpj"
                 onkeypress="mascara('##.###.###/####-##',this,event,true)" maxlength="14"></div>
             <div id="div-tipo-documentos">
               <select [(ngModel)]="tipoDocumento" id="select-tipo-documentos" name="select-tipo-documentos">
@@ -21,11 +21,11 @@
               </select>
             </div>
             <div id="div-sexo">
-              <input type="radio" name='sexo' [(ngModel)]="cliente.sexo" id="cad_sexo_m" value="M" />
+              <input type="radio" name='sexo' id="cad_sexo_m" value="M" [(ngModel)]="cliente.sexo" />
               <label for="cad_sexo_m">Masculino</label>
-              <input type="radio" name='sexo' [(ngModel)]="cliente.sexo" id="cad_sexo_f" value="F" />
+              <input type="radio" name='sexo'  id="cad_sexo_f" value="F" [(ngModel)]="cliente.sexo"/>
               <label for="cad_sexo_f">Feminino</label>
-              <input type="radio" name='sexo' [(ngModel)]="cliente.sexo" id="cad_sexo_n_i" value="N" />
+              <input type="radio" name='sexo'  id="cad_sexo_n_i" value="N" [(ngModel)]="cliente.sexo"/>
               <label for="cad_sexo_n_i">Não informar</label>
             </div>
             <div id="div-dataNasc"><input type="text" placeholder="Data de Nascimento" name="dataNasc" id="dataNasc"
@@ -59,12 +59,12 @@
           <div class="form" id="endereco">
             <form action="#" method="post" id="endereco" name="newEndereco">
               <input type="text" placeholder="Rua" name="rua" class="txt" [(ngModel)]="cliente.endereco!.logradouro">
-              <input type="text" placeholder="Nº" name="numero" class="txt"><br>
-              <input type="text" placeholder="Bairro" name="bairro" class="txt" id="bairro">
-              <input type="text" placeholder="Cidade" name="cidade" class="txt">
-              <input type="text" placeholder="Estado" name="estado" class="txt">
+              <input type="text" placeholder="Nº" name="numero" class="txt" [(ngModel)] = "cliente.endereco!.numero"><br>
+              <input type="text" placeholder="Bairro" name="bairro" class="txt" id="bairro" [(ngModel)] = "cliente.endereco!.bairro">
+              <input type="text" placeholder="Cidade" name="cidade" class="txt" [(ngModel)] = "cliente.endereco!.cidade">
+              <input type="text" placeholder="Estado" name="estado" class="txt" [(ngModel)] = "cliente.endereco!.cidade! estado">
               <input type="text" placeholder="CEP" name="cep" class="txt"
-                onkeypress="mascara('#####-###',this,event,true)" maxlength="9">
+                onkeypress="mascara('#####-###',this,event,true)" maxlength="9" [(ngModel)] = "cliente.endereco!.cep">
               <input type="text" placeholder="Ponto de referência" name="pontoReferencia" class="txt">
               <div><input type="button" value="Cadastrar" name="submit" class="txt2" (click)="cadastraCliente()"></div>
             </form>
@@ -73,3 +73,4 @@
       </div>
     </div>
   </div>
+</div>
