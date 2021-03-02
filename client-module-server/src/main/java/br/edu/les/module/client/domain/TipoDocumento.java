@@ -11,7 +11,7 @@ import java.util.List;
 @Component
 @Entity
 @Table(name = "tipo_documento")
-public class TipoDocumento {
+public class TipoDocumento extends EntidadeDominio{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "tdo_id")
@@ -22,8 +22,4 @@ public class TipoDocumento {
 
     @Column(name = "tdo_descricao")
     private String descricao;
-
-    @OneToMany(mappedBy = "tipoDocumento")
-    @JsonIgnore
-    private List<Documento> documentos;
 }

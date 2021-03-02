@@ -27,7 +27,7 @@ public class Documento extends  EntidadeDominio{
     @JoinColumn(name = "doc_tdo_id")
     private TipoDocumento tipoDocumento;
 
-    @ManyToOne()
+    @OneToOne()
     @JoinColumn(name = "doc_pes_id")
     private Pessoa pessoa;
 }

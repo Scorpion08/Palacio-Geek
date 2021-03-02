@@ -46,6 +46,12 @@ public class AbstractFachada {
     @Autowired
     private TipoEnderecoDAO tipoEnderecoDAO;
 
+    @Autowired
+    private DocumentoDAO documentoDAO;
+
+    @Autowired
+    private TipoDocumentoDAO tipoDocumentoDAO;
+
     /*
         Todas Strategy
      */
@@ -100,6 +106,8 @@ public class AbstractFachada {
         daos.put(Estado.class.getName(), estadoDAO);
         daos.put(Cidade.class.getName(), cidadeDAO);
         daos.put(TipoEndereco.class.getName(), tipoEnderecoDAO);
+        daos.put(Documento.class.getName(), documentoDAO);
+        daos.put(TipoDocumento.class.getName(), tipoDocumentoDAO);
 
         //------------------------ Hash Cliente ----------------------------//
 
