@@ -9,10 +9,17 @@
                 class="txt"></div>
             <div id="div-sobrenome"><input type="text" placeholder="Sobrenome" name="sobrenome"
                 [(ngModel)]="cliente.sobrenome" id="sobrenome" class="txt"><br></div>
-            <div id="div-cpf"><input type="text" placeholder="CPF" name="cpf" class="txt" id="cpf"
+            <div *ngIf="tipoDocumento.nome === undefined || tipoDocumento.nome === 'CPF'" id="div-cpf"><input type="text" placeholder="CPF" name="cpf" class="txt" id="cpf"
                 onkeypress="mascara('###.###.###-##',this,event,true)" maxlength="14"></div>
-            <div id="div-cnpj"><input type="text" placeholder="CNPJ" name="cpf" class="txt" id="cnpj"
+            <div *ngIf="tipoDocumento.nome === 'CNPJ'"id="div-cnpj"><input type="text" placeholder="CNPJ" name="cpf" class="txt" id="cnpj"
                 onkeypress="mascara('##.###.###/####-##',this,event,true)" maxlength="14"></div>
+            <div id="div-tipo-documentos">
+              <select [(ngModel)]="tipoDocumento" id="select-tipo-documentos" name="select-tipo-documentos">
+                <option id="select-tipo-documento" name="select-tipo-documento"
+                  *ngFor="let tipoDocumento of tipoDocumentos" [ngValue]="tipoDocumento">{{tipoDocumento.descricao}}
+                </option>
+              </select>
+            </div>
             <div id="div-sexo">
               <input type="radio" name='sexo' [(ngModel)]="cliente.sexo" id="cad_sexo_m" value="M" />
               <label for="cad_sexo_m">Masculino</label>
@@ -48,20 +55,21 @@
                 maxlength="16" [(ngModel)]="cliente.usuario!.senha"></div>
             <div id="div-validarSenha"><input type="password" placeholder="Repita a senha" name="validarSenha"
                 id="validarSenha" class="txt" maxlength="16" [(ngModel)]="cliente.usuario!.reSenha"></div>
-            <div><input type="button" value="Cadastrar" name="submit" class="txt2" (click)="cadastraCliente()"></div>
           </form>
           <div class="form" id="endereco">
             <form action="#" method="post" id="endereco" name="newEndereco">
-                <input type="text"  placeholder="Rua"  name="rua" class="txt">
-                <input type="text"  placeholder="Nº" name="numero" class="txt"><br>
-                <input type="text"  placeholder="Bairro" name="bairro" class="txt" id="bairro">
-                <input type="text"  placeholder="Cidade" name="cidade" class="txt">
-                <input type="text"  placeholder="Estado"  name="estado" class="txt">
-                <input type="text"  placeholder="CEP" name="cep" class="txt" onkeypress="mascara('#####-###',this,event,true)" maxlength="9">
-                <input type="text"  placeholder="Ponto de referência" name="pontoReferencia" class="txt">
+              <input type="text" placeholder="Rua" name="rua" class="txt" [(ngModel)]="cliente.endereco!.logradouro">
+              <input type="text" placeholder="Nº" name="numero" class="txt"><br>
+              <input type="text" placeholder="Bairro" name="bairro" class="txt" id="bairro">
+              <input type="text" placeholder="Cidade" name="cidade" class="txt">
+              <input type="text" placeholder="Estado" name="estado" class="txt">
+              <input type="text" placeholder="CEP" name="cep" class="txt"
+                onkeypress="mascara('#####-###',this,event,true)" maxlength="9">
+              <input type="text" placeholder="Ponto de referência" name="pontoReferencia" class="txt">
+              <div><input type="button" value="Cadastrar" name="submit" class="txt2" (click)="cadastraCliente()"></div>
             </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>

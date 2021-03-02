@@ -6,6 +6,7 @@ import br.edu.les.module.client.domain.TipoEndereco;
 import br.edu.les.module.client.facade.Fachada;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,7 @@ public class TipoDocumentoController {
     private Fachada fachada;
 
     @GetMapping
+    @CrossOrigin
     public ResponseEntity<Resultado> consultar() {
         return ResponseEntity.ok().body(fachada.consultar(new TipoDocumento()));
     }

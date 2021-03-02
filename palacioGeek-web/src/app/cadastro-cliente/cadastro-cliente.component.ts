@@ -10,6 +10,7 @@ import { Resultado } from 'src/model/resultado.model';
 import { Cidade } from '../../model/Cidade.model';
 import { Endereco } from 'src/model/Endereco.model';
 import { TipoEndereco } from 'src/model/TipoEndereco.model';
+import { TipoDocumento } from '../../model/TipoDocumento.model';
 
 @Component({
   selector: 'app-cadastro-cliente',
@@ -23,10 +24,14 @@ export class CadastroClienteComponent implements OnInit {
   public estados: Estado[] = [];
   public cidades: Cidade[] = [];
   public tipoEnderecos: TipoEndereco[] = [];
+  public tipoDocumentos: TipoDocumento[] = [];
+
 
   public estado: Estado = new Estado();
   public cidade: Cidade = new Cidade();
   public tipoEndereco: TipoEndereco = new TipoEndereco();
+  public tipoDocumento: TipoDocumento = new TipoDocumento();
+  public documento: Documento = new Documento();
 
   constructor(private httpClientDefault: DefaultRequestService,
               private httpCadastroCliente: CadastroClienteService,
@@ -46,6 +51,19 @@ export class CadastroClienteComponent implements OnInit {
     this.httpClientDefault.get<Resultado<TipoEndereco>>('/tipoenderecos').subscribe( resultado => {
       if(resultado?.msg == null) {
         resultado!.entidades.forEach( tipoEndereco => this.tipoEnderecos.push(tipoEndereco));
+        this.getTipoDocumento();
+      } else {
+        alert(resultado?.msg);
+      }
+    }, erro => {
+      alert("Falha ao realizar comunicação com o servidor");
+    });
+  }
+
+  getTipoDocumento() {
+    this.httpClientDefault.get<Resultado<TipoDocumento>>('/tipodocumentos').subscribe( resultado => {
+      if(resultado?.msg == null) {
+        resultado!.entidades.forEach( tipoDocumentos => this.tipoDocumentos.push(tipoDocumentos));
         this.getEstados();
       } else {
         alert(resultado?.msg);
@@ -87,6 +105,8 @@ export class CadastroClienteComponent implements OnInit {
   }
 
   cadastraCliente() {
+    this.documento.tipoDocumento = this.tipoDocumento;
+    this.cliente.documentos?.push(this.documento);
     this.cidade.estado = this.estado;
     this.cliente!.endereco!.cidade = this.cidade;
     this.cliente!.endereco!.tipoEndereco = this.tipoEndereco;
