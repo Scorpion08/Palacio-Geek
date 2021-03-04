@@ -20,7 +20,7 @@ import java.util.List;
 @Component
 @Entity
 @Table(name = "cliente")
-public class Cliente extends Pessoa implements Serializable{
+public class Cliente extends EntidadeDominio implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
@@ -52,13 +52,12 @@ public class Cliente extends Pessoa implements Serializable{
 	private Usuario usuario;
 
 	@Builder.Default
-	@JsonIgnore
 	@OneToMany(mappedBy = "cliente" ,cascade = CascadeType.ALL)
-	private List<Endereco> enderecos = new ArrayList<>();
+	private List<Endereco> enderecos = new ArrayList<>();;
 
-	@JsonIgnore
+	@Builder.Default
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
-	private List<Documento> documento;
+	private List<Documento> documentos = new ArrayList<>();;
 }
 
 

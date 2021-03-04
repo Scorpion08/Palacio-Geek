@@ -1,0 +1,40 @@
+{
+  "usuario": {
+    "email": "lucas_cascao_@outlook.com",
+    "senha": "123",
+    "reSenha": "123"
+  },
+  "documentos": [{
+    "codigo": "43383625885",
+    "tipoDocumento": {
+      "id": 1,
+      "nome": "CPF",
+      "descricao": "CPF"
+    }
+  }],
+  "enderecos": [{
+    "logradouro": "Passon",
+    "numero": "20",
+    "bairro": "Cidade Edson",
+    "cep": "888888888",
+    "complemento": "10",
+    "tipoEndereco": {
+      "id": 2,
+      "nome": "Apartamento",
+      "descricao": "Apartamento"
+    },
+    "cidade": {
+      "id": 5291,
+      "descricao": "Suzano",
+      "estado": {
+        "id": 25,
+        "descricao": "Sao Paulo"
+      }
+    }
+
+  }],
+  "nome": "Lucas",
+  "sobrenome": "Cascão",
+  "sexo": "M",
+  "dataNascimento": "1995-09-16"
+}

@@ -30,7 +30,7 @@ public class ValidaSenhaUsuario implements IStrategy {
 			Usuario usuario = (Usuario) entidade;
 			if(validadorString.validar(usuario.getSenha(), "senha").equals("")){
 				usuario.setSenha(Criptografia.criptografar(usuario.getSenha()));
-				if(!usuarioRepository.existsByEmailAndPassword(usuario.getEmail(), usuario.getSenha())){
+				if(!usuarioRepository.existsByEmailAndSenha(usuario.getEmail(), usuario.getSenha())){
 					msg.append("Login ou senha incorreto.");
 				}
 			}

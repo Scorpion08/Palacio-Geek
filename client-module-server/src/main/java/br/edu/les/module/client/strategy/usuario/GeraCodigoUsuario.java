@@ -14,8 +14,15 @@ public class GeraCodigoUsuario implements IStrategy {
     @Override
     public String processar(EntidadeDominio entidade) {
 
-        if( entidade instanceof Usuario) {
-            Usuario usuario = (Usuario) entidade;
+        if( entidade instanceof Cliente || entidade instanceof Usuario) {
+
+            Usuario usuario;
+
+            if(entidade instanceof Cliente) {
+                usuario = ((Cliente) entidade).getUsuario();
+            } else {
+                usuario = (Usuario) entidade;
+            }
 
             usuario.setCodigo(GeradorCodigo.gerarCodigoUsuario());
         }

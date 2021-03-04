@@ -3,9 +3,14 @@ package br.edu.les.module.client.facade;
 import br.edu.les.module.client.dao.*;
 import br.edu.les.module.client.domain.*;
 import br.edu.les.module.client.strategy.IStrategy;
+import br.edu.les.module.client.strategy.documento.InsereClienteNoDocumento;
+import br.edu.les.module.client.strategy.endereco.InsereClienteNoEndereco;
 import br.edu.les.module.client.strategy.endereco.ValidaExistenciaCidade;
 import br.edu.les.module.client.strategy.cliente.ValidaDadosCliente;
 import br.edu.les.module.client.strategy.cliente.ValidaExistenciaPessoa;
+import br.edu.les.module.client.strategy.status.InsereStatus;
+import br.edu.les.module.client.strategy.tipo.cliente.InsereTipoCliente;
+import br.edu.les.module.client.strategy.tipo.usuario.InsereTipoUsuario;
 import br.edu.les.module.client.strategy.usuario.*;
 import br.edu.les.module.client.strategy.endereco.ValidaDadosEndereco;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,6 +88,21 @@ public class AbstractFachada {
     private ValidaSenhaUsuario validaSenhaUsuario;
 
     @Autowired
+    private InsereTipoCliente insereTipoCliente;
+
+    @Autowired
+    private InsereTipoUsuario insereTipoUsuario;
+
+    @Autowired
+    private InsereClienteNoDocumento insereClienteNoDocumento;
+
+    @Autowired
+    private InsereClienteNoEndereco insereClienteNoEndereco;
+
+    @Autowired
+    private InsereStatus insereStatus;
+
+    @Autowired
     private ValidaDadosEndereco validaDadosEndereco;
 
     @Autowired
@@ -116,6 +136,11 @@ public class AbstractFachada {
         rnsClienteSalvar.add(validaExistenciaUsuario);
         rnsClienteSalvar.add(geraCodigoUsuario);
         rnsClienteSalvar.add(criptografarSenha);
+        rnsClienteSalvar.add(insereClienteNoDocumento);
+        rnsClienteSalvar.add(insereClienteNoEndereco);
+        rnsClienteSalvar.add(insereTipoCliente);
+        rnsClienteSalvar.add(insereTipoUsuario);
+        rnsClienteSalvar.add(insereStatus);
 
         List<IStrategy> rnsPessoaAlterar = new ArrayList<>();
 

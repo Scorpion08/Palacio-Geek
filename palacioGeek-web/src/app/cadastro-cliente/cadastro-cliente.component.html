@@ -10,9 +10,9 @@
             <div id="div-sobrenome"><input type="text" placeholder="Sobrenome" name="sobrenome"
                 [(ngModel)]="cliente.sobrenome" id="sobrenome" class="txt"><br></div>
             <div *ngIf="tipoDocumento.nome === undefined || tipoDocumento.nome === 'CPF'" id="div-cpf"><input type="text" placeholder="CPF" name="cpf" class="txt" id="cpf"
-                onkeypress="mascara('###.###.###-##',this,event,true)" maxlength="14"></div>
+                onkeypress="mascara('###.###.###-##',this,event,true)" maxlength="14" [(ngModel)]="documento.codigo"></div>
             <div *ngIf="tipoDocumento.nome === 'CNPJ'"id="div-cnpj"><input type="text" placeholder="CNPJ" name="cpf" class="txt" id="cnpj"
-                onkeypress="mascara('##.###.###/####-##',this,event,true)" maxlength="14"></div>
+                onkeypress="mascara('##.###.###/####-##',this,event,true)" maxlength="14" [(ngModel)]="documento.codigo"></div>
             <div id="div-tipo-documentos">
               <select [(ngModel)]="tipoDocumento" id="select-tipo-documentos" name="select-tipo-documentos">
                 <option id="select-tipo-documento" name="select-tipo-documento"
@@ -37,18 +37,7 @@
                   [ngValue]="tipoEndereco">{{tipoEndereco.descricao}}</option>
               </select>
             </div>
-            <div id="div-estados">
-              <select [(ngModel)]="estado" id="select-estados" name="select-estados">
-                <option id="select-estado" name="select-estado" *ngFor="let estado of estados" [ngValue]="estado">
-                  {{estado.descricao}}</option>
-              </select>
-            </div>
-            <div *ngIf="estado != null" id="div-cidades">
-              <select [(ngModel)]="cidade" id="select-cidades" name="select-cidades">
-                <option id="select-cidade" name="select-cidade" *ngFor="let cidade of getCidadesDoEstado()"
-                  [ngValue]="cidade">{{cidade.descricao}}</option>
-              </select>
-            </div>
+
             <div id="div-email"><input type="text" placeholder="Email" name="email" id="email" class="txt"
                 [(ngModel)]="cliente.usuario!.email"></div>
             <div id="div-senha"><input type="password" placeholder="Senha" name="senha" id="senha" class="txt"
@@ -58,14 +47,24 @@
           </form>
           <div class="form" id="endereco">
             <form action="#" method="post" id="endereco" name="newEndereco">
-              <input type="text" placeholder="Rua" name="rua" class="txt" [(ngModel)]="cliente.endereco!.logradouro">
-              <input type="text" placeholder="Nº" name="numero" class="txt"><br>
-              <input type="text" placeholder="Bairro" name="bairro" class="txt" id="bairro">
-              <input type="text" placeholder="Cidade" name="cidade" class="txt">
-              <input type="text" placeholder="Estado" name="estado" class="txt">
+              <input type="text" placeholder="Rua" name="rua" class="txt" [(ngModel)]="endereco!.logradouro">
+              <input type="text" placeholder="Nº" name="numero" class="txt" [(ngModel)]="endereco!.numero"><br>
+              <input type="text" placeholder="Bairro" name="bairro" class="txt" id="bairro" [(ngModel)]="endereco!.bairro">
+              <div id="div-estados">
+                <select [(ngModel)]="estado" id="select-estados" name="select-estados">
+                  <option id="select-estado" name="select-estado" *ngFor="let estado of estados" [ngValue]="estado">
+                    {{estado.descricao}}</option>
+                </select>
+              </div>
+              <div *ngIf="estado != null" id="div-cidades">
+                <select [(ngModel)]="cidade" id="select-cidades" name="select-cidades">
+                  <option id="select-cidade" name="select-cidade" *ngFor="let cidade of getCidadesDoEstado()"
+                    [ngValue]="cidade">{{cidade.descricao}}</option>
+                </select>
+              </div>
               <input type="text" placeholder="CEP" name="cep" class="txt"
-                onkeypress="mascara('#####-###',this,event,true)" maxlength="9">
-              <input type="text" placeholder="Ponto de referência" name="pontoReferencia" class="txt">
+                onkeypress="mascara('#####-###',this,event,true)" maxlength="9" [(ngModel)]="endereco!.cep">
+              <input type="text" placeholder="Complemento" name="complemento" class="txt" [(ngModel)]="endereco!.complemento">
               <div><input type="button" value="Cadastrar" name="submit" class="txt2" (click)="cadastraCliente()"></div>
             </form>
           </div>

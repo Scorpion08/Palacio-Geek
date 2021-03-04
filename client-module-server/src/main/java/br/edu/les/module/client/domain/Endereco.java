@@ -1,5 +1,6 @@
 package br.edu.les.module.client.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
@@ -39,6 +40,7 @@ public class Endereco extends EntidadeDominio {
     @JoinColumn(name = "end_cidade_id")
     private Cidade cidade;
 
+    @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "end_cliente_id")
     private Cliente cliente;

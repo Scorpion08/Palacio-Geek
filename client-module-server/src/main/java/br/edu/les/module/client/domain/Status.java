@@ -21,5 +21,5 @@ public class Status extends EntidadeDominio {
     private Integer id;
 
     @Column(name = "sts_status")
-    private String status;
+    private String nome;
 }

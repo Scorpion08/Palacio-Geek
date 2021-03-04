@@ -1,17 +1,22 @@
 package br.edu.les.module.client.domain;
 
-import lombok.Data;
+import br.edu.les.module.client.domain.interfaces.ITipoEntidade;
+import lombok.*;
 import net.minidev.json.annotate.JsonIgnore;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @Component
 @Entity
 @Table(name = "tipo_endereco")
-public class TipoEndereco extends EntidadeDominio{
+public class TipoEndereco extends EntidadeDominio implements ITipoEntidade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ten_id")

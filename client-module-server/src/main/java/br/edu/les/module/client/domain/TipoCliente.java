@@ -1,5 +1,6 @@
 package br.edu.les.module.client.domain;
 
+import br.edu.les.module.client.domain.interfaces.ITipoEntidade;
 import lombok.Data;
 import net.minidev.json.annotate.JsonIgnore;
 import org.springframework.stereotype.Component;
@@ -11,7 +12,7 @@ import java.util.List;
 @Component
 @Entity
 @Table(name = "tipo_cliente")
-public class TipoCliente {
+public class TipoCliente implements ITipoEntidade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "tcl_id")

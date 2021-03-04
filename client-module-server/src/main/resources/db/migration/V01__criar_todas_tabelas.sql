@@ -37,7 +37,7 @@ CREATE TABLE documento (
     doc_codigo          VARCHAR(14) NOT NULL,
     doc_data_validade  DATE,
     doc_tdo_id          INT NOT NULL,
-    doc_pes_id          INT NOT NULL
+    doc_cli_id          INT NOT NULL
 );
 
 CREATE TABLE tipo_documento (
@@ -53,8 +53,7 @@ CREATE TABLE cliente (
     cli_sexo             VARCHAR(1),
     cli_data_nascimento  DATE NOT NULL,
     cli_tcl_id           INT NOT NULL,
-    cli_usu_id           INT NOT NULL,
-    cli_pes_id           INT NOT NULL
+    cli_usu_id           INT NOT NULL
 );
 
 CREATE TABLE tipo_cliente (
@@ -105,8 +104,6 @@ ALTER TABLE tipo_documento ADD CONSTRAINT tipo_documento_pk PRIMARY KEY ( tdo_id
 
 ALTER TABLE tipo_endereco ADD CONSTRAINT tipo_endereco_pk PRIMARY KEY ( ten_id );
 
-ALTER TABLE pessoa ADD CONSTRAINT pessoa_pk PRIMARY KEY ( pes_id );
-
 
 ALTER TABLE cidade
     ADD CONSTRAINT cidade_estado_fk FOREIGN KEY ( cid_estado_id )
@@ -149,10 +146,6 @@ ALTER TABLE documento
         REFERENCES tipo_documento ( tdo_id );
 
 ALTER TABLE documento
-    ADD CONSTRAINT documento_pessoa_fk FOREIGN KEY ( doc_pes_id )
-        REFERENCES pessoa ( pes_id );
-
-ALTER TABLE cliente
-    ADD CONSTRAINT cliente_pessoa_fk FOREIGN KEY ( cli_pes_id )
-        REFERENCES pessoa ( pes_id );
+    ADD CONSTRAINT documento_pessoa_fk FOREIGN KEY ( doc_cli_id )
+        REFERENCES cliente ( cli_id );
 

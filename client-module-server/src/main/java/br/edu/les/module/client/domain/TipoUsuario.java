@@ -1,5 +1,7 @@
 package br.edu.les.module.client.domain;
 
+import br.edu.les.module.client.domain.interfaces.IEntidade;
+import br.edu.les.module.client.domain.interfaces.ITipoEntidade;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,9 +18,7 @@ import java.io.Serializable;
 @Component
 @Entity
 @Table(name = "tipo_usuario")
-public class TipoUsuario implements Serializable, IEntidade {
-	
-	private static final long serialVersionUID = 1L;
+public class TipoUsuario implements ITipoEntidade {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

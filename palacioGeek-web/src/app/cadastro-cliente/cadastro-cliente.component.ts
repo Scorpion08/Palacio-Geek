@@ -107,24 +107,30 @@ export class CadastroClienteComponent implements OnInit {
   }
 
   cadastraCliente() {
+    this.montaCliente();
+    this.enviaRequisicaoCadastro();
+    console.log(this.cliente);
+
+  }
+
+  montaCliente() {
     this.documento.tipoDocumento = this.tipoDocumento;
     this.cliente.documentos?.push(this.documento);
     this.cidade.estado = this.estado;
-    this.endereco = this.cidade;
+    this.endereco.cidade = this.cidade;
     this.endereco.tipoEndereco = this.tipoEndereco;
     this.cliente!.enderecos?.push(this.endereco);
-    console.log(this.cliente);
+  }
+
+  enviaRequisicaoCadastro() {
     this.httpClientDefault.post<Resultado<Cliente>>('/clientes/cria', this.cliente).subscribe(resultado =>{
       if(resultado?.msg == null){
         alert("Funfou");
       }else{
         alert(resultado?.msg);
       }
-
     } , erro =>{
       alert("Deu erro");
     });
   }
-
-
 }
