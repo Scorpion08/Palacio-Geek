@@ -25,8 +25,7 @@ public class ClienteDAO implements IDAO {
 	@Override
 	public EntidadeDominio salvar(EntidadeDominio entidade) {
 		Cliente cliente = (Cliente) entidade;
-		cliente = clienteRepository.save((cliente));
-
+		cliente = clienteRepository.save(cliente);
 		return cliente;
 	}
 	

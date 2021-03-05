@@ -19,28 +19,33 @@ public class ValidaExistenciaUsuario implements IStrategy {
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    @Autowired
-    ValidaExistenciaPessoa validaExistenciaPessoa;
-
     @Override
     public String processar(EntidadeDominio entidade) {
 
-        Cliente cliente = (Cliente) entidade;
         StringBuilder msg = new StringBuilder();
 
-        /*Usuario usuarioRecebido = cliente.getUsuario();
+        if(entidade instanceof Cliente || entidade instanceof Usuario) {
 
-        Usuario usuarioValidador = usuarioRepository.findByEmail(usuarioRecebido.getEmail());
+            Usuario usuario;
 
-        if(usuarioValidador != null){
-            if(usuarioRecebido.getId() != usuarioValidador.getId()){
-                msg.append("Email já cadastrado.");
+            if(entidade instanceof Cliente){
+                usuario = ((Cliente) entidade).getUsuario();
+            } else {
+                usuario = (Usuario) entidade;
+            }
+
+            Usuario usuarioValidador = usuarioRepository.findByEmail(usuario.getEmail());
+
+            if(usuarioValidador != null){
+                if(!usuario.getEmail().equals(usuarioValidador.getEmail())){
+                    msg.append("Email já cadastrado.");
+                }
+            }
+
+            if(msg.length()>0){
+                log.info("Mensagem de erro: " + msg.toString());
             }
         }
-
-        if(msg.length()>0){
-            log.info("Mensagem de erro: " + msg.toString());
-        }*/
 
         return msg.toString();
     }

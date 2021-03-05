@@ -24,6 +24,8 @@ import java.util.Map;
 @Service
 public class AbstractFachada {
 
+    public static final String SALVAR = "SALVAR";
+    public static final String ALTERAR = "ALTERAR";
     protected Map<String, IDAO> daos = new HashMap<>();
 
     protected Map<String, Map<String, List<IStrategy>>> regrasNegocio = new HashMap<>();
@@ -109,8 +111,7 @@ public class AbstractFachada {
     private ValidaExistenciaCidade validaExistenciaCidade;
 
 
-    public AbstractFachada(){
-    }
+    public AbstractFachada(){}
 
     protected void inicializeMaps(){
 
@@ -142,18 +143,18 @@ public class AbstractFachada {
         rnsClienteSalvar.add(insereTipoUsuario);
         rnsClienteSalvar.add(insereStatus);
 
-        List<IStrategy> rnsPessoaAlterar = new ArrayList<>();
+        List<IStrategy> rnsClienteAlterar = new ArrayList<>();
 
-        rnsPessoaAlterar.add(validaDadosCliente);
-        rnsPessoaAlterar.add(validaDadosUsuario);
-        rnsPessoaAlterar.add(validaExistenciaUsuario);
+        rnsClienteAlterar.add(validaDadosCliente);
+        rnsClienteAlterar.add(validaDadosUsuario);
+        rnsClienteAlterar.add(validaExistenciaUsuario);
 
-        Map<String,List<IStrategy>> mapaLeitor = new HashMap<>();
+        Map<String,List<IStrategy>> mapaCliente = new HashMap<>();
 
-        mapaLeitor.put("SALVAR",rnsClienteSalvar);
-        mapaLeitor.put("ALTERAR",rnsPessoaAlterar);
+        mapaCliente.put(SALVAR,rnsClienteSalvar);
+        mapaCliente.put(ALTERAR,rnsClienteAlterar);
 
-        this.regrasNegocio.put(Cliente.class.getName(), mapaLeitor);
+        this.regrasNegocio.put(Cliente.class.getName(), mapaCliente);
 
         //------------------------ Hash Usuario ----------------------------//
 
