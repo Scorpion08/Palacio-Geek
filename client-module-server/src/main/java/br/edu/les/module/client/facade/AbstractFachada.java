@@ -26,6 +26,9 @@ public class AbstractFachada {
 
     public static final String SALVAR = "SALVAR";
     public static final String ALTERAR = "ALTERAR";
+    public static final String EXCLUIR = "EXCLUIR";
+    public static final String CONSULTAR = "CONSULTAR";
+
     protected Map<String, IDAO> daos = new HashMap<>();
 
     protected Map<String, Map<String, List<IStrategy>>> regrasNegocio = new HashMap<>();
@@ -110,6 +113,12 @@ public class AbstractFachada {
     @Autowired
     private ValidaExistenciaCidade validaExistenciaCidade;
 
+    @Autowired
+    private InativaUsuario inativaUsuario;
+
+    @Autowired
+    private  PegaDadosUsuario pegaDadosUsuario;
+
 
     public AbstractFachada(){}
 
@@ -171,10 +180,16 @@ public class AbstractFachada {
         rnsUsuarioAlterar.add(validaDadosUsuario);
         rnsUsuarioAlterar.add(criptografarSenha);
 
+        List<IStrategy> rnsUsuarioExcluir = new ArrayList<>();
+
+        rnsUsuarioExcluir.add(pegaDadosUsuario);
+        rnsUsuarioExcluir.add(inativaUsuario);
+
         Map<String, List<IStrategy>> mapaUsuario = new HashMap<>();
 
-        mapaUsuario.put("CONSULTAR",rnsUsuarioConsultar);
-        mapaUsuario.put("ALTERAR",rnsUsuarioAlterar);
+        mapaUsuario.put(CONSULTAR,rnsUsuarioConsultar);
+        mapaUsuario.put(ALTERAR,rnsUsuarioAlterar);
+        mapaUsuario.put(EXCLUIR, rnsUsuarioExcluir);
 
         this.regrasNegocio.put(Usuario.class.getName(), mapaUsuario);
 
@@ -191,8 +206,8 @@ public class AbstractFachada {
 
         Map<String, List<IStrategy>> mapaEndereco = new HashMap<>();
 
-        mapaEndereco.put("SALVAR",rnsEnderecoSalvar);
-        mapaEndereco.put("ALTERAR",rnsEnderecoAlterar);
+        mapaEndereco.put(SALVAR,rnsEnderecoSalvar);
+        mapaEndereco.put(ALTERAR,rnsEnderecoAlterar);
 
         this.regrasNegocio.put(Endereco.class.getName(), mapaEndereco);
     }

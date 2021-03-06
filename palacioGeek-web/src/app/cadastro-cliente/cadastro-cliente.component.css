@@ -77,3 +77,8 @@ color: red;
 form#endereco{
 
 }
+.container{
+  background-color: purple;
+  border-radius: 20px;
+
+}

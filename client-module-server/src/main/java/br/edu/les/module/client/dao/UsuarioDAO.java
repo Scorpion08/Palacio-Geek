@@ -27,7 +27,6 @@ public class UsuarioDAO implements IDAO {
 	@Override
 	public EntidadeDominio salvar(EntidadeDominio entidade) {
 		Usuario usuario = (Usuario) entidade;
-		usuario.setTipoUsuario(tipoUsuarioRepository.findTipoUsuarioById(usuario.getTipoUsuario().getId()));
 		return usuarioRepository.save(usuario);
 	}
 
@@ -64,7 +63,6 @@ public class UsuarioDAO implements IDAO {
 
 	@Override
 	public void excluir(EntidadeDominio entidade) {
-		Usuario usuario = (Usuario) entidade;
-		usuarioRepository.deleteById(usuario.getId());
+		salvar(entidade);
 	}
 }
