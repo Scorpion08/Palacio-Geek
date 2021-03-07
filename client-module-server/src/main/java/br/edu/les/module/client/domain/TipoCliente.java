@@ -23,8 +23,4 @@ public class TipoCliente implements ITipoEntidade {
 
     @Column(name = "tcl_descricao")
     private String descricao;
-
-    @OneToMany(mappedBy = "tipoCliente")
-    @JsonIgnore
-    private List<Cliente> clientes;
 }
