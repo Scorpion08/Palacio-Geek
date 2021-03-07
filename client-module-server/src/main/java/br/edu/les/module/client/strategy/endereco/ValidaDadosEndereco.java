@@ -22,9 +22,14 @@ public class ValidaDadosEndereco implements IStrategy {
         if(entidade instanceof Cliente || entidade instanceof Endereco){
             if(entidade instanceof Cliente) {
                 List<Endereco> enderecos = ((Cliente) entidade).getEnderecos();
-                enderecos.forEach(endereco -> msg.append(validaDados(endereco)));
+                if(enderecos.size() > 0) {
+                    enderecos.forEach(endereco -> msg.append(validaDados(endereco)));
+                } else {
+                    msg.append("Nenhum dado de endereço foi enviado.");
+                }
             } else {
                 Endereco endereco = (Endereco) entidade;
+                validaDados(endereco);
             }
         }
         return msg.toString();

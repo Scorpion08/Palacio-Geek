@@ -6,6 +6,9 @@ import org.springframework.stereotype.Component;
 public class ValidadorString implements IValidator {
     @Override
     public String validar(Object objeto, String campo) {
-        return objeto == null || objeto.toString().trim().equals("") ? campo + "."  : "";
+        if(objeto == null || objeto.toString().trim().equals("")) {
+            return "O campo " + campo + " não está valido.";
+        }
+        return "";
     }
 }

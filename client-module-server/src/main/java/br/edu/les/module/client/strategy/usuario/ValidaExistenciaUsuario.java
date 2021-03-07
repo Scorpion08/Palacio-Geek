@@ -3,7 +3,6 @@ package br.edu.les.module.client.strategy.usuario;
 import br.edu.les.module.client.domain.EntidadeDominio;
 import br.edu.les.module.client.domain.Usuario;
 import br.edu.les.module.client.strategy.IStrategy;
-import br.edu.les.module.client.strategy.cliente.ValidaExistenciaPessoa;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
