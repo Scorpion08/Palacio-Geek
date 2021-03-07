@@ -18,7 +18,13 @@ public class PegaDadosUsuario implements IStrategy {
     public String processar(EntidadeDominio entidade) {
         if(entidade instanceof Usuario){
             Usuario usuario = (Usuario) entidade;
-            entidade = usuarioRepository.findById(usuario.getId()).get();
+            usuarioRepository.findById(usuario.getId()).map(usuarioEncontrado -> {
+                usuario.setCodigo(usuarioEncontrado.getCodigo());
+                usuario.setEmail(usuarioEncontrado.getEmail());
+                usuario.setSenha(usuarioEncontrado.getSenha());
+                usuario.setTipoUsuario(usuarioEncontrado.getTipoUsuario());
+                return usuario;
+            });
         }
         return null;
     }
