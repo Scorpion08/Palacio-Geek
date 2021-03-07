@@ -34,11 +34,13 @@ public class ValidaExistenciaUsuario implements IStrategy {
                 usuario = (Usuario) entidade;
             }
 
-            Usuario usuarioValidador = usuarioRepository.findByEmail(usuario.getEmail());
+            if(usuario != null) {
+                Usuario usuarioValidador = usuarioRepository.findByEmail(usuario.getEmail());
 
-            if(usuarioValidador != null){
-                if(!usuario.getEmail().equals(usuarioValidador.getEmail())){
-                    msg.append("Email já cadastrado.");
+                if(usuarioValidador != null){
+                    if(!usuario.getEmail().equals(usuarioValidador.getEmail())){
+                        msg.append("Email já cadastrado.");
+                    }
                 }
             }
 

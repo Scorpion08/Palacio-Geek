@@ -25,8 +25,10 @@ public class CriptografaSenha implements IStrategy {
             } else {
                 usuario = (Usuario) entidade;
             }
-            if(validadorString.validar(usuario.getSenha(), "senha") == ""){
-                usuario.setSenha(Criptografia.criptografar(usuario.getSenha()));
+            if(usuario != null) {
+                if(validadorString.validar(usuario.getSenha(), "senha").equals("")){
+                    usuario.setSenha(Criptografia.criptografar(usuario.getSenha()));
+                }
             }
         }
         return null;

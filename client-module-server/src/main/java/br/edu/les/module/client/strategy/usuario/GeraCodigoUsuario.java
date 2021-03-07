@@ -24,7 +24,9 @@ public class GeraCodigoUsuario implements IStrategy {
                 usuario = (Usuario) entidade;
             }
 
-            usuario.setCodigo(GeradorCodigo.gerarCodigoUsuario());
+            if(usuario != null) {
+                usuario.setCodigo(GeradorCodigo.gerarCodigoUsuario());
+            }
         }
         return null;
     }
