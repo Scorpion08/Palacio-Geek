@@ -7,22 +7,28 @@
   </h2>
   <br>
   <div id="divDadosPessoais">
-    <p id="nome">Nome Completo: </p>
-    <div ></div>
-    <p id="numeroTelefone">Nº de Celular: </p>
-    <div ></div>
-    <!--<p id="sexo">Sexo: <div ></div></p>
-    <p>CPF: <div id="cpf"></div></p>
-    <p>Email: <div id="email"></div></p>
-    <a href="./esqueceu_senha.html">Trocar senha</a>-->
+    <div>
+      <p id="nome">Nome Completo: {{cliente?.nome}} {{cliente?.sobrenome}}</p>
+    </div>
+    <div>
+      <p id="sexo">Sexo: {{cliente?.sexo}}</p>
+    </div>
+    <div id="cpf" *ngFor="let documento of cliente?.documentos">
+      <p>{{documento?.tipoDocumento?.nome}}: {{documento.codigo}}</p>
+      <p *ngIf="documento.validade">Data de validade: {{documento.validade | date: 'dd/MM/yyyy'}}</p>
+    </div>
+    <div id="email">
+      <p>Email: </p>
+    </div>
+    <a [routerLink]="['/esqueceu_senha']">Trocar senha</a>
   </div>
   <div class="vertical-menu">
     <a class="active">Opções</a>
-    <a href="enderecos_cadastrados.html">Endereços Cadastrados</a>
-    <a href="./cartoes_cadastrados.html">Cartões Cadastrados</a>
-    <a href="./altera_cliente.html">Alterar dados pessoais</a>
+    <a [routerLink]="['/enderecos_cadastrados']">Endereços Cadastrados</a>
+    <a [routerLink]="['/cartoes_cadastrados']">Cartões Cadastrados</a>
+    <a [routerLink]="['/alterar_cliente']">Alterar dados pessoais</a>
   </div>
   <br><br>
-  <button id="inativarConta" onclick="inativarConta();">Inativar conta</button>
+  <button id="inativarConta" onclick="(click)= inativarConta();">Inativar conta</button>
 
 </div>

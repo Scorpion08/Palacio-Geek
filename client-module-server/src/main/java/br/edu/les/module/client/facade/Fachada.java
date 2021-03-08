@@ -32,7 +32,7 @@ public class Fachada extends AbstractFachada implements IFachada {
 		mensagensDeErro.setLength(0);
 		String nmClasse = entidade.getClass().getName();
 		Map<String, List<IStrategy>> mapaEntidade = regrasNegocio.get(nmClasse);
-		List<IStrategy> rnsEntidade = mapaEntidade.get("SALVAR");
+		List<IStrategy> rnsEntidade = mapaEntidade.get(SALVAR);
 		
 		executarRegras(entidade, rnsEntidade);
 		
@@ -56,7 +56,7 @@ public class Fachada extends AbstractFachada implements IFachada {
         String nmClasse = entidade.getClass().getName();
 
         Map<String, List<IStrategy>> mapaEntidade = regrasNegocio.get(nmClasse);
-        List<IStrategy> rnsEntidade = mapaEntidade.get("ALTERAR");
+        List<IStrategy> rnsEntidade = mapaEntidade.get(ALTERAR);
 
         executarRegras(entidade, rnsEntidade);
 
@@ -80,7 +80,7 @@ public class Fachada extends AbstractFachada implements IFachada {
 		Map<String, List<IStrategy>> mapaEntidade = regrasNegocio.get(nmClasse);
 
 		if(mapaEntidade != null){
-			List<IStrategy> rnsEntidade = mapaEntidade.get("EXCLUIR");
+			List<IStrategy> rnsEntidade = mapaEntidade.get(EXCLUIR);
 			if(rnsEntidade != null){
 				executarRegras(entidade, rnsEntidade);
 			}
@@ -108,7 +108,7 @@ public class Fachada extends AbstractFachada implements IFachada {
 		Map<String, List<IStrategy>> mapaEntidade = regrasNegocio.get(nmClasse);
 
 		if(mapaEntidade != null){
-			List<IStrategy> rnsEntidade = mapaEntidade.get("CONSULTAR");
+			List<IStrategy> rnsEntidade = mapaEntidade.get(CONSULTAR);
 			if(rnsEntidade != null){
 				executarRegras(entidade, rnsEntidade);
 			}

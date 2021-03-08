@@ -4,10 +4,11 @@ import br.edu.les.module.client.dao.*;
 import br.edu.les.module.client.domain.*;
 import br.edu.les.module.client.strategy.IStrategy;
 import br.edu.les.module.client.strategy.documento.InsereClienteNoDocumento;
+import br.edu.les.module.client.strategy.documento.ValidaDadosDocumento;
 import br.edu.les.module.client.strategy.endereco.InsereClienteNoEndereco;
 import br.edu.les.module.client.strategy.endereco.ValidaExistenciaCidade;
 import br.edu.les.module.client.strategy.cliente.ValidaDadosCliente;
-import br.edu.les.module.client.strategy.cliente.ValidaExistenciaPessoa;
+import br.edu.les.module.client.strategy.cliente.ValidaExistenciaCliente;
 import br.edu.les.module.client.strategy.status.InsereStatus;
 import br.edu.les.module.client.strategy.tipo.cliente.InsereTipoCliente;
 import br.edu.les.module.client.strategy.tipo.usuario.InsereTipoUsuario;
@@ -26,6 +27,9 @@ public class AbstractFachada {
 
     public static final String SALVAR = "SALVAR";
     public static final String ALTERAR = "ALTERAR";
+    public static final String EXCLUIR = "EXCLUIR";
+    public static final String CONSULTAR = "CONSULTAR";
+
     protected Map<String, IDAO> daos = new HashMap<>();
 
     protected Map<String, Map<String, List<IStrategy>>> regrasNegocio = new HashMap<>();
@@ -66,7 +70,7 @@ public class AbstractFachada {
     private ValidaDadosCliente validaDadosCliente;
 
     @Autowired
-    private ValidaExistenciaPessoa validaExistenciaPessoa;
+    private ValidaExistenciaCliente validaExistenciaCliente;
 
     @Autowired
     private ValidaDadosUsuario validaDadosUsuario;
@@ -110,6 +114,15 @@ public class AbstractFachada {
     @Autowired
     private ValidaExistenciaCidade validaExistenciaCidade;
 
+    @Autowired
+    private InativaUsuario inativaUsuario;
+
+    @Autowired
+    private  PegaDadosUsuario pegaDadosUsuario;
+
+    @Autowired
+    private ValidaDadosDocumento validaDadosDocumento;
+
 
     public AbstractFachada(){}
 
@@ -131,9 +144,11 @@ public class AbstractFachada {
         List<IStrategy> rnsClienteSalvar = new ArrayList<>();
 
         rnsClienteSalvar.add(validaDadosCliente);
-        rnsClienteSalvar.add(validaExistenciaPessoa);
+        rnsClienteSalvar.add(validaExistenciaCliente);
         rnsClienteSalvar.add(validaDadosUsuario);
         rnsClienteSalvar.add(validaSenhasIguais);
+        rnsClienteSalvar.add(validaDadosEndereco);
+        rnsClienteSalvar.add(validaDadosDocumento);
         rnsClienteSalvar.add(validaExistenciaUsuario);
         rnsClienteSalvar.add(geraCodigoUsuario);
         rnsClienteSalvar.add(criptografarSenha);
@@ -171,10 +186,16 @@ public class AbstractFachada {
         rnsUsuarioAlterar.add(validaDadosUsuario);
         rnsUsuarioAlterar.add(criptografarSenha);
 
+        List<IStrategy> rnsUsuarioExcluir = new ArrayList<>();
+
+        rnsUsuarioExcluir.add(pegaDadosUsuario);
+        rnsUsuarioExcluir.add(inativaUsuario);
+
         Map<String, List<IStrategy>> mapaUsuario = new HashMap<>();
 
-        mapaUsuario.put("CONSULTAR",rnsUsuarioConsultar);
-        mapaUsuario.put("ALTERAR",rnsUsuarioAlterar);
+        mapaUsuario.put(CONSULTAR,rnsUsuarioConsultar);
+        mapaUsuario.put(ALTERAR,rnsUsuarioAlterar);
+        mapaUsuario.put(EXCLUIR, rnsUsuarioExcluir);
 
         this.regrasNegocio.put(Usuario.class.getName(), mapaUsuario);
 
@@ -191,8 +212,8 @@ public class AbstractFachada {
 
         Map<String, List<IStrategy>> mapaEndereco = new HashMap<>();
 
-        mapaEndereco.put("SALVAR",rnsEnderecoSalvar);
-        mapaEndereco.put("ALTERAR",rnsEnderecoAlterar);
+        mapaEndereco.put(SALVAR,rnsEnderecoSalvar);
+        mapaEndereco.put(ALTERAR,rnsEnderecoAlterar);
 
         this.regrasNegocio.put(Endereco.class.getName(), mapaEndereco);
     }

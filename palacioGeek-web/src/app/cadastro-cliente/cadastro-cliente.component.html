@@ -3,6 +3,11 @@
     <div class="col-md-4">
       <div class="form_main">
         <h4 class="heading"><strong>Cadastrar </strong> Usuário <span></span></h4>
+        <div *ngIf="menssagensDeErro.length > 0">
+          <div *ngFor="let messagemDeErro of menssagensDeErro">
+            <p>{{ messagemDeErro }}</p>
+          </div>
+        </div>
         <div class="form">
           <form id="usuario" name="newUsuario">
             <div id="div-nome"><input type="text" placeholder="Nome" name="nome" id="nome" [(ngModel)]="cliente.nome"
