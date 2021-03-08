@@ -22,6 +22,7 @@ import { PedidoFinalizadoComponent } from './pedido-finalizado/pedido-finalizado
 import { SelecionarFreteComponent } from './selecionar-frete/selecionar-frete.component';
 import { TrocaComponent } from './troca/troca.component';
 import { UsuarioLogadoComponent } from './usuario-logado/usuario-logado.component';
+import { AlterarClienteComponent } from './alterar-cliente/alterar-cliente.component';
 
 export const ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -29,6 +30,7 @@ export const ROUTES: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'cadastro_cliente' , component: CadastroClienteComponent},
   { path: 'admin' , component: AdminComponent},
+  { path: 'alterar_cliente', component: AlterarClienteComponent},
   { path: 'alterar_produto' , component: AlterarProdutoComponent},
   { path: 'remover_produto' , component: RemoverProdutoComponent},
   { path: 'editar_produto' , component: EditarProdutoComponent},

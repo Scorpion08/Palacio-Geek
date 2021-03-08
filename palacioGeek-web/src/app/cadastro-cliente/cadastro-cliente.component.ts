@@ -34,6 +34,8 @@ export class CadastroClienteComponent implements OnInit {
   public documento: Documento = new Documento();
   public endereco: Endereco = new Endereco();
 
+  public menssagensDeErro: string[] = [];
+
   constructor(private httpClientDefault: DefaultRequestService,
               private httpCadastroCliente: CadastroClienteService,
               private router: Router) { }
@@ -99,7 +101,7 @@ export class CadastroClienteComponent implements OnInit {
       }
     }, erro => {
       alert("Falha ao realizar comunicação com o servidor");
-    })
+    });
   }
 
   getCidadesDoEstado(): Cidade[]{
@@ -115,21 +117,24 @@ export class CadastroClienteComponent implements OnInit {
 
   montaCliente() {
     this.documento.tipoDocumento = this.tipoDocumento;
+    this.cliente.documentos?.pop();
     this.cliente.documentos?.push(this.documento);
     this.cidade.estado = this.estado;
     this.endereco.cidade = this.cidade;
     this.endereco.tipoEndereco = this.tipoEndereco;
+    this.cliente!.enderecos?.pop();
     this.cliente!.enderecos?.push(this.endereco);
   }
 
   enviaRequisicaoCadastro() {
+    this.menssagensDeErro = [];
     this.httpClientDefault.post<Resultado<Cliente>>('/clientes/cria', this.cliente).subscribe(resultado =>{
       if(resultado?.msg == null){
-        alert("Funfou");
+        this.router.navigate(['./login']);
       }else{
-        alert(resultado?.msg);
+        this.menssagensDeErro = resultado.msg.split(".");
       }
-    } , erro =>{
+    } , erro => {
       alert("Deu erro");
     });
   }

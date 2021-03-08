@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Cliente } from '../../model/Cliente.model';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  cliente?: Cliente;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.cliente = JSON.parse(sessionStorage.getItem("cliente")!)
   }
 
 }
