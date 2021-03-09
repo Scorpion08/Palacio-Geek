@@ -20,8 +20,8 @@
                 onkeypress="mascara('##.###.###/####-##',this,event,true)" maxlength="14" [(ngModel)]="documento.codigo"></div>
             <div id="div-tipo-documentos">
               <select [(ngModel)]="tipoDocumento" id="select-tipo-documentos" name="select-tipo-documentos">
-                <option id="select-tipo-documento" name="select-tipo-documento"
-                  *ngFor="let tipoDocumento of tipoDocumentos" [ngValue]="tipoDocumento">{{tipoDocumento.descricao}}
+                <option id="select-tipo-documento" name="select-tipo-documento"  *ngFor="let tipoDocumento of tipoDocumentos" [ngValue]="documento.tipoDocumento">
+                  {{tipoDocumento.descricao}}
                 </option>
               </select>
             </div>
@@ -42,3 +42,4 @@
       </div>
     </div>
   </div>
+</div>

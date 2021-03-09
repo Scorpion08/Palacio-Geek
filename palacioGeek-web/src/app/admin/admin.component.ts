@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DefaultRequestService } from '../../service/default-request.service';
-import { Cliente } from '../../model/Cliente.model';
+import { Cliente } from '../../model/cliente.model';
 import { Resultado } from 'src/model/resultado.model';
-import { Usuario } from '../../model/Usuario.model';
+import { Usuario } from '../../model/usuario.model';
 
 @Component({
   selector: 'app-admin',

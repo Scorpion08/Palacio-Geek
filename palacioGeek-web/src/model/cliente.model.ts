@@ -1,6 +1,6 @@
 import Documento from './Documento.model';
 import { TipoCliente } from './TipoCliente.model';
-import { Usuario } from './Usuario.model';
+import { Usuario } from './usuario.model';
 import { Endereco } from './Endereco.model';
 export class Cliente {
   id?: number;

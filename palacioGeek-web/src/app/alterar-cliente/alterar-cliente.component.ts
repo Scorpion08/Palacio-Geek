@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Documento from 'src/model/Documento.model';
-import { Usuario } from 'src/model/Usuario.model';
-import { Cliente } from '../../model/Cliente.model';
+import { Usuario } from 'src/model/usuario.model';
+import { Cliente } from '../../model/cliente.model';
 import { DefaultRequestService } from '../../service/default-request.service';
 import { Router } from '@angular/router';
 import { Estado } from '../../model/Estado.model';
@@ -33,15 +33,18 @@ export class AlterarClienteComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    // this.cliente = new Cliente();
-    // this.cliente.usuario = new Usuario();
-    // this.cliente.documentos = [];
-    // this.cliente.enderecos = [];
-    // this.endereco = new Endereco();
-    // this.endereco.cidade = new Cidade();
-    // this.endereco.cidade.estado = new Estado();
-    this.cliente = JSON.parse(sessionStorage.getItem("cliente")!);
-    this.getTipoDocumento();
+    // this.cliente = JSON.parse(sessionStorage.getItem("cliente")!);
+    this.getCliente();
+  }
+
+  getCliente() {
+    this.httpClientDefault.get<Resultado<Cliente>>("clientes/1").subscribe(resultado => {
+      if(resultado.msg == null) {
+        this.cliente = resultado.entidades[0];
+        this.documento = this.cliente.documentos![0];
+      }
+      this.getTipoDocumento();
+    });
   }
 
   getTipoDocumento() {
