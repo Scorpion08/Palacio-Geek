@@ -22,6 +22,7 @@ import { PedidoFinalizadoComponent } from './pedido-finalizado/pedido-finalizado
 import { SelecionarFreteComponent } from './selecionar-frete/selecionar-frete.component';
 import { TrocaComponent } from './troca/troca.component';
 import { UsuarioLogadoComponent } from './usuario-logado/usuario-logado.component';
+import { PagamentoConfirmadoComponent } from './pagamento-confirmado/pagamento-confirmado.component';
 
 export const ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -47,7 +48,8 @@ export const ROUTES: Routes = [
   { path: 'pedido_finalizado' , component: PedidoFinalizadoComponent},
   { path: 'selecionar_frete' , component: SelecionarFreteComponent},
   { path: 'troca' , component: TrocaComponent},
-  { path: 'usuario_logado' , component: UsuarioLogadoComponent}
-
+  { path: 'usuario_logado' , component: UsuarioLogadoComponent},
+  { path: 'pagamento_confirmado' , component: PagamentoConfirmadoComponent},
+  {path: 'grafico_vendas', component: GraficoVendasComponent}
 
 ];

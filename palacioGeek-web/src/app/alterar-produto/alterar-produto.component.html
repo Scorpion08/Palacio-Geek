@@ -1,1 +1,61 @@
 <p>alterar-produto works!</p>
+<div id="idAlterarProd" class="container-fluid">
+    <div id="top" class="row">
+        <div class="col-md-3">
+            <h2>Itens</h2>
+        </div>
+     
+        <div class="col-md-6">
+            <div class="input-group h2">
+                <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Itens">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+     
+        <div class="col-md-3">
+            <a href="alterar-produto.component.html" class="btn btn-primary pull-right h2">Novo Item</a>
+        </div>
+    </div> <!-- /#top -->
+
+    <hr />
+    <div id="list" class="row">
+        <div class="table-responsive col-md-12">
+            <table class="table table-striped" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Produto</th>
+                        <th>Categoria</th>
+                        <th>Qantidade</th>
+                        <th>Preco</th>
+                        <th class="actions">Ações</th>
+                     </tr>
+                </thead>
+                <tbody>
+     
+                    <tr>
+                        <td>1001</td>
+                        <td>A</td>
+                        <td>B</td>
+                        <td>100</td>
+                        <td>50.00</td>
+                        <td class="actions">
+                            <a class="btn btn-success btn-xs" href="view.html">Visualizar</a>
+                            <a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
+                            <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                        </td>
+                    </tr>
+     
+                </tbody>
+             </table>
+     
+         </div>
+     </div> <!-- /#list -->
+    <div id="bottom" class="row">
+    
+    </div> <!-- /#bottom -->
+</div>  <!-- /#main -->

@@ -23,4 +23,5 @@ public class UsuarioController {
     public ResponseEntity<?> alterar(@RequestBody Usuario usuario){
         return ResponseEntity.ok().body(fachada.alterar(usuario));
     }
+
 }

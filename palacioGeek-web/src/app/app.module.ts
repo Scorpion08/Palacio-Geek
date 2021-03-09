@@ -34,6 +34,8 @@ import { TrocaComponent } from './troca/troca.component';
 import { UsuarioLogadoComponent } from './usuario-logado/usuario-logado.component';
 import { AlterarClienteComponent } from './alterar-cliente/alterar-cliente.component';
 import { CadastroClienteService } from './cadastro-cliente/cadastro-cliente.service';
+import { PagamentoConfirmadoComponent } from './pagamento-confirmado/pagamento-confirmado.component';
+import { TrocaTransitoComponent } from './troca-transito/troca-transito.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,9 @@ import { CadastroClienteService } from './cadastro-cliente/cadastro-cliente.serv
     SelecionarFreteComponent,
     TrocaComponent,
     UsuarioLogadoComponent,
-    AlterarClienteComponent
+    AlterarClienteComponent,
+    PagamentoConfirmadoComponent,
+    TrocaTransitoComponent
   ],
   imports: [
     BrowserModule,
