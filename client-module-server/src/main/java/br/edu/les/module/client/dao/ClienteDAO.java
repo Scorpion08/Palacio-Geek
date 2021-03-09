@@ -3,6 +3,7 @@ package br.edu.les.module.client.dao;
 import br.edu.les.module.client.domain.Cliente;
 import br.edu.les.module.client.domain.EntidadeDominio;
 import br.edu.les.module.client.domain.Status;
+import br.edu.les.module.client.enums.StatusEnum;
 import br.edu.les.module.client.repository.ClienteRepository;
 import br.edu.les.module.client.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +55,7 @@ public class ClienteDAO implements IDAO {
 	@Override
 	public void excluir(EntidadeDominio entidade) {
 		Cliente cliente = (Cliente) entidade;
-		cliente.getUsuario().setStatus(Status.builder().id(2).build());
+		cliente.getUsuario().setStatus(StatusEnum.INATIVO.getObject());
 		clienteRepository.save(cliente);
  	}
 }
