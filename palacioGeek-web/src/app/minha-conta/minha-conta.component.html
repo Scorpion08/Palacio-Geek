@@ -18,17 +18,19 @@
       <p *ngIf="documento.validade">Data de validade: {{documento.validade | date: 'dd/MM/yyyy'}}</p>
     </div>
     <div id="email">
-      <p>Email: </p>
+      <p>Email: {{cliente?.usuario?.email}}</p>
     </div>
     <a [routerLink]="['/esqueceu_senha']">Trocar senha</a>
   </div>
   <div class="vertical-menu">
-    <a class="active">Opções</a>
-    <a [routerLink]="['/enderecos_cadastrados']">Endereços Cadastrados</a>
-    <a [routerLink]="['/cartoes_cadastrados']">Cartões Cadastrados</a>
-    <a [routerLink]="['/alterar_cliente']">Alterar dados pessoais</a>
+    <li>
+      <ul>Opções</ul>
+      <ul><a [routerLink]="['/enderecos_cadastrados']">Endereços Cadastrados</a></ul>
+      <ul><a [routerLink]="['/cartoes_cadastrados']">Cartões Cadastrados</a></ul>
+      <ul><a [routerLink]="['/alterar_cliente']">Alterar dados pessoais</a></ul>
+  </li>
   </div>
   <br><br>
-  <button id="inativarConta" onclick="(click)= inativarConta();">Inativar conta</button>
+  <button id="inativarConta" onclick="(click)= inativarConta(cliente?.id);">Inativar conta</button>
 
 </div>
