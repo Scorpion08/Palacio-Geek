@@ -1,8 +1,8 @@
-import { Column, Entity, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { Status } from "./Status";
 import { TipoUsuario } from "./TipoUsuario";
 
-@Entity("usuarios")
+@Entity("usuario")
 class Usuario {
 
     @PrimaryGeneratedColumn({name: "usu_id"})
@@ -16,10 +16,12 @@ class Usuario {
 
 	reSenha: string;
 
-	@ManyToOne(() => Status)
+	@ManyToOne(type => Status, {eager: true})
+    @JoinColumn({name: "usu_status_id"})
 	status: Status;
 
-	@ManyToOne(() => TipoUsuario)
+	@ManyToOne(type => TipoUsuario, tipoUsuario => tipoUsuario.usuarios, {eager: true})
+    @JoinColumn({name: "usu_tipo_usuario_id"})
     tipoUsuario: TipoUsuario;
 }
 

@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryColumn } from "typeorm";
 import { Documento } from "./Documento";
 import { Endereco } from "./Endereco";
 import { TipoCliente } from "./TipoCliente";
@@ -16,22 +16,24 @@ class Cliente {
 	@Column({name: "cli_sobrenome"})
 	sobrenome: string;
 
-	@Column({name: "cli_data_nascimento"})
+	@CreateDateColumn({name: "cli_data_nascimento"})
 	dataNascimento: Date;
 
 	@Column({name: "cli_sexo"})
 	sexo: string;
 
-	@ManyToOne(() => TipoCliente)
-	tipoCliente = TipoCliente;
+	@ManyToOne(type => TipoCliente, tipoCliente => tipoCliente.clientes, {eager: true})
+	@JoinColumn({name: "cli_tcl_id"})
+	tipoCliente: TipoCliente;
 
-	@OneToOne(() => Usuario)
+	@OneToOne(type => Usuario, {eager: true})
+	@JoinColumn({name: "cli_usu_id"})
 	usuario: Usuario;
 
-	@OneToMany(() => Endereco, (endereco: Endereco) => endereco.cliente)
+	@OneToMany(type => Endereco, enderecos => enderecos.cliente, {eager: true})
     enderecos: Endereco[];
 
-	@OneToMany(() => Documento, (documento: Documento) => documento.cliente)
+	@OneToMany(type => Documento, documentos => documentos.cliente, {eager: true})
 	documentos: Documento[];
 
 }

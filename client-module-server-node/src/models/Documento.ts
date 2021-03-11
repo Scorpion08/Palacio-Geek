@@ -15,11 +15,11 @@ class Documento {
     @Column({name: "doc_data_validade"})
     dataValidade: Date;
 
-    @ManyToOne(() => TipoEndereco)
+    @ManyToOne(type => TipoEndereco, {eager: true})
     @JoinColumn({name: "doc_tdo_id"})
     tipoDocumento: TipoDocumento;
 
-    @OneToOne(() => Cliente)
+    @OneToOne(type => Cliente, cliente => cliente.tipoCliente)
     @JoinColumn({name: "doc_cli_id"})
     cliente: Cliente;
 }

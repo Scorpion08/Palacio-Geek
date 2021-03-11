@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Endereco } from "./Endereco";
 import { Estado } from "./Estado";
 
@@ -11,10 +11,11 @@ class Cidade {
     @Column({name: "cid_descricao"})
     descricao: string;
 
-    @ManyToOne(() => Estado, (estado: Estado) => estado.cidades)
+    @ManyToOne(type => Estado, estado => estado.cidades, {eager: true})
+    @JoinColumn({name: "cid_estado_id"})
     estado: Estado;
 
-    @OneToMany(() => Endereco, (endereco: Endereco) => endereco.cidade)
+    @OneToMany(type => Endereco, enderecos => enderecos.cidade)
     enderecos: Endereco[];
 }
 

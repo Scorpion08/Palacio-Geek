@@ -10,7 +10,7 @@ class Estado {
     @Column({name: "est_descricao"})
     descricao: string;
 
-    @OneToMany(() => Cidade, (cidade: Cidade) => cidade.estado)
+    @OneToMany(type => Cidade, cidades => cidades.estado)
     cidades: Cidade[];
 }
 

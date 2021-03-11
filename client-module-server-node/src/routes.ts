@@ -1,9 +1,10 @@
 import {Router, Request, Response} from 'express';
+import { ClienteController } from './controllers/ClienteController';
 
 const router = Router();
 
-router.get("/", (request: Request, response: Response)=>{
-    response.send("A");
-});
+const clienteController = new ClienteController();
+
+router.get("/clientes", clienteController.listaClientes);
 
 export { router };

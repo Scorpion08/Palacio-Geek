@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Usuario } from './Usuario';
 
 @Entity({name: "tipo_usuario"})
 class TipoUsuario {
@@ -9,6 +10,8 @@ class TipoUsuario {
     @Column({name: "tus_nome_tipo"})
     tipo: string;
 
+    @OneToMany(type => Usuario, tipoCliente => TipoUsuario)
+    usuarios: Usuario[];
 }
 
 export { TipoUsuario }
