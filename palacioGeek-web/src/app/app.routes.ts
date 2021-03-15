@@ -23,33 +23,38 @@ import { SelecionarFreteComponent } from './selecionar-frete/selecionar-frete.co
 import { TrocaComponent } from './troca/troca.component';
 import { UsuarioLogadoComponent } from './usuario-logado/usuario-logado.component';
 import { PagamentoConfirmadoComponent } from './pagamento-confirmado/pagamento-confirmado.component';
+import { TrocaTransitoComponent } from './troca-transito/troca-transito.component';
+import { AlterarClienteComponent } from './alterar-cliente/alterar-cliente.component';
 
 export const ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'cadastro_cliente' , component: CadastroClienteComponent},
-  { path: 'admin' , component: AdminComponent},
-  { path: 'alterar_produto' , component: AlterarProdutoComponent},
-  { path: 'remover_produto' , component: RemoverProdutoComponent},
-  { path: 'editar_produto' , component: EditarProdutoComponent},
-  { path: 'grafico_vendas' , component: GraficoVendasComponent},
-  { path: 'cadastrar_cartao' , component: CadastrarCartaoComponent},
-  { path: 'cadastrar_produto' , component: CadastrarProdutoComponent},
-  { path: 'carrinho' , component: CarrinhoComponent},
-  { path: 'cartoes_cadastrados' , component: CartoesCadastradosComponent},
-  { path: 'endereco' , component: EnderecoComponent},
-  { path: 'enderecos_cadastrados' , component: EnderecosCadastradosComponent},
-  { path: 'esqueceu_senha' , component: EsqueceuSenhaComponent},
-  { path: 'forma_de_pagamento' , component: FormaDePagamentoComponent},
-  { path: 'inserir_produto' , component: InserirProdutoComponent},
-  { path: 'meus_pedidos' , component: MeusPedidosComponent},
-  { path: 'minha_conta' , component: MinhaContaComponent},
-  { path: 'pedido_finalizado' , component: PedidoFinalizadoComponent},
-  { path: 'selecionar_frete' , component: SelecionarFreteComponent},
-  { path: 'troca' , component: TrocaComponent},
-  { path: 'usuario_logado' , component: UsuarioLogadoComponent},
-  { path: 'pagamento_confirmado' , component: PagamentoConfirmadoComponent},
-  {path: 'grafico_vendas', component: GraficoVendasComponent}
+  { path: 'cadastro_cliente', component: CadastroClienteComponent },
+  { path: 'alterar_cliente', component: AlterarClienteComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'alterar_produto', component: AlterarProdutoComponent },
+  { path: 'remover_produto', component: RemoverProdutoComponent },
+  { path: 'editar_produto', component: EditarProdutoComponent },
+  { path: 'grafico_vendas', component: GraficoVendasComponent },
+  { path: 'cadastrar_cartao', component: CadastrarCartaoComponent },
+  { path: 'cadastrar_produto', component: CadastrarProdutoComponent },
+  { path: 'carrinho', component: CarrinhoComponent },
+  { path: 'cartoes_cadastrados', component: CartoesCadastradosComponent },
+  { path: 'endereco', component: EnderecoComponent },
+  { path: 'enderecos_cadastrados', component: EnderecosCadastradosComponent },
+  { path: 'esqueceu_senha', component: EsqueceuSenhaComponent },
+  { path: 'forma_de_pagamento', component: FormaDePagamentoComponent },
+  { path: 'inserir_produto', component: InserirProdutoComponent },
+  { path: 'meus_pedidos', component: MeusPedidosComponent },
+  { path: 'minha_conta', component: MinhaContaComponent },
+  { path: 'pedido_finalizado', component: PedidoFinalizadoComponent },
+  { path: 'selecionar_frete', component: SelecionarFreteComponent },
+  { path: 'troca', component: TrocaComponent },
+  { path: 'usuario_logado', component: UsuarioLogadoComponent },
+  { path: 'pagamento_confirmado', component: PagamentoConfirmadoComponent },
+  { path: 'grafico_vendas', component: GraficoVendasComponent },
+  { path: 'troca_transito', component: TrocaTransitoComponent }
+
 
 ];

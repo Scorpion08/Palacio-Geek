@@ -1,30 +1,40 @@
 <h1>Endereços Cadastrados</h1>
     <br><br>
-    <form action="./selecionar_frete.html">
-      <table>
-          <tr>
-              <th>Rua</th>
-              <th>Nº</th>
-              <th>Bairro</th>
-              <th>Cidade</th>
-              <th>Estado</th>
-              <th>CEP</th>
-          </tr>
-          <tr>
-              <td>Rua Alberto Pezzuol</td>
-              <td>300</td>
-              <td>Jardim Carlos Cooper</td>
-              <td>Suzano</td>
-              <td>SP</td>
-              <td>08664-280</td>
-          </tr>
-      </table>
-      <input type="submit" value="Prosseguir">
-    </form>
-    <div>
-      <form action="./endereco.html" id="btnCadastrarEndereço">
-        <input type="submit" value="Cadastrar Endereço">
-      </form>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Rua</th>
+          <th scope="col">Nº</th>
+          <th scope="col">Bairro</th>
+          <th scope="col">Cidade</th>
+          <th scope="col">Estado</th>
+          <th scope="col">CEP</th>
+          <th scope="col">Complemento</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Alberto Pezzuol</td>
+          <td>300</td>
+          <td>Jd. Carlos Cooper</td>
+          <td>Suzano</td>
+          <td>SP</td>
+          <td>0866480</td>
+          <td>Casa</td>
+          <td scope="col"><button>Alterar</button></td>
+          <td scope="col"><button>Excluir</button></td>
+        </tr>
+      </tbody>
+    </table>
+      <button>Prosseguir</button>
+      <button [routerLink]="['/endereco']">Cadastrar Endereço</button>
+
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
-    </div>
+
+
