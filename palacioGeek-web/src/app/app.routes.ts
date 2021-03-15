@@ -23,7 +23,6 @@ import { SelecionarFreteComponent } from './selecionar-frete/selecionar-frete.co
 import { TrocaComponent } from './troca/troca.component';
 import { UsuarioLogadoComponent } from './usuario-logado/usuario-logado.component';
 import { PagamentoConfirmadoComponent } from './pagamento-confirmado/pagamento-confirmado.component';
-import { BoletoComponent } from './boleto/boleto.component';
 
 export const ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -51,7 +50,6 @@ export const ROUTES: Routes = [
   { path: 'troca' , component: TrocaComponent},
   { path: 'usuario_logado' , component: UsuarioLogadoComponent},
   { path: 'pagamento_confirmado' , component: PagamentoConfirmadoComponent},
-  { path: 'grafico_vendas', component: GraficoVendasComponent},
-  { path: 'boleto', component: BoletoComponent}
+  {path: 'grafico_vendas', component: GraficoVendasComponent}
 
 ];

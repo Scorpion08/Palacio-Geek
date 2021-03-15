@@ -36,7 +36,6 @@ import { AlterarClienteComponent } from './alterar-cliente/alterar-cliente.compo
 import { CadastroClienteService } from './cadastro-cliente/cadastro-cliente.service';
 import { PagamentoConfirmadoComponent } from './pagamento-confirmado/pagamento-confirmado.component';
 import { TrocaTransitoComponent } from './troca-transito/troca-transito.component';
-import { BoletoComponent } from './boleto/boleto.component';
 
 @NgModule({
   declarations: [
@@ -68,8 +67,7 @@ import { BoletoComponent } from './boleto/boleto.component';
     UsuarioLogadoComponent,
     AlterarClienteComponent,
     PagamentoConfirmadoComponent,
-    TrocaTransitoComponent,
-    BoletoComponent
+    TrocaTransitoComponent
   ],
   imports: [
     BrowserModule,
