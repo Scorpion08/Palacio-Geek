@@ -2,13 +2,12 @@
     <div id="divPag">
         <div class="vertical-menu">
             <a class="active">Opções</a>
-            <a  href="#">Cadastrar Produtos</a>
+            <a [routerLink]="['/cadastrar_produto']">Cadastrar Produtos</a>
             <a [routerLink]="['/alterar_produto']">Alterar Produtos</a>
-            <a [routerLink]="['/remover_produto']" >Deletar produtos</a>
-            <a [routerLink]="['/editar_produtos']">Editar produtos</a>
-            <a href="#">Cupom de desconto</a>
-            <a [routerLink]="['/grafico_vendas']" >Vendas</a>
+            <a [routerLink]="['/gerar_cupom']">Cupom de desconto</a>
         </div>
         <div id="divConteudo">
-
+          <h1>Vendas</h1>
+          <img src="../../assets/img/excel-charts-create-trendline.png">
         </div>
+        <br><br><br><br>

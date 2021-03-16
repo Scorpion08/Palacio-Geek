@@ -36,6 +36,7 @@ import { AlterarClienteComponent } from './alterar-cliente/alterar-cliente.compo
 import { CadastroClienteService } from './cadastro-cliente/cadastro-cliente.service';
 import { PagamentoConfirmadoComponent } from './pagamento-confirmado/pagamento-confirmado.component';
 import { TrocaTransitoComponent } from './troca-transito/troca-transito.component';
+import { GerarCupomComponent } from './gerar-cupom/gerar-cupom.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { TrocaTransitoComponent } from './troca-transito/troca-transito.componen
     UsuarioLogadoComponent,
     AlterarClienteComponent,
     PagamentoConfirmadoComponent,
-    TrocaTransitoComponent
+    TrocaTransitoComponent,
+    GerarCupomComponent
   ],
   imports: [
     BrowserModule,

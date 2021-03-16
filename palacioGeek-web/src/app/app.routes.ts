@@ -25,6 +25,7 @@ import { UsuarioLogadoComponent } from './usuario-logado/usuario-logado.componen
 import { PagamentoConfirmadoComponent } from './pagamento-confirmado/pagamento-confirmado.component';
 import { TrocaTransitoComponent } from './troca-transito/troca-transito.component';
 import { AlterarClienteComponent } from './alterar-cliente/alterar-cliente.component';
+import { GerarCupomComponent } from './gerar-cupom/gerar-cupom.component';
 
 export const ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -54,7 +55,8 @@ export const ROUTES: Routes = [
   { path: 'usuario_logado', component: UsuarioLogadoComponent },
   { path: 'pagamento_confirmado', component: PagamentoConfirmadoComponent },
   { path: 'grafico_vendas', component: GraficoVendasComponent },
-  { path: 'troca_transito', component: TrocaTransitoComponent }
+  { path: 'troca_transito', component: TrocaTransitoComponent },
+  { path: 'gerar_cupom', component: GerarCupomComponent }
 
 
 ];
