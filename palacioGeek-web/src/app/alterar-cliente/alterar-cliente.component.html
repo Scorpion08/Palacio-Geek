@@ -1,8 +1,10 @@
+<br><br><br><br><br>
+<script src="../../../../frontend/js/mascara.min.js"></script>
 <div class="container">
   <div class="row">
     <div class="col-md-4">
       <div class="form_main">
-        <h4 class="heading"><strong>Cadastrar </strong> Usuário <span></span></h4>
+        <h4 class="heading"><strong>Alterar </strong> Cliente <span></span></h4>
         <div class="form">
           <form id="usuario" name="newUsuario">
             <div id="div-nome"><input type="text" placeholder="Nome" name="nome" id="nome" [(ngModel)]="cliente.nome"
@@ -23,11 +25,13 @@
             </div>
             <div id="div-sexo">
               <input type="radio" name='sexo' [(ngModel)]="cliente.sexo" id="cad_sexo_m" value="M" />
-              <label for="cad_sexo_m">Masculino</label>
+              <label for="cad_sexo_m">Masculino </label>
+
               <input type="radio" name='sexo' [(ngModel)]="cliente.sexo" id="cad_sexo_f" value="F" />
-              <label for="cad_sexo_f">Feminino</label>
+              <label for="cad_sexo_f">Feminino </label>
+
               <input type="radio" name='sexo' [(ngModel)]="cliente.sexo" id="cad_sexo_n_i" value="N" />
-              <label for="cad_sexo_n_i">Não informar</label>
+              <label for="cad_sexo_n_i">Não informar </label>
             </div>
             <div id="div-dataNasc"><input type="text" placeholder="Data de Nascimento" name="dataNasc" id="dataNasc"
                 class="txt" onkeypress="mascara('##/##/####',this,event,true)" maxlength="10"
