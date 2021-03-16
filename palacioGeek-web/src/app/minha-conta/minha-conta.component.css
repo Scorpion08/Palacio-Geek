@@ -11,11 +11,25 @@
       height: 150px;
       border-radius: 100px;
   }
-  #divDadosPessoais{
-      height: 25px;
-      width: 800px;
-      float: left;
-      padding-left: 500px;
+  .vertical-menu {
+    width: 200px;
+  }
+
+  .vertical-menu a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+  }
+
+  .vertical-menu a:hover {
+    background-color: #ccc;
+  }
+
+  .vertical-menu a.active {
+    background-color: #FCC302;
+    color: white;
   }
 
   #inativarConta{

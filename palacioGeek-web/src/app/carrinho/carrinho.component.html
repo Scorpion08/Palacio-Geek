@@ -1,9 +1,31 @@
+<br><br><br><br>
 <div id=divCarrinho>
-    <p><input type="checkbox" >Caneca Bob Esponja<p>
-        <p>R$39,90</p>
-        <p>Caneca de porcelana branca com estampa personalizada</p>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Produto</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Preço</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><input type="radio" id="produto" name="produto" value="produto">
+          <img src="../../assets/img/0005-bob-esponja-versao-04-coyote-geek.jpg" alt="Caneca Bob esponja" id="img">
+        </th>
+        <td>Caneca Bob Esponja</td>
+        <td>Caneca de porcelana branca com estampa personalizada</td>
+        <td>R$39,90</td>
+      </tr>
+    </tbody>
+  </table>
+
+    <p><p>
+        <p></p>
+        <p></p>
     <div id="divImg">
-        <img src="../../assets/img/0005-bob-esponja-versao-04-coyote-geek.jpg" alt="Caneca Bob esponja">
+
         <div style="padding-left: 500px;">
             <button>Remover do carrinho</button>
         </div>
@@ -14,13 +36,11 @@
 <br>
 <div id="divBotoes">
     <form >
-        <input type="submit" value="Prosseguir" id="btnComprar" [routerLink]="['/forma_de_pagamento']">
+        <button id="btnComprar" [routerLink]="['/forma_de_pagamento']">Prosseguir</button>
+        <button [routerLink]="['/home']">Continuar Comprando</button>
         <br><br>
-        <input type="text" placeholder="Cupom de desconto">
+        <input type="text" placeholder="Cupom de desconto"><br><br>
         <button>Inserir</button>
     </form>
     <br>
-    <form id="btnContinuarComprando">
-        <input type="submit" value="Continuar Comprando" [routerLink]="['/home']">
-    </form>
 </div>

@@ -1,3 +1,5 @@
+<br><br><br><br><br>
+<script src="../../../../frontend/js/mascara.min.js"></script>
 <div class="container">
   <div class="row">
     <div class="col-md-4">
@@ -27,17 +29,47 @@
             </div>
             <div id="div-sexo">
               <input type="radio" name='sexo' [(ngModel)]="cliente.sexo" id="cad_sexo_m" value="M" />
-              <label for="cad_sexo_m">Masculino</label>
+              <label for="cad_sexo_m">Masculino </label>
+
               <input type="radio" name='sexo' [(ngModel)]="cliente.sexo" id="cad_sexo_f" value="F" />
-              <label for="cad_sexo_f">Feminino</label>
+              <label for="cad_sexo_f">Feminino </label>
+
               <input type="radio" name='sexo' [(ngModel)]="cliente.sexo" id="cad_sexo_n_i" value="N" />
-              <label for="cad_sexo_n_i">Não informar</label>
+              <label for="cad_sexo_n_i">Não informar </label>
             </div>
             <div id="div-dataNasc"><input type="text" placeholder="Data de Nascimento" name="dataNasc" id="dataNasc"
                 class="txt" onkeypress="mascara('##/##/####',this,event,true)" maxlength="10"
                 [(ngModel)]="cliente.dataNascimento"></div>
             <div><input type="button" value="Cadastrar" name="submit" class="txt2" (click)="atualizaCliente()"></div>
           </form>
+<<<<<<< HEAD
+=======
+          <div class="form" id="endereco">
+            <form action="#" method="post" id="endereco" name="newEndereco">
+              <input type="text" placeholder="Rua" name="rua" class="txt" [(ngModel)]="endereco.logradouro">
+              <input type="text" placeholder="Nº" name="numero" class="txt" [(ngModel)]="endereco.numero"><br>
+              <input type="text" placeholder="Bairro" name="bairro" class="txt" id="bairro"
+                [(ngModel)]="endereco.bairro">
+              <div id="div-estados">
+                <select [(ngModel)]="estado" id="select-estados" name="select-estados">
+                  <option id="select-estado" name="select-estado" *ngFor="let estado of estados" [ngValue]="estado">
+                    {{estado.descricao}}</option>
+                </select>
+              </div>
+              <div *ngIf="estado != null" id="div-cidades">
+                <select [(ngModel)]="cidade" id="select-cidades" name="select-cidades">
+                  <option id="select-cidade" name="select-cidade" *ngFor="let cidade of getCidadesDoEstado()"
+                    [ngValue]="cidade">{{cidade.descricao}}</option>
+                </select>
+              </div>
+              <input type="text" placeholder="CEP" name="cep" class="txt"
+                onkeypress="mascara('#####-###',this,event,true)" maxlength="9" [(ngModel)]="endereco.cep">
+              <input type="text" placeholder="Complemento" name="complemento" class="txt"
+                [(ngModel)]="endereco.complemento">
+              <div><input type="button" value="Alterar" name="submit" class="txt2" (click)="cadastraCliente()"></div>
+            </form>
+          </div>
+>>>>>>> develop
         </div>
       </div>
     </div>
