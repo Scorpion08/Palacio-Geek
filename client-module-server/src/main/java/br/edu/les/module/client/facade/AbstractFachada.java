@@ -161,8 +161,7 @@ public class AbstractFachada {
         List<IStrategy> rnsClienteAlterar = new ArrayList<>();
 
         rnsClienteAlterar.add(validaDadosCliente);
-        rnsClienteAlterar.add(validaDadosUsuario);
-        rnsClienteAlterar.add(validaExistenciaUsuario);
+        rnsClienteAlterar.add(validaDadosDocumento);
 
         Map<String,List<IStrategy>> mapaCliente = new HashMap<>();
 
