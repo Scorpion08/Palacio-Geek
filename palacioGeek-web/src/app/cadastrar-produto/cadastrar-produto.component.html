@@ -8,9 +8,10 @@
               <form action="#" method="post" id="endereco" name="newEndereco">
                   <input type="text"  placeholder="Nome do produto"  name="produto" class="txt">
                   <input type="text"  placeholder="Descrição" name="descricao" class="txt"><br>
-                  <input type="text"  placeholder="Preço" name="preco" class="txt" id="bairro">
+                  <input type="text"  placeholder="Preço" name="preco" class="txt" >
+                  <input type="text"  placeholder="Estoque" name="estoque" class="txt" >
                   <button>Inserir Imagem</button><br><br>
-                  <button>Cadastrar Produto</button>
+                  <button [routerLink]="['/admin']">Cadastrar Produto</button>
               </form>
           </div>
           </div>

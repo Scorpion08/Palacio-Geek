@@ -26,6 +26,7 @@ import { PagamentoConfirmadoComponent } from './pagamento-confirmado/pagamento-c
 import { TrocaTransitoComponent } from './troca-transito/troca-transito.component';
 import { AlterarClienteComponent } from './alterar-cliente/alterar-cliente.component';
 import { GerarCupomComponent } from './gerar-cupom/gerar-cupom.component';
+import { AlterarCartaoComponent } from './alterar-cartao/alterar-cartao.component';
 
 export const ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -56,7 +57,8 @@ export const ROUTES: Routes = [
   { path: 'pagamento_confirmado', component: PagamentoConfirmadoComponent },
   { path: 'grafico_vendas', component: GraficoVendasComponent },
   { path: 'troca_transito', component: TrocaTransitoComponent },
-  { path: 'gerar_cupom', component: GerarCupomComponent }
+  { path: 'gerar_cupom', component: GerarCupomComponent },
+  { path: 'alterar_cartao', component: AlterarCartaoComponent }
 
 
 ];
