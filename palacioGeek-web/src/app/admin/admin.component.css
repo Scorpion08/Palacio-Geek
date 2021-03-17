@@ -1,3 +1,56 @@
 #divConteudo{
   background-color: white;
 }
+#divPerfil{
+  width: 500px;
+  height: 738px;
+
+  }
+
+  div#foto{
+      background-image: url('../../assets/img/cat.jpg');
+      background-size: 150px 150px;
+      width: 150px;
+      height: 150px;
+      border-radius: 100px;
+  }
+  .vertical-menu {
+    width: 200px;
+  }
+
+  .vertical-menu a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+  }
+
+  .vertical-menu a:hover {
+    background-color: #ccc;
+  }
+
+  .vertical-menu a.active {
+    background-color: #FCC302;
+    color: white;
+  }
+
+  #inativarConta{
+      font-weight: bolder;
+      background-color:red;
+      color: white;
+      height: 50px;
+      border: 0px;
+      border-radius: 10px;
+  }
+
+  #divDadosPessoais{
+    height: 25px;
+    width: 800px;
+    float: left;
+    padding-left: 500px;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* fraction*/
+}
