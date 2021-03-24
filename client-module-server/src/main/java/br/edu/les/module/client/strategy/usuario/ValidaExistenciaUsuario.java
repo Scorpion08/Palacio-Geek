@@ -3,7 +3,6 @@ package br.edu.les.module.client.strategy.usuario;
 import br.edu.les.module.client.domain.EntidadeDominio;
 import br.edu.les.module.client.domain.Usuario;
 import br.edu.les.module.client.strategy.IStrategy;
-import br.edu.les.module.client.strategy.cliente.ValidaExistenciaPessoa;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -34,11 +33,13 @@ public class ValidaExistenciaUsuario implements IStrategy {
                 usuario = (Usuario) entidade;
             }
 
-            Usuario usuarioValidador = usuarioRepository.findByEmail(usuario.getEmail());
+            if(usuario != null) {
+                Usuario usuarioValidador = usuarioRepository.findByEmail(usuario.getEmail());
 
-            if(usuarioValidador != null){
-                if(!usuario.getEmail().equals(usuarioValidador.getEmail())){
-                    msg.append("Email já cadastrado.");
+                if(usuarioValidador != null){
+                    if(!usuario.getEmail().equals(usuarioValidador.getEmail())){
+                        msg.append("Email já cadastrado.");
+                    }
                 }
             }
 

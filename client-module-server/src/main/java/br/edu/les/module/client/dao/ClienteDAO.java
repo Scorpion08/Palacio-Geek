@@ -1,14 +1,16 @@
 package br.edu.les.module.client.dao;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import br.edu.les.module.client.domain.*;
+import br.edu.les.module.client.domain.Cliente;
+import br.edu.les.module.client.domain.EntidadeDominio;
+import br.edu.les.module.client.domain.Status;
+import br.edu.les.module.client.enums.StatusEnum;
+import br.edu.les.module.client.repository.ClienteRepository;
+import br.edu.les.module.client.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.les.module.client.repository.ClienteRepository;
-import br.edu.les.module.client.repository.UsuarioRepository;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ClienteDAO implements IDAO {
@@ -32,19 +34,16 @@ public class ClienteDAO implements IDAO {
 	@Override
 	public List<EntidadeDominio> consultar(EntidadeDominio entidade) {
 
-		List<EntidadeDominio> pessoas = new ArrayList<>();
+		List<EntidadeDominio> clientes = new ArrayList<>();
 		Cliente cliente = (Cliente) entidade;
 
 		if(cliente.getId() != null){
-			pessoas.add(clienteRepository.findById(cliente.getId()).get());
-			return pessoas;
+			clienteRepository.findById(cliente.getId()).ifPresent(clientes::add);
+		} else {
+			clientes.addAll(clienteRepository.findAll());
 		}
 
-		clienteRepository.findAll().forEach(clienteEncontrado -> {
-			pessoas.add(clienteEncontrado);
-		});
-
-		return pessoas;
+		return clientes;
 	}
 
 	@Override
@@ -56,7 +55,7 @@ public class ClienteDAO implements IDAO {
 	@Override
 	public void excluir(EntidadeDominio entidade) {
 		Cliente cliente = (Cliente) entidade;
-		cliente.getUsuario().setStatus(Status.builder().id(2).build());
+		cliente.getUsuario().setStatus(StatusEnum.INATIVO.getObject());
 		clienteRepository.save(cliente);
  	}
 }

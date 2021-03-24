@@ -27,7 +27,6 @@ public class UsuarioDAO implements IDAO {
 	@Override
 	public EntidadeDominio salvar(EntidadeDominio entidade) {
 		Usuario usuario = (Usuario) entidade;
-		usuario.setTipoUsuario(tipoUsuarioRepository.findTipoUsuarioById(usuario.getTipoUsuario().getId()));
 		return usuarioRepository.save(usuario);
 	}
 
@@ -38,17 +37,13 @@ public class UsuarioDAO implements IDAO {
 		Usuario usuario = (Usuario) entidade;
 
 		if(usuario.getId() != null){
-			usuarios.add(clienteRepository.findClienteById(usuario.getId()));
-			return usuarios;
-		}
-
-		if(usuario.getEmail() != null) {
+			usuarios.add(usuarioRepository.findUsuarioById(usuario.getId()));
+		} else if(usuario.getEmail() != null) {
 			usuario = usuarioRepository.findByEmail(usuario.getEmail());
-			usuarios.add(clienteRepository.findClienteById(usuario.getId()));
-			return usuarios;
+			usuarios.add(clienteRepository.findClienteByUsuarioId(usuario.getId()));
+		} else {
+			usuarios.addAll(usuarioRepository.findAll());
 		}
-
-		usuarioRepository.findAll().forEach(p -> usuarios.add(p));
 
 		return usuarios;
 	}
@@ -64,7 +59,6 @@ public class UsuarioDAO implements IDAO {
 
 	@Override
 	public void excluir(EntidadeDominio entidade) {
-		Usuario usuario = (Usuario) entidade;
-		usuarioRepository.deleteById(usuario.getId());
+		salvar(entidade);
 	}
 }

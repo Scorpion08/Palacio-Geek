@@ -10,7 +10,7 @@ import br.edu.les.module.client.domain.Cliente;
 import br.edu.les.module.client.repository.ClienteRepository;
 @Log
 @Service
-public class ValidaExistenciaPessoa implements IStrategy {
+public class ValidaExistenciaCliente implements IStrategy {
 
     @Autowired
     ClienteRepository clienteRepository;

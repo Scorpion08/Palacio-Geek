@@ -6,8 +6,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a [routerLink]="['login']"  class="nav-link" >Login | Cadastre-se</a>
+        <li class="nav-item" *ngIf="clienteLogado != null;else login">
+          <a [routerLink]="['login']" class="nav-link" >{{clienteLogado.nome}}</a>
+        </li>
+        <ng-template #login>
+          <li>
+            <a [routerLink]="['login']"  class="nav-link" >Login | Cadastre-se</a>
+          </li>
+        </ng-template>
+        <li #templateName class="nav-item">
+
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/meus_pedidos']">Meus pedidos</a>

@@ -17,7 +17,11 @@ public class ValidaDadosDocumento implements IStrategy {
         if(entidade instanceof Cliente || entidade instanceof Documento) {
             if(entidade instanceof Cliente) {
                 List<Documento> documentos = ((Cliente) entidade).getDocumentos();
-                documentos.forEach(documento -> msg.append(validaDados(documento)));
+                if(documentos.size() > 0) {
+                    documentos.forEach(documento -> msg.append(validaDados(documento)));
+                } else {
+                    msg.append("Nenhum dado de documento foi enviado.");
+                }
             } else {
                 Documento documento = (Documento) entidade;
                 msg.append(validaDados(documento));
@@ -29,7 +33,7 @@ public class ValidaDadosDocumento implements IStrategy {
     private String validaDados(Documento documento){
         StringBuilder msg = new StringBuilder();
         if(documento.getCodigo() == null || documento.getCodigo().trim().equals("")){
-            msg.append("Valor do documento está incorreto");
+            msg.append("Valor do documento está incorreto.");
         }
         return msg.toString();
     }

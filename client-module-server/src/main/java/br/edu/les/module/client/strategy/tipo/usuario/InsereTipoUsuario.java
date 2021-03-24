@@ -21,7 +21,8 @@ public class InsereTipoUsuario implements IStrategy {
             else
                 usuario = (Usuario) entidade;
 
-            usuario.setTipoUsuario(CLIENTE.getObject());
+            if(usuario != null)
+                usuario.setTipoUsuario(CLIENTE.getObject());
         }
         return null;
     }

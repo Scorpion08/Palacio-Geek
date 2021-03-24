@@ -1,6 +1,7 @@
 #divPerfil{
   width: 500px;
   height: 738px;
+  background-color: white;
 
   }
 
@@ -50,4 +51,5 @@
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; /* fraction*/
+
 }

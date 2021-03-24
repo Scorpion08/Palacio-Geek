@@ -1,3 +1,4 @@
+import { Status } from "./status.model";
 import { TipoUsuario } from "./TipoUsuario.model";
 
 export class Usuario {
@@ -6,5 +7,5 @@ export class Usuario {
   senha?: string;
   reSenha?: string;
   tipoUsuario?: TipoUsuario;
-  status?: Boolean;
+  status?: Status;
 }

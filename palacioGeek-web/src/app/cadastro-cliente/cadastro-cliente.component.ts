@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Documento from 'src/model/Documento.model';
-import { Usuario } from 'src/model/Usuario.model';
-import { Cliente } from '../../model/Cliente.model';
+import { Usuario } from 'src/model/usuario.model';
+import { Cliente } from '../../model/cliente.model';
 import { DefaultRequestService } from '../../service/default-request.service';
 import { CadastroClienteService } from './cadastro-cliente.service';
 import { Router } from '@angular/router';
@@ -11,13 +11,14 @@ import { Cidade } from '../../model/Cidade.model';
 import { Endereco } from 'src/model/Endereco.model';
 import { TipoEndereco } from 'src/model/TipoEndereco.model';
 import { TipoDocumento } from '../../model/TipoDocumento.model';
+import DefaultComponent from '../default.component';
 
 @Component({
   selector: 'app-cadastro-cliente',
   templateUrl: './cadastro-cliente.component.html',
   styleUrls: ['./cadastro-cliente.component.css']
 })
-export class CadastroClienteComponent implements OnInit {
+export class CadastroClienteComponent extends DefaultComponent implements OnInit {
 
   public cliente: Cliente = new Cliente();
 
@@ -34,9 +35,13 @@ export class CadastroClienteComponent implements OnInit {
   public documento: Documento = new Documento();
   public endereco: Endereco = new Endereco();
 
+  public menssagensDeErro: string[] = [];
+
   constructor(private httpClientDefault: DefaultRequestService,
               private httpCadastroCliente: CadastroClienteService,
-              private router: Router) { }
+              private router: Router) {
+    super();
+  }
 
   ngOnInit(): void {
     this.cliente = new Cliente();
@@ -99,7 +104,7 @@ export class CadastroClienteComponent implements OnInit {
       }
     }, erro => {
       alert("Falha ao realizar comunicação com o servidor");
-    })
+    });
   }
 
   getCidadesDoEstado(): Cidade[]{
@@ -115,21 +120,24 @@ export class CadastroClienteComponent implements OnInit {
 
   montaCliente() {
     this.documento.tipoDocumento = this.tipoDocumento;
+    this.cliente.documentos?.pop();
     this.cliente.documentos?.push(this.documento);
     this.cidade.estado = this.estado;
     this.endereco.cidade = this.cidade;
     this.endereco.tipoEndereco = this.tipoEndereco;
+    this.cliente!.enderecos?.pop();
     this.cliente!.enderecos?.push(this.endereco);
   }
 
   enviaRequisicaoCadastro() {
+    this.menssagensDeErro = [];
     this.httpClientDefault.post<Resultado<Cliente>>('/clientes/cria', this.cliente).subscribe(resultado =>{
       if(resultado?.msg == null){
-        alert("Funfou");
+        this.router.navigate(['./login']);
       }else{
-        alert(resultado?.msg);
+        this.menssagensDeErro = resultado.msg.split(".");
       }
-    } , erro =>{
+    } , erro => {
       alert("Deu erro");
     });
   }

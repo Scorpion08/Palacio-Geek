@@ -13,7 +13,8 @@ public class InsereStatus implements IStrategy {
         if(entidade instanceof Cliente) {
             Cliente cliente = (Cliente) entidade;
             cliente.getEnderecos().forEach(endereco -> endereco.setStatus(StatusEnum.ATIVO.getObject()));
-            cliente.getUsuario().setStatus(StatusEnum.ATIVO.getObject());
+            if(cliente.getUsuario() != null)
+                cliente.getUsuario().setStatus(StatusEnum.ATIVO.getObject());
         }
         return null;
     }

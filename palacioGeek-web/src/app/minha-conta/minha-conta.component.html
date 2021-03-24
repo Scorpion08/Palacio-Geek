@@ -1,34 +1,36 @@
-
-<div class="container">
-  <div id="divPerfil">
-    <br><br>
-    <div id="foto">
+<div id="divPerfil">
+  <br><br>
+  <div id="foto">
+  </div>
+  <h2>
+    <div id="nome-usuario-principal"></div>
+  </h2>
+  <br>
+  <div id="divDadosPessoais">
+    <div>
+      <p id="nome">Nome Completo: {{cliente?.nome}} {{cliente?.sobrenome}}</p>
     </div>
+    <div>
+      <p id="sexo">Sexo: {{cliente?.sexo}}</p>
+    </div>
+    <div id="cpf" *ngFor="let documento of cliente?.documentos">
+      <p>{{documento?.tipoDocumento?.nome}}: {{documento.codigo}}</p>
+      <p *ngIf="documento.validade">Data de validade: {{documento.validade | date: 'dd/MM/yyyy'}}</p>
+    </div>
+    <div id="email">
+      <p>Email: {{cliente?.usuario?.email}}</p>
+    </div>
+    <a [routerLink]="['/esqueceu_senha']">Trocar senha</a>
+  </div>
   <div class="vertical-menu">
-    <a class="active">Opções</a>
-    <a [routerLink]="['/enderecos_cadastrados']">Endereços Cadastrados</a>
-    <a [routerLink]="['/cartoes_cadastrados']">Cartões Cadastrados</a>
-    <a [routerLink]="['/alterar_cliente']">Alterar dados pessoais</a>
+    <li>
+      <ul>Opções</ul>
+      <ul><a [routerLink]="['/enderecos_cadastrados']">Endereços Cadastrados</a></ul>
+      <ul><a [routerLink]="['/cartoes_cadastrados']">Cartões Cadastrados</a></ul>
+      <ul><a [routerLink]="['/alterar_cliente']">Alterar dados pessoais</a></ul>
+  </li>
   </div>
   <br><br>
-    <div id="divDadosPessoais">
-      <p id="nome">Nome Completo: </p>
-      <div ></div>
-      <p id="numeroTelefone">Nº de Celular: </p>
-      <div ></div>
-      <p id="sexo">Sexo: </p>
-      <div ></div>
-      <p>CPF: </p>
-      <div></div>
-      <p>Email: </p>
-      <div></div>
-      <a>Trocar senha</a>
-    </div>
-    <br><br>
-    <button id="inativarConta" onclick="inativarConta();">Inativar conta</button>
-  </div>
-    <h2>
-      <div id="nome-usuario-principal"></div>
-    </h2>
-    <br>
+  <button id="inativarConta" onclick="(click)= inativarConta(cliente?.id);">Inativar conta</button>
+
 </div>
