@@ -1,5 +1,4 @@
 import { CadastrarProdutoComponent } from './cadastrar-produto/cadastrar-produto.component';
-import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroClienteComponent } from './cadastro-cliente/cadastro-cliente.component';
@@ -25,6 +24,9 @@ import { UsuarioLogadoComponent } from './usuario-logado/usuario-logado.componen
 import { AlterarClienteComponent } from './alterar-cliente/alterar-cliente.component';
 import { GerarCupomComponent } from './gerar-cupom/gerar-cupom.component';
 import { AlterarCartaoComponent } from './alterar-cartao/alterar-cartao.component';
+import { PagamentoConfirmadoComponent } from './pagamento-confirmado/pagamento-confirmado.component';
+import { TrocaTransitoComponent } from './troca-transito/troca-transito.component';
+import { Routes } from '@angular/router';
 
 export const ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
