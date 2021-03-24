@@ -1,5 +1,6 @@
 package br.edu.les.module.client.controller;
 
+import br.edu.les.module.client.domain.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ public class EnderecoController {
     
     @Autowired
     private Fachada fachada;
-
+    
     @PostMapping()
     public ResponseEntity<Resultado> consultar(@RequestBody Endereco endereco){
         return ResponseEntity.ok().body(fachada.consultar(endereco));
