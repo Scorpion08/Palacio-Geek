@@ -1,0 +1,27 @@
+<br><br><br><br>
+<h1>Clientes Ativos</h1>
+<div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Sobrenome</th>
+        <th scope="col">Tipo de Cliente</th>
+        <th scope="col">Inativar</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <th scope="row">{{clientes.indexOf(cliente)+1}}</th>
+        <td>{{cliente.nome}}</td>
+        <td>{{cliente.sobrenome}}</td>
+        <td>{{cliente.tipoCliente!.nome}}</td>
+        <td><button (click)='inativarConta(cliente)'>Inativar</button></td>
+        <td>{{cliente.usuario!.status!.nome}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br><br><br><br>
