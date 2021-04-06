@@ -6,6 +6,10 @@ import { Cliente } from '../../../model/cliente.model';
 import { CHAVE_CLIENTE } from '../../../constants/Constants';
 import { Usuario } from 'src/model/usuario.model';
 import DefaultComponent from '../../default.component';
+import { element } from 'protractor';
+import { Login } from '../../../model/login';
+import { LoginService } from '../../../service/login.service';
+import * as angular from "angular";
 
 @Component({
   selector: 'app-login',
@@ -17,8 +21,9 @@ export class LoginComponent extends DefaultComponent implements OnInit {
   public menssagensDeErro: string[] = [];
 
   usuario: Usuario = new Usuario();
+  cliente: Cliente = new Cliente();
 
-  constructor(private httpClient : DefaultRequestService, private router: Router) {
+  constructor(private httpClient : LoginService, private router: Router) {
     super();
   }
 
@@ -26,7 +31,26 @@ export class LoginComponent extends DefaultComponent implements OnInit {
 
   }
 
-  validaLogin(){
+   logar(){
+    var user = (<HTMLInputElement>document.getElementById('email')).value;
+    var senha = (<HTMLInputElement>document.getElementById('senha')).value;;
+
+
+    this.httpClient.getLogins().subscribe(resultado =>{
+      if(resultado[0]?.email ===  user &&  resultado[0]?.senha === senha ){
+        this.router.navigate(['/admin']);
+    }else if(resultado[1]?.email === 'wesley' && resultado[1]?.senha === '123'){
+      this.router.navigate(['/home']);
+    }else{
+      alert('Login/Senha Inválidos!');
+    }
+
+    })
+
+}
+
+
+  /*validaLogin(){
     this.httpClient.post<Resultado<Cliente>>('/login', this.usuario).subscribe(resultado => {
       if(resultado?.msg == null){
         console.log(resultado.entidades[0]);
@@ -38,6 +62,6 @@ export class LoginComponent extends DefaultComponent implements OnInit {
     },erro => {
       alert('Requisição com erro ' )
     })
-  }
+  }*/
 
 }

@@ -57,6 +57,10 @@ import { ClienteTrocaComponent } from './cliente-troca/cliente-troca.component';
 import { ClienteDevolucaoComponent } from './cliente-devolucao/cliente-devolucao.component';
 import { ClientesAtivosComponent } from './clientes-ativos/clientes-ativos.component';
 
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,

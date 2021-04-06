@@ -1,3 +1,4 @@
+<script src="../../../../../frontend/js/login/login.js"></script>
 <div id="divLogin">
   <form  id="login">
       <div id="inputs">
@@ -12,12 +13,11 @@
           <br><br>
           <div id="div-senha"><input type="password" placeholder="Senha" id="senha" name="senha"  [(ngModel)]="usuario.senha"></div>
           <br><br>
-          <input type="button" value="Entrar" id="btnEntrar" (click)="validaLogin()">
+          <input type="button" value="Entrar" id="btnEntrar" (click)="logar()">
           <br><br>
           <a href="./esqueceu_senha.html">Esqueçeu sua senha?</a>
       </div>
   </form>
-  <script src="../js/login.js"></script>
 </div>
 <div id="cadastroCliente">
   <form>
@@ -25,3 +25,6 @@
       <input type="submit" value="Criar Conta" id="btnCriarConta" [routerLink]="['../cadastro_cliente']">
   </form>
 </div>
+
+
+
