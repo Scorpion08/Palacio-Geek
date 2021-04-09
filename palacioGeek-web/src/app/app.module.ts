@@ -56,6 +56,7 @@ import { ConfirmarPedidoComponent } from './confirmar-pedido/confirmar-pedido.co
 import { ClienteTrocaComponent } from './cliente-troca/cliente-troca.component';
 import { ClienteDevolucaoComponent } from './cliente-devolucao/cliente-devolucao.component';
 import { ClientesAtivosComponent } from './clientes-ativos/clientes-ativos.component';
+import { TelaErroComponent } from './tela-erro/tela-erro.component';
 
 
 
@@ -111,7 +112,8 @@ import { ClientesAtivosComponent } from './clientes-ativos/clientes-ativos.compo
     ConfirmarPedidoComponent,
     ClienteTrocaComponent,
     ClienteDevolucaoComponent,
-    ClientesAtivosComponent
+    ClientesAtivosComponent,
+    TelaErroComponent
   ],
   imports: [
     BrowserModule,
