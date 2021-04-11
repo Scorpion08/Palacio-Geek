@@ -57,6 +57,7 @@ import { ClienteTrocaComponent } from './cliente-troca/cliente-troca.component';
 import { ClienteDevolucaoComponent } from './cliente-devolucao/cliente-devolucao.component';
 import { ClientesAtivosComponent } from './clientes-ativos/clientes-ativos.component';
 import { TelaErroComponent } from './tela-erro/tela-erro.component';
+import { FalhaTrocaComponent } from './falha-troca/falha-troca.component';
 
 
 
@@ -113,7 +114,8 @@ import { TelaErroComponent } from './tela-erro/tela-erro.component';
     ClienteTrocaComponent,
     ClienteDevolucaoComponent,
     ClientesAtivosComponent,
-    TelaErroComponent
+    TelaErroComponent,
+    FalhaTrocaComponent
   ],
   imports: [
     BrowserModule,
