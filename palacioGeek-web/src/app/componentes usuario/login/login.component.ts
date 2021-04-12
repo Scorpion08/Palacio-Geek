@@ -9,46 +9,52 @@ import DefaultComponent from '../../default.component';
 import { element } from 'protractor';
 import { Login } from '../../../model/login';
 import { LoginService } from '../../../service/login.service';
+<<<<<<< HEAD
+import * as angular from 'angular';
+=======
 //import * as angular from 'angular';
+>>>>>>> 0c3ebe8e9aaea566d4046b9e48e05788d41e78ab
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent extends DefaultComponent implements OnInit {
-
   public menssagensDeErro: string[] = [];
 
   usuario: Usuario = new Usuario();
   cliente: Cliente = new Cliente();
 
-  constructor(private httpClient : LoginService, private router: Router) {
+  constructor(
+    private httpClient: DefaultRequestService,
+    private router: Router
+  ) {
     super();
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
+  logar() {
+    console.log(this.usuario);
+
+
+    this.httpClient
+      .post<Resultado<Usuario>>('login', this.usuario)
+      .subscribe((resultado) => {
+        if (resultado?.msg?.length == 0) {
+          const usuario: Usuario = resultado.entidades[0];
+          if(usuario.tipoUsuario?.id == 1){
+            this.router.navigate(['/admin']);
+          }else{
+            this.router.navigate(['/home']);
+          }
+
+        }  else {
+          alert('Login/Senha Inválidos!');
+        }
+      });
   }
-
-   logar(){
-    var user = (<HTMLInputElement>document.getElementById('email')).value;
-    var senha = (<HTMLInputElement>document.getElementById('senha')).value;;
-
-
-    this.httpClient.getLogins().subscribe(resultado =>{
-      if(resultado[0]?.email ===  user &&  resultado[0]?.senha === senha ){
-        this.router.navigate(['/admin']);
-    }else if(resultado[1]?.email === 'wesley' && resultado[1]?.senha === '123'){
-      this.router.navigate(['/home']);
-    }else{
-      alert('Login/Senha Inválidos!');
-    }
-
-    })
-
-}
-
 
   /*validaLogin(){
     this.httpClient.post<Resultado<Cliente>>('/login', this.usuario).subscribe(resultado => {
@@ -63,5 +69,4 @@ export class LoginComponent extends DefaultComponent implements OnInit {
       alert('Requisição com erro ' )
     })
   }*/
-
 }

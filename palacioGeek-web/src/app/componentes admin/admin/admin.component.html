@@ -9,7 +9,7 @@
           <a href="#analiseSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Análise</a>
           <ul class="collapse list-unstyled" id="analiseSubmenu">
             <li>
-              <a class="" [routerLink]="['/grafico-vendas']">Gráfico de vendas</a>
+              <a class="" [routerLink]="['/admin/grafico-vendas']">Gráfico de vendas</a>
             </li>
           </ul>
         </li>
@@ -17,16 +17,16 @@
           <a href="#produtoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Produto</a>
           <ul class="collapse list-unstyled" id="produtoSubmenu">
             <li>
-              <a class="card-text" [routerLink]="['/cadastrar_produto'] ">Novo produto</a>
+              <a class="card-text" [routerLink]="['/admin/cadastrar_produto'] ">Novo produto</a>
             </li>
             <li>
-              <a class="card-text" [routerLink]="['/alterar_produto']">Produtos ativos</a>
+              <a class="card-text" [routerLink]="['/admin/alterar_produto']">Produtos ativos</a>
             </li>
             <li>
-              <a class="card-text" [routerLink]="['/produtos_inativados']">Produtos inativos</a>
+              <a class="card-text" [routerLink]="['/admin/produtos_inativados']">Produtos inativos</a>
             </li>
             <li>
-              <a class="card-text" [routerLink]="['/estoque']">Estoque</a>
+              <a class="card-text" [routerLink]="['/admin/estoque']">Estoque</a>
             </li>
           </ul>
         </li>
@@ -34,27 +34,27 @@
           <a href="#pedidoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pedidos</a>
           <ul class="collapse list-unstyled" id="pedidoSubmenu">
             <li>
-              <a class="card-text" [routerLink]="['/pedidos_pendentes']">Pendentes de aprovação</a>
+              <a class="card-text" [routerLink]="['/admin/pedidos_pendentes']">Pendentes de aprovação</a>
             </li>
             <li>
-              <a class="card-text" [routerLink]="['/pedidos_transito']">Em Trasito</a>
+              <a class="card-text" [routerLink]="['/admin/pedidos_transito']">Em Trasito</a>
             </li>
             <li>
-              <a class="card-text" [routerLink]="['/pedidos_entregues']">Entregue</a>
+              <a class="card-text" [routerLink]="['/admin/pedidos_entregues']">Entregue</a>
             </li>
           </ul>
         </li>
         <li>
-          <a class="card-text" [routerLink]="['/clientes_ativos']">Clientes ativos</a>
+          <a class="card-text" [routerLink]="['/admin/clientes_ativos']">Clientes ativos</a>
         </li>
         <li>
           <a href="#cupomSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Cupom</a>
           <ul class="collapse list-unstyled" id="cupomSubmenu">
             <li>
-              <a class="card-text" [routerLink]="['/gerar_cupom']">Gerar cupom de desconto</a>
+              <a class="card-text" [routerLink]="['/admin/gerar_cupom']">Gerar cupom de desconto</a>
             </li>
             <li>
-              <a class="card-text" [routerLink]="['/lista_ticket']">Lista de cupons</a>
+              <a class="card-text" [routerLink]="['/admin/lista_ticket']">Lista de cupons</a>
             </li>
           </ul>
         </li>
@@ -62,10 +62,10 @@
           <a href="#trocaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Troca</a>
           <ul class="collapse list-unstyled" id="trocaSubmenu">
             <li>
-              <a class="card-text" [routerLink]="['/troca_pendente']">Pendentes de aprovação</a>
+              <a class="card-text" [routerLink]="['/admin/troca_pendente']">Pendentes de aprovação</a>
             </li>
             <li>
-              <a class="card-text" [routerLink]="['/troca_transito']">Pendente de recebimento</a>
+              <a class="card-text" [routerLink]="['/admin/troca_transito']">Pendente de recebimento</a>
             </li>
           </ul>
         </li>
@@ -73,10 +73,10 @@
           <a href="#devolucaoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Devolução</a>
           <ul class="collapse list-unstyled" id="devolucaoSubmenu">
             <li>
-              <a class="card-text" [routerLink]="['/pendente_aprovacao']">Pendentes de aprovação</a>
+              <a class="card-text" [routerLink]="['/admin/pendente_aprovacao']">Pendentes de aprovação</a>
             </li>
             <li>
-              <a class="card-text" [routerLink]="['/devolucao_transito']">Em transito</a>
+              <a class="card-text" [routerLink]="['/admin/devolucao_transito']">Em transito</a>
             </li>
           </ul>
         </li>
