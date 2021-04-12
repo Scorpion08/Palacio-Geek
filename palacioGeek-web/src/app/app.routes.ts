@@ -44,6 +44,7 @@ import { ClienteDevolucaoComponent } from './cliente-devolucao/cliente-devolucao
 import { SolicitarDevolucaoComponent } from './componentes devolucao/solicitar-devolucao/solicitar-devolucao.component';
 import { ClientesAtivosComponent } from './clientes-ativos/clientes-ativos.component';
 import { TelaErroComponent } from './tela-erro/tela-erro.component';
+import { FalhaTrocaComponent } from './falha-troca/falha-troca.component';
 
 export const ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -97,6 +98,7 @@ export const ROUTES: Routes = [
   { path: 'troca_cliente', component: ClienteTrocaComponent },
   { path: 'devolucao_cliente', component: ClienteDevolucaoComponent },
   { path: 'solicitar_devolucao', component: SolicitarDevolucaoComponent },
-  { path: 'tela_erro', component: TelaErroComponent }
+  { path: 'tela_erro', component: TelaErroComponent },
+  {path: 'falha_troca', component: FalhaTrocaComponent}
 
 ];
