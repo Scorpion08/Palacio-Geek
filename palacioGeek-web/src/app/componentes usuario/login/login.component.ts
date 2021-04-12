@@ -9,11 +9,7 @@ import DefaultComponent from '../../default.component';
 import { element } from 'protractor';
 import { Login } from '../../../model/login';
 import { LoginService } from '../../../service/login.service';
-<<<<<<< HEAD
-import * as angular from 'angular';
-=======
 //import * as angular from 'angular';
->>>>>>> 0c3ebe8e9aaea566d4046b9e48e05788d41e78ab
 
 @Component({
   selector: 'app-login',
