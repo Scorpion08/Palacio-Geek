@@ -43,6 +43,7 @@ import { ClienteTrocaComponent } from './cliente-troca/cliente-troca.component';
 import { ClienteDevolucaoComponent } from './cliente-devolucao/cliente-devolucao.component';
 import { SolicitarDevolucaoComponent } from './componentes devolucao/solicitar-devolucao/solicitar-devolucao.component';
 import { ClientesAtivosComponent } from './clientes-ativos/clientes-ativos.component';
+import { TelaErroComponent } from './tela-erro/tela-erro.component';
 
 export const ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -50,13 +51,28 @@ export const ROUTES: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'cadastro_cliente', component: CadastroClienteComponent },
   { path: 'alterar_cliente', component: AlterarClienteComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent , children: [
+    {path: '', redirectTo: 'clientes_ativos', pathMatch: 'full'},
+    { path: 'grafico_vendas', component: GraficoVendasComponent },
+    { path: 'pedidos_entregues', component: PedidosEntreguesComponent },
+    { path: 'pedidos_pendentes', component: PedidosPendentesComponent },
+    { path: 'pedidos_transito', component: PedidosTransitoComponent },
+    { path: 'produtos_inativados', component: ProdutosInativadosComponent },
+    { path: 'clientes_ativos' , component: ClientesAtivosComponent},
+    { path: 'cadastrar_produto', component: CadastrarProdutoComponent },
+    { path: 'gerar_cupom', component: GerarCupomComponent },
+    { path: 'devolucao_estoque', component: DevolucaoEstoqueComponent },
+    { path: 'devolucao_transito', component: DevolucaoTransitoComponent },
+    { path: 'troca_pendente', component: TrocaPendenteComponent },
+    { path: 'pendente_recebimento', component: PendenteRecebimentoComponent },
+    { path: 'lista_ticket', component: ListaTicketComponent },
+    { path: 'ticket_troca', component: TicketTrocaComponent }
+
+  ]},
   { path: 'alterar_produto', component: AlterarProdutoComponent },
   { path: 'remover_produto', component: RemoverProdutoComponent },
   { path: 'editar_produto', component: EditarProdutoComponent },
-  { path: 'grafico_vendas', component: GraficoVendasComponent },
   { path: 'cadastrar_cartao', component: CadastrarCartaoComponent },
-  { path: 'cadastrar_produto', component: CadastrarProdutoComponent },
   { path: 'carrinho', component: CarrinhoComponent },
   { path: 'cartoes_cadastrados', component: CartoesCadastradosComponent },
   { path: 'endereco', component: EnderecoComponent },
@@ -71,28 +87,16 @@ export const ROUTES: Routes = [
   { path: 'troca', component: TrocaComponent },
   { path: 'usuario_logado', component: UsuarioLogadoComponent },
   { path: 'pagamento_confirmado', component: PagamentoConfirmadoComponent },
-  { path: 'grafico_vendas', component: GraficoVendasComponent },
   { path: 'troca_transito', component: TrocaTransitoComponent },
-  { path: 'gerar_cupom', component: GerarCupomComponent },
   { path: 'alterar_cartao', component: AlterarCartaoComponent },
   { path: 'estoque', component: EstoqueComponent },
   { path: 'produtos-inativos', component: ProdutosInativadosComponent },
   { path: 'alterar_cartao', component: AlterarCartaoComponent },
   { path: 'alterar_cartao', component: AlterarCartaoComponent },
-  { path: 'devolucao_estoque', component: DevolucaoEstoqueComponent },
-  { path: 'devolucao_transito', component: DevolucaoTransitoComponent },
-  { path: 'pedidos_entregues', component: PedidosEntreguesComponent },
-  { path: 'pedidos_pendentes', component: PedidosPendentesComponent },
-  { path: 'pedidos_transito', component: PedidosTransitoComponent },
   { path: 'ticket_devolucao', component: TicketDevolucaoComponent },
-  { path: 'lista_ticket', component: ListaTicketComponent },
-  { path: 'ticket_troca', component: TicketTrocaComponent },
-  { path: 'troca_pendente', component: TrocaPendenteComponent },
-  { path: 'pendente_recebimento', component: PendenteRecebimentoComponent },
   { path: 'troca_cliente', component: ClienteTrocaComponent },
   { path: 'devolucao_cliente', component: ClienteDevolucaoComponent },
   { path: 'solicitar_devolucao', component: SolicitarDevolucaoComponent },
-  { path: 'produtos_inativados', component: ProdutosInativadosComponent },
-  { path: 'clientes_ativos' , component: ClientesAtivosComponent}
+  { path: 'tela_erro', component: TelaErroComponent }
 
 ];
