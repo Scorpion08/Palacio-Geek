@@ -101,7 +101,7 @@ export const ROUTES: Routes = [
   { path: 'solicitar_devolucao', component: SolicitarDevolucaoComponent },
   { path: 'produtos_inativados', component: ProdutosInativadosComponent },
   { path: 'clientes_ativos' , component: ClientesAtivosComponent},
-  { path: 'falha-troca' , component: FalhaTrocaComponent},
-  { path: 'confirmar-pedido', component: ConfirmarPedidoComponent}
+  { path: 'falha_troca' , component: FalhaTrocaComponent},
+  { path: 'confirmar_pedido', component: ConfirmarPedidoComponent}
 
 ];

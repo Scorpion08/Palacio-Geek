@@ -1,0 +1,15 @@
+{
+  "pedido":[
+    {
+      "id":1,
+      "produto":"Caneca Bob Esponja",
+      "precoUnidade":39.90,
+      "quantidade":1,
+      "formaPagamento":"Cartão de crédito com final 4567",
+      "cupomDesconto":" - ",
+      "endereco":"Rua Alberto Pezzuol, nº 300, Jardim Carlos Cooper, Suzano/SP",
+      "valorFrete": "Sedex: R$12,55",
+      "diasEntrega":"Até dia 20/04/2021"
+    }
+  ]
+}

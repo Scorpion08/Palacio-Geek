@@ -12,4 +12,9 @@ export class CarrinhoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cupomDesconto(){
+
+
+  }
+
 }

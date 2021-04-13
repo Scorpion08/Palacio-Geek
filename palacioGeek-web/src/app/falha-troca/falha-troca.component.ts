@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FalhaTrocaComponent implements OnInit {
 
+  produto = '';
+
   constructor() { }
 
+
+
   ngOnInit(): void {
+
+    const produto = 'Caneca Bob Esponja';
+
+    this.produto = produto;
+
   }
 
 }

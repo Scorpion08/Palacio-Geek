@@ -1,0 +1,17 @@
+{
+  "pedido":[
+    {
+      "id":1,
+      "produto":"Caneca Bob Esponja",
+      "categoria":"Canecas",
+      "quantidade":"1",
+      "codigoDevolucao":"-",
+      "numeroPedido":"123456",
+      "nomeCliente":"Wesley Bonaccorsi",
+      "email":"wesley@email.com",
+      "dataCompra": "13/04/2021",
+      "valorTroca":"-",
+      "motivoTroca":"Produto adquirido na promoção, sem direito a troca."
+    }
+  ]
+}

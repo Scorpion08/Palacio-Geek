@@ -20,6 +20,11 @@
         <td>Caneca de porcelana branca com estampa personalizada</td>
         <td>R$39,90</td>
       </tr>
+      <tr>
+        <th>Total</th>
+        <th id="valorTotal">R$ 39,90</th>
+      </tr>
+
     </tbody>
   </table>
 
@@ -42,7 +47,7 @@
         <button [routerLink]="['/home']">Continuar Comprando</button>
         <br><br>
         <input type="text" placeholder="Cupom de desconto"><br><br>
-        <button>Inserir</button>
+        <button (click)="cupomDesconto();">Inserir</button>
     </form>
     <br>
 </div>
