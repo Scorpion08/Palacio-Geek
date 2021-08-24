@@ -9,14 +9,7 @@ import DefaultComponent from '../../default.component';
 import { element } from 'protractor';
 import { Login } from '../../../model/login';
 import { LoginService } from '../../../service/login.service';
-<<<<<<< HEAD
-
-import * as angular from 'angular';
 //import * as angular from 'angular';
-
-=======
-//import * as angular from 'angular';
->>>>>>> 73dda134588c0203773b3a19b17c851b2e29c82e
 
 @Component({
   selector: 'app-login',
@@ -24,6 +17,7 @@ import * as angular from 'angular';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent extends DefaultComponent implements OnInit {
+
   public menssagensDeErro: string[] = [];
 
   usuario: Usuario = new Usuario();
@@ -45,7 +39,7 @@ export class LoginComponent extends DefaultComponent implements OnInit {
     this.httpClient
       .post<Resultado<Usuario>>('login', this.usuario)
       .subscribe((resultado) => {
-        if (resultado?.msg?.length == 0) {
+        if (resultado?.msg?.length !== null) {
           const usuario: Usuario = resultado.entidades[0];
           if(usuario.tipoUsuario?.id == 1){
             this.router.navigate(['/admin']);

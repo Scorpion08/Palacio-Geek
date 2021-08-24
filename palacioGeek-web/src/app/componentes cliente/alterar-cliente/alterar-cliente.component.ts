@@ -38,7 +38,7 @@ export class AlterarClienteComponent implements OnInit {
   }
 
   getCliente() {
-    this.httpClientDefault.get<Resultado<Cliente>>("clientes/1").subscribe(resultado => {
+    this.httpClientDefault.get<Resultado<Cliente>>("clientes/id").subscribe(resultado => {
       if(resultado.msg == null) {
         this.cliente = resultado.entidades[0];
         this.documento = this.cliente.documentos![0];
