@@ -5,7 +5,7 @@ import { Resultado } from '../../../model/resultado.model';
 import { Cliente } from '../../../model/cliente.model';
 import { CHAVE_CLIENTE } from '../../../constants/Constants';
 import { Usuario } from 'src/model/usuario.model';
-import { DefaultComponent } from 'src/app/defaut.component';
+import { DefaultComponent } from 'src/app/default.component';
 //import * as angular from 'angular';
 
 @Component({
