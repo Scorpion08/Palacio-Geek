@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 import { HttpHeaders } from "@angular/common/http";
+import Session from "./session";
 
 export const environment = {
   production: false
@@ -13,6 +14,8 @@ export const URL = "http://localhost:7900/";
 export const HTTP_OPTIONS = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
+
+export const SESSION: Session = new Session();
 
 /*
  * For easier debugging in development mode, you can import the following file

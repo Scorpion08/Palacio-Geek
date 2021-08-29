@@ -11,14 +11,14 @@ import { Cidade } from '../../../model/Cidade.model';
 import { Endereco } from 'src/model/Endereco.model';
 import { TipoEndereco } from 'src/model/TipoEndereco.model';
 import { TipoDocumento } from '../../../model/TipoDocumento.model';
-import DefaultComponent from '../../default.component';
+import Session from '../../../environments/session';
 
 @Component({
   selector: 'app-cadastro-cliente',
   templateUrl: './cadastro-cliente.component.html',
   styleUrls: ['./cadastro-cliente.component.css']
 })
-export class CadastroClienteComponent extends DefaultComponent implements OnInit {
+export class CadastroClienteComponent extends Session implements OnInit {
 
   public cliente: Cliente = new Cliente();
 

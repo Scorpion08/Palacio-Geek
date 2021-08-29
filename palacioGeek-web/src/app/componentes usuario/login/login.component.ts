@@ -5,10 +5,7 @@ import { Resultado } from '../../../model/resultado.model';
 import { Cliente } from '../../../model/cliente.model';
 import { CHAVE_CLIENTE } from '../../../constants/Constants';
 import { Usuario } from 'src/model/usuario.model';
-import DefaultComponent from '../../default.component';
-import { element } from 'protractor';
-import { Login } from '../../../model/login';
-import { LoginService } from '../../../service/login.service';
+import { DefaultComponent } from 'src/app/defaut.component';
 //import * as angular from 'angular';
 
 @Component({
@@ -39,16 +36,17 @@ export class LoginComponent extends DefaultComponent implements OnInit {
     this.httpClient
       .post<Resultado<Usuario>>('login', this.usuario)
       .subscribe((resultado) => {
-        if (resultado?.msg?.length !== null) {
+        if (resultado?.msg == null) {
+          this.session.clienteLogado = resultado.entidades[0]
+          localStorage.setItem(CHAVE_CLIENTE,JSON.stringify(resultado.entidades[0]));
           const usuario: Usuario = resultado.entidades[0];
           if(usuario.tipoUsuario?.id == 1){
             this.router.navigate(['/admin']);
           }else{
             this.router.navigate(['/home']);
           }
-
         }  else {
-          alert('Login/Senha Inválidos!');
+          alert(resultado?.msg);
         }
       });
   }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../model/cliente.model';
 import { CHAVE_CLIENTE } from '../../constants/Constants';
-import DefaultComponent from '../default.component';
+import { DefaultComponent } from '../defaut.component';
 
 @Component({
   selector: 'app-header',
@@ -10,10 +10,16 @@ import DefaultComponent from '../default.component';
 })
 export class HeaderComponent extends DefaultComponent implements OnInit {
 
+  cliente?: Cliente;
+
   constructor() {
     super();
   }
 
-  ngOnInit(): void { }
-
+  ngOnInit(): void {
+    const clienteString = localStorage.getItem(CHAVE_CLIENTE);
+    if(clienteString != null) {
+      this.cliente = JSON.parse(clienteString);
+    }
+  }
 }

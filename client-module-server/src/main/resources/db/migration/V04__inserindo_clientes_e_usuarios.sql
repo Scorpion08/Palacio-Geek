@@ -3,7 +3,7 @@ values ('896564841','lucas_cascao_@outlook.com','CFF1A29A5F758BD2D52448F236EFB64
 ('656226568','leonardo@gmail.com','CFF1A29A5F758BD2D52448F236EFB640', 1, 2),
 ('989898599','nataniprado26@gmail.com','CFF1A29A5F758BD2D52448F236EFB640', 1,2),
 ('598774598','joaocascao@yahoo.com.br','CFF1A29A5F758BD2D52448F236EFB640', 1, 2),
-('899985985','jocascao@yahoo.com.br','CFF1A29A5F758BD2D52448F236EFB640', 1, 2)
+('899985985','jocascao@yahoo.com.br','CFF1A29A5F758BD2D52448F236EFB640', 1, 2);
 
 insert into cliente (cli_nome , cli_sobrenome, cli_sexo, cli_data_nascimento, cli_tcl_id, cli_usu_id)
 values ('Lucas','De Almeida Rama Cascão','M','1995-09-16' ,1,1),
